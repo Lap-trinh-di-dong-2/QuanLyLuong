@@ -35,7 +35,7 @@ public class MainPhongBan extends AppCompatActivity {
     }
 
     private void setEvent() {
-        Load();
+//        Load();
 
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +46,7 @@ public class MainPhongBan extends AppCompatActivity {
                 DBPhongBan dbPhongBan = new DBPhongBan(getApplicationContext());
                 dbPhongBan.themPhongBan(phongBan);
                 Toast.makeText(MainPhongBan.this,"Thêm thành công",Toast.LENGTH_SHORT).show();
-                Load();
+//                Load();
             }
         });
         btnThoat.setOnClickListener(new View.OnClickListener() {
