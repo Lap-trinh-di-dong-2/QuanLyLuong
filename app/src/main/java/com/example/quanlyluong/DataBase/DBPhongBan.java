@@ -51,7 +51,6 @@ public class DBPhongBan {
         do{
             PhongBan phongBan = new PhongBan();
             String tenPhong = "";
-            phongBan.setTenPhong(cursor.getString(0));
             tenPhong = phongBan.getTenPhong();
             data.add(tenPhong);
         }
