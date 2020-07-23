@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import com.example.quanlyluong.GiaoDien.ChamCong.BangChamCong;
 import com.example.quanlyluong.GiaoDien.NhanVien.MainNhanVien;
+import com.example.quanlyluong.GiaoDien.NhanVien.ThemNhanVien;
 import com.example.quanlyluong.GiaoDien.PhongBan.MainPhongBan;
 import com.example.quanlyluong.GiaoDien.TamUng.BangTamUng;
 import com.example.quanlyluong.GiaoDien.Thongke.ThongKe;
@@ -38,7 +39,7 @@ public class MenuManager extends AppCompatActivity {
         btnNhanVien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(MenuManager.this, MainNhanVien.class);
+                Intent intent1 = new Intent(MenuManager.this, ThemNhanVien.class);
                 startActivity(intent1);
             }
         });

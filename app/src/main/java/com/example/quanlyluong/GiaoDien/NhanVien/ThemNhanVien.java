@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -22,7 +23,7 @@ public class ThemNhanVien extends AppCompatActivity {
     RadioButton radNam,radNu;
     Spinner spPhongBan;
     ArrayList<String> data_phongban = new ArrayList<>();
-    Adapter adapterPhongBan;
+    ArrayAdapter adapter_PhongBan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +33,10 @@ public class ThemNhanVien extends AppCompatActivity {
     }
 
     private void setEvent() {
+        LoadPhongBan();
+        adapter_PhongBan = new ArrayAdapter(ThemNhanVien.this,android.R.layout.simple_spinner_item,data_phongban);
+        spPhongBan.setAdapter(adapter_PhongBan);
+
         btnLuuNhanVien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,7 +45,11 @@ public class ThemNhanVien extends AppCompatActivity {
             }
         });
     }
-
+    private void LoadPhongBan()
+    {
+        data_phongban.add("Nhân Sự");
+        data_phongban.add("Tài Chính");
+    }
     private void setControl() {
         btnLuuNhanVien = findViewById(R.id.btnLuuNhanVien);
     }
