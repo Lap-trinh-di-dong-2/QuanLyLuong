@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".GiaoDien.ChamCong.ChamCong">
+
+    <TextView
+        style="@style/tieude"
+        android:text="@string/chamcong"
+        />
+    <TextView
+        style="@style/textview"
+        android:text="@string/thang"/>
+    <EditText
+        style="@style/edittext"
+        android:id="@+id/txtThang"/>
+    <TextView
+        style="@style/textview"
+        android:text="@string/songaycong"/>
+    <EditText
+        style="@style/edittext"
+        android:id="@+id/txtSoNgayCon"/>
+       <TextView
+           style="@style/tieude"
+           android:text="@string/chucnang"/>
+    <LinearLayout
+        style="@style/linerlayout">
+        <Button
+            style="@style/button"
+            android:id="@+id/btnLuuChamCong"
+            android:text="@string/luu"
+            />
+        <Button
+            style="@style/button"
+            android:id="@+id/btnThoat"
+            android:text="@string/thoat"
+            />
+    </LinearLayout>
+</LinearLayout>

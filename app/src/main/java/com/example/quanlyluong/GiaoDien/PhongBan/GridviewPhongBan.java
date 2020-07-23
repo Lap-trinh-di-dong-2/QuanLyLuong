@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.GridView;
 
-import com.example.quanlyluong.Adapter.CustomAdapter;
+import com.example.quanlyluong.Adapter.CustomAdapterPhongBan;
 import com.example.quanlyluong.DataBase.DBPhongBan;
 import com.example.quanlyluong.R;
 
@@ -26,7 +26,7 @@ public class GridviewPhongBan extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         DBPhongBan dbPhongBan = new DBPhongBan(this);
-        CustomAdapter adapter = new CustomAdapter(this,R.layout.gridview_phongban,dbPhongBan.layDuLieu());
+        CustomAdapterPhongBan adapter = new CustomAdapterPhongBan(this,R.layout.gridview_phongban,dbPhongBan.layDuLieu());
         gvDanhSach.setAdapter(adapter);
 
     }

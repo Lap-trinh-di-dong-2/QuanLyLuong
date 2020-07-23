@@ -22,6 +22,7 @@ public class DBPhongBan {
         values.put("ma",phongBan.getMaPhong());
         values.put("ten",phongBan.getTenPhong());
         db.insert("PhongBan",null,values);
+        db.close();
     }
     public ArrayList<PhongBan> layDuLieu()
     {

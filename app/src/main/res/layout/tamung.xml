@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".GiaoDien.TamUng.TamUng">
+
+    <TextView
+        style="@style/tieude"
+        android:text="@string/tamung"/>
+    <TextView
+       style="@style/textview"
+        android:text="@string/sophieu"/>
+    <EditText
+        style="@style/edittext"
+        android:id="@+id/txtSoPhieu"/>
+    <TextView
+        style="@style/textview"
+        android:text="@string/ngayung"/>
+    <EditText
+        style="@style/edittext"
+        android:id="@+id/txtNgayUng"/>
+    <TextView
+        style="@style/textview"
+        android:text="@string/sotien"/>
+    <EditText
+        style="@style/edittext"
+        android:id="@+id/txtSoTien"/>
+    <LinearLayout
+        style="@style/linerlayout">
+        <Button
+            style="@style/button"
+            android:id="@+id/btnTamUng"
+            android:text="@string/luu"
+            />
+        <Button
+            style="@style/button"
+            android:id="@+id/btnThoat"
+            android:text="@string/thoat"
+            />
+    </LinearLayout>
+</LinearLayout>

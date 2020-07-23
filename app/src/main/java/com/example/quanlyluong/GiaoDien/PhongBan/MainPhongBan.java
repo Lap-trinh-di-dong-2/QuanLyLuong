@@ -15,7 +15,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.quanlyluong.Adapter.CustomAdapter;
+import com.example.quanlyluong.Adapter.CustomAdapterPhongBan;
 import com.example.quanlyluong.DataBase.DBPhongBan;
 import com.example.quanlyluong.Model.PhongBan;
 import com.example.quanlyluong.R;
@@ -81,7 +81,7 @@ public class MainPhongBan extends AppCompatActivity {
     private void Load()
     {
         DBPhongBan dbPhongBan = new DBPhongBan(this);
-        CustomAdapter adapter = new CustomAdapter(this,R.layout.listview_phongban,dbPhongBan.layDuLieu());
+        CustomAdapterPhongBan adapter = new CustomAdapterPhongBan(this,R.layout.listview_phongban,dbPhongBan.layDuLieu());
         lvDanhSach.setAdapter(adapter);
     }
 

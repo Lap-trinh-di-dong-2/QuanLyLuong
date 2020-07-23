@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ListView;
 
-import com.example.quanlyluong.Adapter.CustomAdapter;
+import com.example.quanlyluong.Adapter.CustomAdapterPhongBan;
 import com.example.quanlyluong.DataBase.DBPhongBan;
 import com.example.quanlyluong.R;
 
@@ -25,7 +25,7 @@ public class ListViewPhongBan extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         DBPhongBan dbPhongBan = new DBPhongBan(this);
-        CustomAdapter adapter = new CustomAdapter(this,R.layout.listview_phongban,dbPhongBan.layDuLieu());
+        CustomAdapterPhongBan adapter = new CustomAdapterPhongBan(this,R.layout.listview_phongban,dbPhongBan.layDuLieu());
         lvDanhSach.setAdapter(adapter);
     }
 

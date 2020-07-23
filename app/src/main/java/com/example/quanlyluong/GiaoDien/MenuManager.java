@@ -9,12 +9,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.quanlyluong.GiaoDien.ChamCong.BangChamCong;
 import com.example.quanlyluong.GiaoDien.NhanVien.MainNhanVien;
 import com.example.quanlyluong.GiaoDien.PhongBan.MainPhongBan;
+import com.example.quanlyluong.GiaoDien.TamUng.BangTamUng;
+import com.example.quanlyluong.GiaoDien.Thongke.ThongKe;
 import com.example.quanlyluong.R;
 
 public class MenuManager extends AppCompatActivity {
-    Button btnPhongBan,btnNhanVien;
+    Button btnPhongBan,btnNhanVien,btnChamCong,btnTamUng,btnThongke;
     boolean ngonNgu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +42,36 @@ public class MenuManager extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+        btnChamCong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent2 = new Intent(MenuManager.this, BangChamCong.class);
+                startActivity(intent2);
+            }
+        });
+        btnTamUng.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent3 = new Intent(MenuManager.this, BangTamUng.class);
+                startActivity(intent3);
+            }
+        });
+        btnThongke.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent4 = new Intent(MenuManager.this, ThongKe.class);
+                startActivity(intent4);
+            }
+        });
 
     }
 
     private void setControl() {
         btnPhongBan = findViewById(R.id.btnPhongBan);
         btnNhanVien = findViewById(R.id.btnNhanVien);
+        btnChamCong = findViewById(R.id.btnChamCong);
+        btnTamUng = findViewById(R.id.btnTamUng);
+        btnThongke = findViewById(R.id.btnThongke);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -1,22 +1,22 @@
 package com.example.quanlyluong.Model;
 
 public class NhanVien {
-    String ma,hoTen,ngaySinh,gioiTinh;
+    String maNhanVien,tenNhanVien,ngaySinh,gioiTinh,phongBan,heSoLuong;
 
-    public String getMa() {
-        return ma;
+    public String getMaNhanVien() {
+        return maNhanVien;
     }
 
-    public void setMa(String ma) {
-        this.ma = ma;
+    public void setMaNhanVien(String maNhanVien) {
+        this.maNhanVien = maNhanVien;
     }
 
-    public String getHoTen() {
-        return hoTen;
+    public String getTenNhanVien() {
+        return tenNhanVien;
     }
 
-    public void setHoTen(String hotTen) {
-        this.hoTen = hotTen;
+    public void setTenNhanVien(String tenNhanVien) {
+        this.tenNhanVien = tenNhanVien;
     }
 
     public String getNgaySinh() {
@@ -35,13 +35,31 @@ public class NhanVien {
         this.gioiTinh = gioiTinh;
     }
 
+    public String getPhongBan() {
+        return phongBan;
+    }
+
+    public void setPhongBan(String phongBan) {
+        this.phongBan = phongBan;
+    }
+
+    public String getHeSoLuong() {
+        return heSoLuong;
+    }
+
+    public void setHeSoLuong(String heSoLuong) {
+        this.heSoLuong = heSoLuong;
+    }
+
     @Override
     public String toString() {
         return "NhanVien{" +
-                "ma='" + ma + '\'' +
-                ", hotTen='" + hoTen + '\'' +
+                "maNhanVien='" + maNhanVien + '\'' +
+                ", tenNhanVien='" + tenNhanVien + '\'' +
                 ", ngaySinh='" + ngaySinh + '\'' +
                 ", gioiTinh='" + gioiTinh + '\'' +
+                ", phongBan='" + phongBan + '\'' +
+                ", heSoLuong='" + heSoLuong + '\'' +
                 '}';
     }
 }

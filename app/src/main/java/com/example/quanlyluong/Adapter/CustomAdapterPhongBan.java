@@ -21,11 +21,11 @@ import com.example.quanlyluong.R;
 
 import java.util.ArrayList;
 
-public class CustomAdapter extends ArrayAdapter {
+public class CustomAdapterPhongBan extends ArrayAdapter {
     Context context;
     int  resource;
     ArrayList<PhongBan> data;
-    public CustomAdapter(Context context, int resource, ArrayList<PhongBan> data) {
+    public CustomAdapterPhongBan(Context context, int resource, ArrayList<PhongBan> data) {
         super(context, resource);
         this.context=context;
         this.resource=resource;

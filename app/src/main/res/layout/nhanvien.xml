@@ -12,7 +12,7 @@
     <Button
         style="@style/buttonNhanVien"
         android:id="@+id/btnthemNhanVien"
-        android:text="@string/tennhanvien"/>
+        android:text="@string/themnhanvien"/>
     <TextView
        style="@style/tieude"
         android:text="@string/danhsachnhanvien"
