@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".GiaoDien.PhongBan.MainPhongBan">
+
+    <TextView
+        style="@style/tieude"
+        android:text="@string/tieude" />
+    <TextView
+        style="@style/textview"
+        android:text="@string/maphong" />
+    <EditText
+        style="@style/edittext"
+        android:id="@+id/txtMaPhong"/>
+    <TextView
+        style="@style/textview"
+        android:text="@string/tenphong" />
+    <EditText
+        style="@style/edittext"
+        android:id="@+id/txtTenPhong"/>
+    <LinearLayout
+        style="@style/linerlayout">
+        <Button
+            style="@style/button"
+            android:id="@+id/btnThem"
+            android:text="@string/them"
+            android:background="@drawable/them"
+            />
+        <ImageButton
+            style="@style/imgbutton"
+            android:id="@+id/btnThoat"
+            android:layout_marginLeft="20sp"
+            android:background="@drawable/exit"
+            />
+        <ImageButton
+            style="@style/imgbutton"
+            android:id="@+id/btnClear"
+            android:layout_marginLeft="20sp"
+            android:background="@drawable/clear"
+            />
+    </LinearLayout>
+    <ListView
+        style="@style/listview"
+        android:id="@+id/lvDanhSach"/>
+</LinearLayout>

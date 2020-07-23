@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">QuanLyLuong</string>
+    <string name="appname">Quản Lý Nhân Viên</string>
+    <string name="tieude">Phòng Ban</string>
+    <string name="maphong">Mã Phòng</string>
+    <string name="tenphong">Tên Phòng</string>
+    <string name="them">Thêm</string>
+    <string name="sua">Sửa</string>
+    <string name="thoat">Thoát</string>
+    <string name="Show">Xem Danh Sách Phòng Ban</string>
+    <string name="ngonngu">Ngôn Ngữ</string>
+    <string name="chucnang">Chức Năng</string>
+
+    <string name="tieude1">Nhân Viên</string>
+    <string name="manhanvien">Mã Nhân Viên</string>
+    <string name="tennhanvien">Tên Nhân Viên</string>
+    <string name="ngaysinh">Ngày Sinh</string>
+    <string name="gioitinh">Giới Tính</string>
+    <string name="nam">Nam</string>
+    <string name="nu">Nữ</string>
+    <string name="luu">Lưu</string>
+    <string name="hesoluong">Hệ Số Lương</string>
+    <string name="phongban">Phòng Ban</string>
+    <string name="danhsachnhanvien">Danh Sách Nhân Viên</string>
+    <string name="themnhanvien">Thêm Nhân Viên</string>
+
+
+</resources>

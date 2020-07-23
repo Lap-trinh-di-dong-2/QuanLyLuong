@@ -1,0 +1,93 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="appname">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#2962FF</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#E90707</item>
+    </style>
+    <style name="tieude">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#2196F3</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="textview">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#673AB7</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="edittext">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="linerlayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">#000</item>
+    </style>
+    <style name="button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="buttonNhanVien">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">#5B5761</item>
+        <item name="android:layout_margin">30sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="listview">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">10sp</item>
+    </style>
+    <style name="img">
+        <item name="android:layout_width">50sp</item>
+        <item name="android:layout_height">50sp</item>
+    </style>
+    <style name="imgbutton">
+        <item name="android:layout_width">50sp</item>
+        <item name="android:layout_height">50sp</item>
+    </style>
+    <style name="groupButTon">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="rad">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="spin">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginLeft">30sp</item>
+        <item name="android:layout_marginRight">30sp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="tvMaNhanVien">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+</resources>

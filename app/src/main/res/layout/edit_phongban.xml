@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".GiaoDien.PhongBan.EditPhongBan">
+
+    <TextView
+        style="@style/tieude"
+        android:text="@string/tieude" />
+    <TextView
+        style="@style/textview"
+        android:text="@string/maphong" />
+    <TextView
+        style="@style/edittext"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:id="@+id/tvMaPhong"/>
+    <TextView
+        style="@style/textview"
+        android:text="@string/tenphong" />
+    <EditText
+        style="@style/edittext"
+        android:id="@+id/txtTenPhong"/>
+    <TextView
+        style="@style/tieude"
+        android:text="@string/chucnang" />
+    <LinearLayout
+       style="@style/linerlayout">
+        <Button
+            style="@style/button"
+            android:id="@+id/btnSua"
+            android:text="@string/sua"
+            />
+        <Button
+            style="@style/button"
+            android:id="@+id/btnThoat"
+            android:text="@string/thoat"
+            />
+    </LinearLayout>
+</LinearLayout>
