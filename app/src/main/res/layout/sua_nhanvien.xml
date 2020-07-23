@@ -60,7 +60,7 @@
         style="@style/linerlayout">
         <Button
             style="@style/button"
-            android:id="@+id/btnLuuNhanVien"
+            android:id="@+id/btnSuaNhanVien"
             android:text="@string/luu"
             />
         <Button

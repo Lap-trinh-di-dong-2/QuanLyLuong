@@ -39,7 +39,7 @@ public class MenuManager extends AppCompatActivity {
         btnNhanVien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(MenuManager.this, ThemNhanVien.class);
+                Intent intent1 = new Intent(MenuManager.this, MainNhanVien.class);
                 startActivity(intent1);
             }
         });

@@ -20,6 +20,6 @@ public class GioiThieu extends AppCompatActivity {
                 Intent intent = new Intent(GioiThieu.this, MenuManager.class);
                 startActivity(intent);
             }
-        }, 3000);
+        }, 300);
     }
 }

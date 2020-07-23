@@ -1,18 +1,19 @@
 package com.example.quanlyluong.GiaoDien.NhanVien;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
-import android.widget.TextView;
 
+import com.example.quanlyluong.DataBase.DBNhanVien;
 import com.example.quanlyluong.Model.NhanVien;
 import com.example.quanlyluong.R;
 
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 
 public class ThemNhanVien extends AppCompatActivity {
     Button btnLuuNhanVien;
-    TextView txtMaNhanVien,txtTenNhanVien,txtNgaySinh,txtHeSoLuong;
+    EditText txtMaNhanVien,txtTenNhanVien,txtNgaySinh,txtHeSoLuong;
     RadioButton radNam,radNu;
     Spinner spPhongBan;
     ArrayList<String> data_phongban = new ArrayList<>();
@@ -29,6 +30,8 @@ public class ThemNhanVien extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.them_nhanvien);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         setControl();
         setEvent();
     }
@@ -41,33 +44,41 @@ public class ThemNhanVien extends AppCompatActivity {
         btnLuuNhanVien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NhanVien nhanVien = new NhanVien();
-                nhanVien.setMaNhanVien(txtMaNhanVien.getText().toString());
-                nhanVien.setTenNhanVien(txtTenNhanVien.getText().toString());
-                nhanVien.setNgaySinh(txtNgaySinh.getText().toString());
-                if(radNam.isChecked()==true)
-                {
-                    nhanVien.setGioiTinh("Nam");
-                }
-                if(radNu.isChecked()==true)
-                {
-                     nhanVien.setGioiTinh("Nữ");
-                }
-                nhanVien.setPhongBan(spPhongBan.getSelectedItem().toString());
-                nhanVien.setHeSoLuong(txtHeSoLuong.getText().toString());
-                
+                themNhanVien();
                 Intent intent =new Intent(ThemNhanVien.this,MainNhanVien.class);
                 startActivity(intent);
             }
         });
     }
+
+    private void themNhanVien() {
+
+        NhanVien nhanVien = new NhanVien();
+        nhanVien.setMaNhanVien(txtMaNhanVien.getText().toString());
+        nhanVien.setTenNhanVien(txtTenNhanVien.getText().toString());
+        nhanVien.setNgaySinh(txtNgaySinh.getText().toString());
+        if(radNam.isChecked()==true)
+        {
+            nhanVien.setGioiTinh("Nam");
+        }
+        if(radNu.isChecked()==true)
+        {
+            nhanVien.setGioiTinh("Nữ");
+        }
+        nhanVien.setPhongBan(spPhongBan.getSelectedItem().toString());
+        nhanVien.setHeSoLuong(txtHeSoLuong.getText().toString());
+
+        DBNhanVien dbNhanVien = new DBNhanVien(getApplicationContext());
+        dbNhanVien.themNhanVien(nhanVien);
+    }
+
     private void LoadPhongBan()
     {
-        data_phongban.add("Nhân Sự");
-        data_phongban.add("Tài Chính");
+        data_phongban.add("Nhan su");
+        data_phongban.add("Ke toan");
     }
     private void setControl() {
-        btnLuuNhanVien = findViewById(R.id.btnLuuNhanVien);
+        btnLuuNhanVien = findViewById(R.id.btnSuaNhanVien);
         spPhongBan = findViewById(R.id.spPhongBan);
         txtMaNhanVien = findViewById(R.id.txtMaNhanVien);
         txtTenNhanVien = findViewById(R.id.txtTenNhanVien);
@@ -76,5 +87,16 @@ public class ThemNhanVien extends AppCompatActivity {
         radNu = findViewById(R.id.radNu);
         txtHeSoLuong= findViewById(R.id.txtHeSoLuong);
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

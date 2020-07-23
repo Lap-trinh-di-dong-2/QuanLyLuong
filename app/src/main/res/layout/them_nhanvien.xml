@@ -12,7 +12,7 @@
     <TextView
         style="@style/textview"
         android:text="@string/manhanvien"/>
-    <TextView
+    <EditText
         style="@style/tvMaNhanVien"
         android:id="@+id/txtMaNhanVien"/>
     <TextView
@@ -60,7 +60,7 @@
         style="@style/linerlayout">
         <Button
             style="@style/button"
-            android:id="@+id/btnLuuNhanVien"
+            android:id="@+id/btnSuaNhanVien"
             android:text="@string/luu"
             />
         <Button
