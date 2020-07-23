@@ -35,7 +35,8 @@
         <RadioButton
             style="@style/rad"
             android:id="@+id/radNam"
-            android:text="@string/nam"/>
+            android:text="@string/nam"
+            android:checked="true"/>
         <RadioButton
             style="@style/rad"
             android:id="@+id/radNu"

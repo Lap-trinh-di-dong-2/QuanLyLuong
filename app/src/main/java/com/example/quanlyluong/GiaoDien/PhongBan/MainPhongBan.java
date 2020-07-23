@@ -35,7 +35,7 @@ public class MainPhongBan extends AppCompatActivity {
     }
 
     private void setEvent() {
-//        Load();
+        Load();
 
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override

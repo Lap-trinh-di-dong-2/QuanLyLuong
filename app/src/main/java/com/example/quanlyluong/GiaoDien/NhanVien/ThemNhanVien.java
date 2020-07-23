@@ -14,7 +14,9 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 
 import com.example.quanlyluong.DataBase.DBNhanVien;
+import com.example.quanlyluong.DataBase.DBPhongBan;
 import com.example.quanlyluong.Model.NhanVien;
+import com.example.quanlyluong.Model.PhongBan;
 import com.example.quanlyluong.R;
 
 import java.util.ArrayList;
@@ -37,7 +39,9 @@ public class ThemNhanVien extends AppCompatActivity {
     }
 
     private void setEvent() {
-        LoadPhongBan();
+        DBPhongBan dbPhongBan = new DBPhongBan(getApplicationContext());
+        data_phongban = dbPhongBan.layDSPhongBan();
+
         adapter_phongban = new ArrayAdapter(ThemNhanVien.this,android.R.layout.simple_spinner_item,data_phongban);
         spPhongBan.setAdapter(adapter_phongban);
 
@@ -57,13 +61,13 @@ public class ThemNhanVien extends AppCompatActivity {
         nhanVien.setMaNhanVien(txtMaNhanVien.getText().toString());
         nhanVien.setTenNhanVien(txtTenNhanVien.getText().toString());
         nhanVien.setNgaySinh(txtNgaySinh.getText().toString());
-        if(radNam.isChecked()==true)
-        {
-            nhanVien.setGioiTinh("Nam");
-        }
-        if(radNu.isChecked()==true)
+        if(radNu.isChecked() == true)
         {
             nhanVien.setGioiTinh("Nữ");
+            radNam.setChecked(false);
+        }
+        if(radNam.isChecked() == true){
+            nhanVien.setGioiTinh("Nam");
         }
         nhanVien.setPhongBan(spPhongBan.getSelectedItem().toString());
         nhanVien.setHeSoLuong(txtHeSoLuong.getText().toString());
@@ -72,11 +76,7 @@ public class ThemNhanVien extends AppCompatActivity {
         dbNhanVien.themNhanVien(nhanVien);
     }
 
-    private void LoadPhongBan()
-    {
-        data_phongban.add("Nhan su");
-        data_phongban.add("Ke toan");
-    }
+
     private void setControl() {
         btnLuuNhanVien = findViewById(R.id.btnSuaNhanVien);
         spPhongBan = findViewById(R.id.spPhongBan);

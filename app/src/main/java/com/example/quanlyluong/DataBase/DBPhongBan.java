@@ -41,6 +41,24 @@ public class DBPhongBan {
         return data;
     }
 
+    public ArrayList<String> layDSPhongBan()
+    {
+        ArrayList<String>data = new ArrayList<>();
+        String sql = "Select ten from PhongBan ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql,null);
+        cursor.moveToFirst();
+        do{
+            PhongBan phongBan = new PhongBan();
+            String tenPhong = "";
+            phongBan.setTenPhong(cursor.getString(0));
+            tenPhong = phongBan.getTenPhong();
+            data.add(tenPhong);
+        }
+        while (cursor.moveToNext());
+        return data;
+    }
+
     public ArrayList<PhongBan> layDuLieu(String ma)
     {
         ArrayList<PhongBan>data = new ArrayList<>();

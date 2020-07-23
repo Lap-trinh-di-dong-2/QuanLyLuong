@@ -71,10 +71,9 @@ public class DBNhanVien {
 
     public ArrayList<NhanVien> layNhanVien(String manv) {
         ArrayList<NhanVien> data = new ArrayList<>();
-        String sql = "select * from NhanVien where manv ='" + manv + "'";
+        String sql = "select * from NhanVien where ma ='" + manv + "'";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
-
         try {
             cursor.moveToFirst();
             do {

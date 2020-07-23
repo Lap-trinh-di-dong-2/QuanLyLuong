@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.quanlyluong.DataBase.DBNhanVien;
+import com.example.quanlyluong.DataBase.DBPhongBan;
 import com.example.quanlyluong.Model.NhanVien;
 import com.example.quanlyluong.R;
 
@@ -28,6 +29,7 @@ public class SuaNhanVien extends AppCompatActivity {
     Spinner spPhongBan;
     ArrayList<String> data_phongban = new ArrayList<>();
     ArrayAdapter adapter_phongban;
+    ArrayList<NhanVien> dataNV = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +42,26 @@ public class SuaNhanVien extends AppCompatActivity {
     }
 
     private void setEvent() {
-        LoadPhongBan();
+        DBPhongBan dbPhongBan = new DBPhongBan(getApplicationContext());
+        data_phongban = dbPhongBan.layDSPhongBan();
         adapter_phongban = new ArrayAdapter(SuaNhanVien.this,android.R.layout.simple_spinner_item,data_phongban);
         spPhongBan.setAdapter(adapter_phongban);
+
+        String manv = getIntent().getExtras().getString("ma");
+        DBNhanVien dbNhanVien  =new DBNhanVien(this);
+        dataNV = dbNhanVien.layNhanVien(manv);
+        tvMaNhanVien.setText(dataNV.get(0).getMaNhanVien());
+        txtTenNhanVien.setText(dataNV.get(0).getTenNhanVien());
+        txtNgaySinh.setText(dataNV.get(0).getNgaySinh());
+        if (dataNV.get(0).getGioiTinh().equals("Nam")) {
+            radNam.setChecked(true);
+        }
+        if (dataNV.get(0).getGioiTinh().equals("Nữ")) {
+            radNu.setChecked(true);
+        }
+        spPhongBan.setSelection(getIndex(spPhongBan, dataNV.get(0).getPhongBan()));
+        txtHeSoLuong.setText(dataNV.get(0).getHeSoLuong());
+
 
         btnSuaNhanVien.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +72,7 @@ public class SuaNhanVien extends AppCompatActivity {
             }
         });
     }
+
 
     private void suaNhanVien() {
 
@@ -75,11 +95,17 @@ public class SuaNhanVien extends AppCompatActivity {
         dbNhanVien.suaNhanVien(nhanVien);
     }
 
-    private void LoadPhongBan()
-    {
-        data_phongban.add("Nhan su");
-        data_phongban.add("Ke toan");
+    //Hàm xử lý lấy vị trí phòng trong spinner
+    private int getIndex(Spinner spinner, String myString){
+        for (int i=0;i<spinner.getCount();i++){
+            if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(myString)){
+                return i;
+            }
+        }
+
+        return 0;
     }
+
 
     private void setControl() {
         btnSuaNhanVien = findViewById(R.id.btnSuaNhanVien);
