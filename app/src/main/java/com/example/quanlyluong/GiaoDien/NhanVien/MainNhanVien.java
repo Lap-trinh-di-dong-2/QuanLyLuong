@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.quanlyluong.Model.NhanVien;
 import com.example.quanlyluong.R;
 
 public class MainNhanVien extends AppCompatActivity {
