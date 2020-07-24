@@ -66,6 +66,7 @@ public class DBNhanVien {
             data.add(nhanVien);
         }
         while (cursor.moveToNext());
+        db.close();
         return data;
     }
 
@@ -90,7 +91,7 @@ public class DBNhanVien {
         } catch (Exception ex) {
         }
 
-
+        db.close();
         return data;
     }
 }

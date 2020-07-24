@@ -24,9 +24,23 @@
     <TextView
         style="@style/textview"
         android:text="@string/ngaysinh"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
     <EditText
-        style="@style/edittext"
-        android:id="@+id/txtNgaySinh"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtNgaySinh"
+        android:layout_weight="1"
+        />
+
+        <Button
+            style="@style/button"
+            android:id="@+id/btnDay"
+            android:text="Day"
+            />
+    </LinearLayout>
     <TextView
         style="@style/textview"
         android:text="@string/gioitinh"/>

@@ -81,7 +81,7 @@ public class MainPhongBan extends AppCompatActivity {
     private void Load()
     {
         DBPhongBan dbPhongBan = new DBPhongBan(this);
-        CustomAdapterPhongBan adapter = new CustomAdapterPhongBan(this,R.layout.listview_phongban,dbPhongBan.layDuLieu());
+        CustomAdapterPhongBan adapter = new CustomAdapterPhongBan(MainPhongBan.this,R.layout.listview_phongban,dbPhongBan.layDuLieu());
         lvDanhSach.setAdapter(adapter);
     }
 

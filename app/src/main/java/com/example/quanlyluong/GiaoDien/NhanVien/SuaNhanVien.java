@@ -3,12 +3,15 @@ package com.example.quanlyluong.GiaoDien.NhanVien;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -20,8 +23,13 @@ import com.example.quanlyluong.Model.NhanVien;
 import com.example.quanlyluong.R;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class SuaNhanVien extends AppCompatActivity {
+    Button btnsetDay;
+    Calendar calendar;
+    int year, month, day;
+
     EditText txtTenNhanVien,txtNgaySinh,txtHeSoLuong;
     TextView tvMaNhanVien;
     RadioButton radNam,radNu;
@@ -71,6 +79,12 @@ public class SuaNhanVien extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btnsetDay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDialog(1);
+            }
+        });
     }
 
 
@@ -117,6 +131,12 @@ public class SuaNhanVien extends AppCompatActivity {
         radNu = findViewById(R.id.radNu);
         txtHeSoLuong= findViewById(R.id.txtHeSoLuong);
 
+        btnsetDay = findViewById(R.id.btnDay);
+        calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
+        month = calendar.get(Calendar.MONTH);
+        day = calendar.get(Calendar.DAY_OF_MONTH);
+
     }
 
     @Override
@@ -128,5 +148,26 @@ public class SuaNhanVien extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        if(id == 1){
+            return new DatePickerDialog(this, dateSetListener,year,month,day);
+        }
+        return null;
+    }
+
+    DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker datePicker, int day, int month, int year) {
+            showDate(day, month + 1, year);
+        }
+    };
+
+    private void showDate(int year, int month, int day) {
+        txtNgaySinh.setText(new StringBuilder().append(day > 9 ? day: "0"+day).append("/").append(month > 9 ?
+                month: "0" + month).append("/").append(year));
     }
 }
