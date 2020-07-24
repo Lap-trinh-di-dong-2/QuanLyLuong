@@ -1,10 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/background"
+    android:background="@drawable/caytien1"
     tools:context=".GiaoDien.GioiThieu">
-</LinearLayout>
+
+    <ImageView
+        android:id="@+id/imgTien1"
+        android:layout_width="20sp"
+        android:layout_height="20sp"
+        android:layout_marginStart="128dp"
+        android:layout_marginLeft="128dp"
+        android:layout_marginTop="196dp"
+        android:src="@drawable/dongtien"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgTien2"
+        android:layout_width="20sp"
+        android:layout_height="20sp"
+        android:layout_marginStart="264dp"
+        android:layout_marginLeft="264dp"
+        android:layout_marginTop="264dp"
+        android:src="@drawable/dongtien"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgTien3"
+        android:layout_width="20sp"
+        android:layout_height="20sp"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="296dp"
+        android:src="@drawable/dongtien"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgTien4"
+        android:layout_width="20sp"
+        android:layout_height="20sp"
+        android:layout_marginStart="256dp"
+        android:layout_marginLeft="256dp"
+        android:layout_marginTop="156dp"
+        android:src="@drawable/dongtien"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgTien5"
+        android:layout_width="20sp"
+        android:layout_height="20sp"
+        android:layout_marginStart="176dp"
+        android:layout_marginLeft="176dp"
+        android:layout_marginTop="120dp"
+        android:src="@drawable/dongtien"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/imgChuyenDong"-->
+<!--        app:srcCompat="@drawable/rungning">-->
+<!--    </ImageView>-->
+</androidx.constraintlayout.widget.ConstraintLayout>

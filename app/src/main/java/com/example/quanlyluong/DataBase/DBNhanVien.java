@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.quanlyluong.Model.NhanVien;
+import com.example.quanlyluong.Model.PhongBan;
 
 import java.util.ArrayList;
 
@@ -28,7 +29,6 @@ public class DBNhanVien {
         db.insert("NhanVien", null, values);
         db.close();
     }
-
     public void suaNhanVien(NhanVien nhanVien) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();

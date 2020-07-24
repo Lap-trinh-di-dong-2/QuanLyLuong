@@ -22,8 +22,8 @@
     <string name="hesoluong">Hệ Số Lương</string>
     <string name="phongban">Phòng Ban</string>
     <string name="danhsachnhanvien">Danh Sách Nhân Viên</string>
-    <string name="themnhanvien">Cập Nhật Nhân Viên</string>
-    <string name="suanhanvien">Sửa Nhân Viên</string>
+    <string name="themnhanvien">Thêm Nhân Viên</string>
+    <string name="suanhanvien">Cập Nhật Nhân Viên</string>
 
     <string name="tieude2">Bảng Chấm Công</string>
     <string name="chamcong">Chấm Công</string>
