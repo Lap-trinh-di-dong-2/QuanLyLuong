@@ -1,11 +1,11 @@
 package com.example.quanlyluong.GiaoDien.PhongBan;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ListView;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quanlyluong.Adapter.CustomAdapterPhongBan;
 import com.example.quanlyluong.DataBase.DBPhongBan;
@@ -13,6 +13,7 @@ import com.example.quanlyluong.R;
 
 public class ListViewPhongBan extends AppCompatActivity {
     ListView lvDanhSach;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +26,7 @@ public class ListViewPhongBan extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         DBPhongBan dbPhongBan = new DBPhongBan(this);
-        CustomAdapterPhongBan adapter = new CustomAdapterPhongBan(this,R.layout.listview_phongban,dbPhongBan.layDuLieu());
+        CustomAdapterPhongBan adapter = new CustomAdapterPhongBan(this, R.layout.listview_phongban, dbPhongBan.layDuLieu());
         lvDanhSach.setAdapter(adapter);
     }
 

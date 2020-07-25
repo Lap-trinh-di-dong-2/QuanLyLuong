@@ -1,10 +1,10 @@
 package com.example.quanlyluong.GiaoDien.PhongBan;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
 
 import com.example.quanlyluong.Adapter.AdapterRecycleView;
 import com.example.quanlyluong.DataBase.DBPhongBan;
@@ -14,6 +14,7 @@ import com.example.quanlyluong.R;
 public class RecyclerViewPhongBan extends AppCompatActivity {
     AdapterRecycleView adapterRecycleView;
     RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,10 +27,10 @@ public class RecyclerViewPhongBan extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         DBPhongBan dbPhongBan = new DBPhongBan(getApplicationContext());
 
-        linearLayoutManager.setOrientation(recyclerView.HORIZONTAL);
+        linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        adapterRecycleView = new AdapterRecycleView(R.layout.cardview_phongban,dbPhongBan.layDuLieu());
+        adapterRecycleView = new AdapterRecycleView(R.layout.cardview_phongban, dbPhongBan.layDuLieu());
         recyclerView.setAdapter(adapterRecycleView);
     }
 

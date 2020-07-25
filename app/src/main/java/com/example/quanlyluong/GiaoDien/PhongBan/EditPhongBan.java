@@ -1,8 +1,5 @@
 package com.example.quanlyluong.GiaoDien.PhongBan;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -11,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quanlyluong.DataBase.DBPhongBan;
 import com.example.quanlyluong.Model.PhongBan;
@@ -21,8 +21,9 @@ import java.util.ArrayList;
 public class EditPhongBan extends AppCompatActivity {
     TextView tvMaPhong;
     EditText txtTenPhong;
-    Button btnSua,btnThoat;
-    ArrayList<PhongBan> data_phongban =new ArrayList<>();
+    Button btnSua, btnThoat;
+    ArrayList<PhongBan> data_phongban = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,11 +47,11 @@ public class EditPhongBan extends AppCompatActivity {
                 PhongBan phongBan = new PhongBan();
                 phongBan.setMaPhong(tvMaPhong.getText().toString());
                 phongBan.setTenPhong(txtTenPhong.getText().toString());
-                DBPhongBan dbPhongBan1 =new DBPhongBan(getApplicationContext());
+                DBPhongBan dbPhongBan1 = new DBPhongBan(getApplicationContext());
                 dbPhongBan1.suaPhongBan(phongBan);
-                Intent intent = new Intent(EditPhongBan.this,MainPhongBan.class);
+                Intent intent = new Intent(EditPhongBan.this, MainPhongBan.class);
                 startActivity(intent);
-                Toast.makeText(getApplicationContext(),"Sửa thành công",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Sửa thành công", Toast.LENGTH_SHORT).show();
             }
         });
     }

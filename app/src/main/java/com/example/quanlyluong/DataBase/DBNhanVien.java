@@ -48,25 +48,27 @@ public class DBNhanVien {
         db.close();
     }
 
-    public ArrayList<NhanVien> layDSNhanVien()
-    {
-        ArrayList<NhanVien>data = new ArrayList<>();
+    public ArrayList<NhanVien> layDSNhanVien() {
+        ArrayList<NhanVien> data = new ArrayList<>();
         String sql = "Select * from NhanVien ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery(sql,null);
-        cursor.moveToFirst();
-        do{
-            NhanVien nhanVien = new NhanVien();
-            nhanVien.setMaNhanVien(cursor.getString(0));
-            nhanVien.setTenNhanVien(cursor.getString(1));
-            nhanVien.setNgaySinh(cursor.getString(2));
-            nhanVien.setGioiTinh(cursor.getString(3));
-            nhanVien.setPhongBan(cursor.getString(4));
-            nhanVien.setHeSoLuong(cursor.getString(5));
-            data.add(nhanVien);
+        Cursor cursor = db.rawQuery(sql, null);
+        try {
+            cursor.moveToFirst();
+            do {
+                NhanVien nhanVien = new NhanVien();
+                nhanVien.setMaNhanVien(cursor.getString(0));
+                nhanVien.setTenNhanVien(cursor.getString(1));
+                nhanVien.setNgaySinh(cursor.getString(2));
+                nhanVien.setGioiTinh(cursor.getString(3));
+                nhanVien.setPhongBan(cursor.getString(4));
+                nhanVien.setHeSoLuong(cursor.getString(5));
+                data.add(nhanVien);
+            }
+            while (cursor.moveToNext());
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-        while (cursor.moveToNext());
-        db.close();
         return data;
     }
 
@@ -89,6 +91,7 @@ public class DBNhanVien {
             }
             while (cursor.moveToNext());
         } catch (Exception ex) {
+            ex.printStackTrace();
         }
 
         db.close();

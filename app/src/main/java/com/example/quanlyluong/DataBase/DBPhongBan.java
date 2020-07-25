@@ -15,79 +15,91 @@ public class DBPhongBan {
     public DBPhongBan(Context context) {
         this.dbHelper = new DBHelper(context);
     }
-    public void themPhongBan(PhongBan phongBan)
-    {
+
+    public void themPhongBan(PhongBan phongBan) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("ma",phongBan.getMaPhong());
-        values.put("ten",phongBan.getTenPhong());
-        db.insert("PhongBan",null,values);
+        values.put("ma", phongBan.getMaPhong());
+        values.put("ten", phongBan.getTenPhong());
+        db.insert("PhongBan", null, values);
         db.close();
     }
-    public ArrayList<PhongBan> layDuLieu()
-    {
-        ArrayList<PhongBan>data = new ArrayList<>();
+
+    public ArrayList<PhongBan> layDuLieu() {
+        ArrayList<PhongBan> data = new ArrayList<>();
         String sql = "Select * from PhongBan ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery(sql,null);
-        cursor.moveToFirst();
-        do{
-            PhongBan phongBan = new PhongBan();
-            phongBan.setMaPhong(cursor.getString(0));
-            phongBan.setTenPhong(cursor.getString(1));
-            data.add(phongBan);
+        Cursor cursor = db.rawQuery(sql, null);
+        try {
+
+
+            cursor.moveToFirst();
+            do {
+                PhongBan phongBan = new PhongBan();
+                phongBan.setMaPhong(cursor.getString(0));
+                phongBan.setTenPhong(cursor.getString(1));
+                data.add(phongBan);
+            }
+            while (cursor.moveToNext());
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-        while (cursor.moveToNext());
         return data;
     }
 
-    public ArrayList<String> layDSPhongBan()
-    {
-        ArrayList<String>data = new ArrayList<>();
+    public ArrayList<String> layDSPhongBan() {
+        ArrayList<String> data = new ArrayList<>();
         String sql = "Select ten from PhongBan ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery(sql,null);
-        cursor.moveToFirst();
-        do{
-            PhongBan phongBan = new PhongBan();
-            String tenPhong = "";
-            phongBan.setTenPhong(cursor.getString(0));
-            tenPhong = phongBan.getTenPhong();
-            data.add(tenPhong);
+        Cursor cursor = db.rawQuery(sql, null);
+        try {
+            cursor.moveToFirst();
+            do {
+                PhongBan phongBan = new PhongBan();
+                String tenPhong = "";
+                phongBan.setTenPhong(cursor.getString(0));
+                tenPhong = phongBan.getTenPhong();
+                data.add(tenPhong);
+            }
+            while (cursor.moveToNext());
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-        while (cursor.moveToNext());
         return data;
     }
 
-    public ArrayList<PhongBan> layDuLieu(String ma)
-    {
-        ArrayList<PhongBan>data = new ArrayList<>();
-        String sql = "Select * from PhongBan where ma = '"+ ma +"' ";
+    public ArrayList<PhongBan> layDuLieu(String ma) {
+        ArrayList<PhongBan> data = new ArrayList<>();
+        String sql = "Select * from PhongBan where ma = '" + ma + "' ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery(sql,null);
-        cursor.moveToFirst();
-        do{
-            PhongBan phongBan = new PhongBan();
-            phongBan.setMaPhong(cursor.getString(0));
-            phongBan.setTenPhong(cursor.getString(1));
-            data.add(phongBan);
+        Cursor cursor = db.rawQuery(sql, null);
+        try {
+            cursor.moveToFirst();
+            do {
+                PhongBan phongBan = new PhongBan();
+                phongBan.setMaPhong(cursor.getString(0));
+                phongBan.setTenPhong(cursor.getString(1));
+                data.add(phongBan);
+            }
+            while (cursor.moveToNext());
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-        while (cursor.moveToNext());
         return data;
     }
-public void suaPhongBan(PhongBan phongBan)
-{
-    SQLiteDatabase db = dbHelper.getWritableDatabase();
-    ContentValues values = new ContentValues();
-    values.put("ma",phongBan.getMaPhong());
-    values.put("ten",phongBan.getTenPhong());
-    db.update("PhongBan",values,"ma='" + phongBan.getMaPhong() + "'",null );
-    db.close();
-}
-    public void xoaPhongBan(PhongBan phongBan)
-    {
+
+    public void suaPhongBan(PhongBan phongBan) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        db.delete("PhongBan","ma= '" + phongBan.getMaPhong()+ "'",null);
+        ContentValues values = new ContentValues();
+        values.put("ma", phongBan.getMaPhong());
+        values.put("ten", phongBan.getTenPhong());
+        db.update("PhongBan", values, "ma='" + phongBan.getMaPhong() + "'", null);
+        db.close();
+    }
+
+    public void xoaPhongBan(PhongBan phongBan) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        db.delete("PhongBan", "ma= '" + phongBan.getMaPhong() + "'", null);
         db.close();
     }
 }

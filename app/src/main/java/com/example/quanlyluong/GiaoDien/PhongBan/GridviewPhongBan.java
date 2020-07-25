@@ -1,11 +1,11 @@
 package com.example.quanlyluong.GiaoDien.PhongBan;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.GridView;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quanlyluong.Adapter.CustomAdapterPhongBan;
 import com.example.quanlyluong.DataBase.DBPhongBan;

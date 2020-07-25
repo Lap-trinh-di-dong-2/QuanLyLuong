@@ -1,7 +1,5 @@
 package com.example.quanlyluong.GiaoDien;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,17 +7,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.quanlyluong.GiaoDien.ChamCong.BangChamCong;
 import com.example.quanlyluong.GiaoDien.NhanVien.MainNhanVien;
-import com.example.quanlyluong.GiaoDien.NhanVien.ThemNhanVien;
 import com.example.quanlyluong.GiaoDien.PhongBan.MainPhongBan;
 import com.example.quanlyluong.GiaoDien.TamUng.BangTamUng;
 import com.example.quanlyluong.GiaoDien.Thongke.ThongKe;
 import com.example.quanlyluong.R;
 
 public class MenuManager extends AppCompatActivity {
-    Button btnPhongBan,btnNhanVien,btnChamCong,btnTamUng,btnThongke;
+    Button btnPhongBan, btnNhanVien, btnChamCong, btnTamUng, btnThongke;
     boolean ngonNgu;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,26 +74,23 @@ public class MenuManager extends AppCompatActivity {
         btnTamUng = findViewById(R.id.btnTamUng);
         btnThongke = findViewById(R.id.btnThongke);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_manager,menu);
+        getMenuInflater().inflate(R.menu.menu_manager, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId())
-        {
+        switch (item.getItemId()) {
             case R.id.ngonNgu:
-                if(ngonNgu==true)
-                {
+                if (ngonNgu == true) {
                     item.setIcon(R.drawable.anh);
-                }
-                else
-                {
+                } else {
                     item.setIcon(R.drawable.vietnam);
                 }
-                ngonNgu=!ngonNgu;
+                ngonNgu = !ngonNgu;
                 break;
 
         }

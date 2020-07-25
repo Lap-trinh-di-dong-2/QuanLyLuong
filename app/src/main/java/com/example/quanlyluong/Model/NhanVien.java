@@ -1,7 +1,7 @@
 package com.example.quanlyluong.Model;
 
 public class NhanVien {
-    String maNhanVien,tenNhanVien,ngaySinh,gioiTinh,phongBan,heSoLuong;
+    String maNhanVien, tenNhanVien, ngaySinh, gioiTinh, phongBan, heSoLuong;
 
     public String getMaNhanVien() {
         return maNhanVien;

@@ -1,7 +1,7 @@
 package com.example.quanlyluong.Model;
 
 public class PhongBan {
-    String maPhong,tenPhong;
+    String maPhong, tenPhong;
 
 
     public String getMaPhong() {

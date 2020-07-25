@@ -47,6 +47,7 @@ public class ThemNhanVien extends AppCompatActivity {
     private void setEvent() {
         DBPhongBan dbPhongBan = new DBPhongBan(getApplicationContext());
         data_phongban = dbPhongBan.layDSPhongBan();
+
         adapter_phongban = new ArrayAdapter(ThemNhanVien.this,android.R.layout.simple_spinner_item,data_phongban);
         spPhongBan.setAdapter(adapter_phongban);
 
@@ -70,6 +71,7 @@ public class ThemNhanVien extends AppCompatActivity {
             }
         });
     }
+
     private void themNhanVien() {
 
         NhanVien nhanVien = new NhanVien();
