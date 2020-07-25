@@ -19,8 +19,8 @@ public class DBPhongBan {
     public void themPhongBan(PhongBan phongBan) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("ma", phongBan.getMaPhong());
-        values.put("ten", phongBan.getTenPhong());
+        values.put("mapb", phongBan.getMaPhong());
+        values.put("tenpb", phongBan.getTenPhong());
         db.insert("PhongBan", null, values);
         db.close();
     }
@@ -47,7 +47,7 @@ public class DBPhongBan {
 
     public ArrayList<String> layDSPhongBan() {
         ArrayList<String> data = new ArrayList<>();
-        String sql = "Select ten from PhongBan ";
+        String sql = "Select tenpb from PhongBan ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
         try {
@@ -68,7 +68,7 @@ public class DBPhongBan {
 
     public ArrayList<PhongBan> layDuLieu(String ma) {
         ArrayList<PhongBan> data = new ArrayList<>();
-        String sql = "Select * from PhongBan where ma = '" + ma + "' ";
+        String sql = "Select * from PhongBan where mapb = '" + ma + "' ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
         try {
@@ -89,15 +89,15 @@ public class DBPhongBan {
     public void suaPhongBan(PhongBan phongBan) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("ma", phongBan.getMaPhong());
-        values.put("ten", phongBan.getTenPhong());
-        db.update("PhongBan", values, "ma='" + phongBan.getMaPhong() + "'", null);
+        values.put("mapb", phongBan.getMaPhong());
+        values.put("tenpb", phongBan.getTenPhong());
+        db.update("PhongBan", values, "mapb='" + phongBan.getMaPhong() + "'", null);
         db.close();
     }
 
     public void xoaPhongBan(PhongBan phongBan) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        db.delete("PhongBan", "ma= '" + phongBan.getMaPhong() + "'", null);
+        db.delete("PhongBan", "mapb= '" + phongBan.getMaPhong() + "'", null);
         db.close();
     }
 }

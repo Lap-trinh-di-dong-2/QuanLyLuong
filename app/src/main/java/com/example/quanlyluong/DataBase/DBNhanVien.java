@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.quanlyluong.Model.NhanVien;
-import com.example.quanlyluong.Model.PhongBan;
 
 import java.util.ArrayList;
 
@@ -20,8 +19,8 @@ public class DBNhanVien {
     public void themNhanVien(NhanVien nhanVien) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("ma", nhanVien.getMaNhanVien());
-        values.put("ten", nhanVien.getTenNhanVien());
+        values.put("manv", nhanVien.getMaNhanVien());
+        values.put("tennv", nhanVien.getTenNhanVien());
         values.put("ngaysinh", nhanVien.getNgaySinh());
         values.put("gioitinh", nhanVien.getGioiTinh());
         values.put("phongban", nhanVien.getPhongBan());
@@ -29,22 +28,23 @@ public class DBNhanVien {
         db.insert("NhanVien", null, values);
         db.close();
     }
+
     public void suaNhanVien(NhanVien nhanVien) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("ma", nhanVien.getMaNhanVien());
-        values.put("ten", nhanVien.getTenNhanVien());
+        values.put("manv", nhanVien.getMaNhanVien());
+        values.put("tennv", nhanVien.getTenNhanVien());
         values.put("ngaysinh", nhanVien.getNgaySinh());
         values.put("gioitinh", nhanVien.getGioiTinh());
         values.put("phongban", nhanVien.getPhongBan());
         values.put("hesoluong", nhanVien.getHeSoLuong());
-        db.update("NhanVien", values, "ma ='" + nhanVien.getMaNhanVien() + "'", null);
+        db.update("NhanVien", values, "manv ='" + nhanVien.getMaNhanVien() + "'", null);
         db.close();
     }
 
     public void xoaNhanVien(NhanVien nhanVien) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        db.delete("NhanVien", "ma ='" + nhanVien.getMaNhanVien() + "'", null);
+        db.delete("NhanVien", "manv ='" + nhanVien.getMaNhanVien() + "'", null);
         db.close();
     }
 
@@ -74,7 +74,7 @@ public class DBNhanVien {
 
     public ArrayList<NhanVien> layNhanVien(String manv) {
         ArrayList<NhanVien> data = new ArrayList<>();
-        String sql = "select * from NhanVien where ma ='" + manv + "'";
+        String sql = "select * from NhanVien where manv ='" + manv + "'";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
         try {
