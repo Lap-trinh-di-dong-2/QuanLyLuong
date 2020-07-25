@@ -10,6 +10,6 @@
         android:duration="3000"
         android:fromYDelta="0"
         android:repeatCount="infinite"
-        android:toYDelta="700">
+        android:toYDelta="1000">
     </translate>
 </set>

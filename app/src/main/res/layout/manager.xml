@@ -20,19 +20,39 @@
         android:layout_marginTop="30sp"
         android:gravity="center"
         android:layout_height="wrap_content">
-
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <Button
             android:id="@+id/btnPhongBan"
             android:layout_width="100sp"
             android:layout_height="100sp"
             android:layout_marginRight="100sp"
-            android:background="@drawable/phongban" />
-
+            android:background="@drawable/phongban2" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phòng Ban"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
         <Button
             android:id="@+id/btnNhanVien"
             android:layout_width="100sp"
             android:layout_height="100sp"
-            android:background="@drawable/nhanvien" />
+            android:background="@drawable/nhanvien1" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nhân Viên"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+        </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,19 +60,39 @@
         android:layout_marginTop="30sp"
         android:gravity="center"
         android:layout_height="wrap_content">
-
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
         <Button
             android:id="@+id/btnChamCong"
             android:layout_width="100sp"
             android:layout_height="100sp"
             android:layout_marginRight="100sp"
-            android:text="@string/chamcong"/>
-
+            android:background="@drawable/chamcong"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chấm Công"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
         <Button
             android:id="@+id/btnTamUng"
             android:layout_width="100sp"
             android:layout_height="100sp"
-            android:text="@string/tamung"/>
+           android:background="@drawable/tamung1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tạm Ứng"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+        </LinearLayout>
     </LinearLayout>
     <Button
         android:id="@+id/btnThongke"
@@ -60,5 +100,12 @@
         android:layout_width="100sp"
         android:layout_gravity="center"
         android:layout_height="100sp"
-        android:text="@string/thongke"/>
+        android:background="@drawable/thongke"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Thống Kê"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
 </LinearLayout>
