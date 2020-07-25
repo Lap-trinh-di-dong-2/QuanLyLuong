@@ -31,8 +31,6 @@ public class DBPhongBan {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
         try {
-
-
             cursor.moveToFirst();
             do {
                 PhongBan phongBan = new PhongBan();
