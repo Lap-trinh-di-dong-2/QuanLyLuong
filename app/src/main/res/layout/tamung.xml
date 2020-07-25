@@ -18,6 +18,20 @@
         android:id="@+id/txtSoPhieu"/>
     <TextView
         style="@style/textview"
+        android:text="@string/manhanvien"/>
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spMaNhanVien"></Spinner>
+    <TextView
+        style="@style/textview"
+        android:text="@string/tennhanvien"/>
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spTenNhanVien"></Spinner>
+    <TextView
+        style="@style/textview"
         android:text="@string/ngayung"/>
     <EditText
         style="@style/edittext"

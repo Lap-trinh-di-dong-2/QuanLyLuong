@@ -11,8 +11,8 @@
         android:id="@+id/tvQuan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
         android:layout_marginTop="28dp"
         android:text="Quản"
         android:textColor="#0E0E0E"
@@ -25,8 +25,8 @@
         android:id="@+id/tvLy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="192dp"
-        android:layout_marginLeft="192dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginLeft="164dp"
         android:layout_marginTop="28dp"
         android:text="Lý"
         android:textColor="#0E0E0E"
@@ -39,8 +39,8 @@
         android:id="@+id/tvLuong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="288dp"
-        android:layout_marginLeft="288dp"
+        android:layout_marginStart="260dp"
+        android:layout_marginLeft="260dp"
         android:layout_marginTop="28dp"
         android:text="Lương"
         android:textColor="#0E0E0E"
@@ -103,10 +103,27 @@
         android:src="@drawable/dongtien1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <!--    <ImageView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:id="@+id/imgChuyenDong"-->
-<!--        app:srcCompat="@drawable/rungning">-->
-<!--    </ImageView>-->
+
+    <ImageView
+        android:id="@+id/imgChuyenDong"
+        android:layout_width="87dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="176dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgTien3"
+        app:srcCompat="@drawable/rungning"></ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginTop="176dp"
+        android:text="lương về"
+        android:id="@+id/tvLuongVe"
+        android:textColor="#000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgTien3"></TextView>
 </androidx.constraintlayout.widget.ConstraintLayout>

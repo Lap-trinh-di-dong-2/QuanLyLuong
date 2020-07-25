@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <animation-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/runningcat_01" android:duration="100"/>
-    <item android:drawable="@drawable/runningcat_02" android:duration="100"/>
-    <item android:drawable="@drawable/runningcat_03" android:duration="100"/>
-    <item android:drawable="@drawable/runningcat_04" android:duration="100"/>
+    <item android:drawable="@drawable/map1" android:duration="200"/>
+    <item android:drawable="@drawable/map2" android:duration="200"/>
+    <item android:drawable="@drawable/map3" android:duration="200"/>
+    <item android:drawable="@drawable/map4" android:duration="200"/>
+    <item android:drawable="@drawable/map5" android:duration="200"/>
+    <item android:drawable="@drawable/map6" android:duration="200"/>
 </animation-list>

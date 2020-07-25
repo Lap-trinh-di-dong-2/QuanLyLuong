@@ -16,8 +16,8 @@ import com.example.quanlyluong.R;
 
 public class GioiThieu extends AppCompatActivity {
     ImageView imgChuyenDong,imgTien1,imgTien2,imgTien3,imgTien4,imgTien5;
-    Animation aniHien,aniHien1,aniHien2,aniHien3,aniHien4,aniQuan,aniLy,aniLuong;
-    TextView tvQuan,tvLy,tvLuong;
+    Animation aniHien,aniHien1,aniHien2,aniHien3,aniHien4,aniQuan,aniLy,aniLuong,aniPhongTo;
+    TextView tvQuan,tvLy,tvLuong,tvLuongVe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +36,8 @@ public class GioiThieu extends AppCompatActivity {
             }
         }, 10000);
 
-//        AnimationDrawable runcat = (AnimationDrawable) imgChuyenDong.getDrawable();
-//        runcat.start();
+        AnimationDrawable runcat = (AnimationDrawable) imgChuyenDong.getDrawable();
+        runcat.start();
         aniHien = AnimationUtils.loadAnimation(this,R.anim.hienlen);
         aniHien1 = AnimationUtils.loadAnimation(this,R.anim.hienlen1);
         aniHien2 = AnimationUtils.loadAnimation(this,R.anim.hienlen2);
@@ -46,6 +46,7 @@ public class GioiThieu extends AppCompatActivity {
         aniQuan = AnimationUtils.loadAnimation(this,R.anim.quan);
         aniLy = AnimationUtils.loadAnimation(this,R.anim.ly);
         aniLuong = AnimationUtils.loadAnimation(this,R.anim.luong);
+        aniPhongTo=AnimationUtils.loadAnimation(this,R.anim.phongto);
         imgTien1.startAnimation(aniHien);
         imgTien2.startAnimation(aniHien1);
         imgTien3.startAnimation(aniHien2);
@@ -54,6 +55,8 @@ public class GioiThieu extends AppCompatActivity {
         tvQuan.startAnimation(aniQuan);
         tvLy.startAnimation(aniLy);
         tvLuong.startAnimation(aniLuong);
+        tvLuongVe.startAnimation(aniPhongTo);
+
     }
 
     private void setControl() {
@@ -65,6 +68,7 @@ public class GioiThieu extends AppCompatActivity {
         tvQuan = findViewById(R.id.tvQuan);
         tvLy = findViewById(R.id.tvLy);
         tvLuong = findViewById(R.id.tvLuong);
-//        imgChuyenDong = findViewById(R.id.imgChuyenDong);
+        tvLuongVe= findViewById(R.id.tvLuongVe);
+        imgChuyenDong = findViewById(R.id.imgChuyenDong);
     }
 }
