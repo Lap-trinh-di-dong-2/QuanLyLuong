@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".GiaoDien.Thongke.ThongKe"></activity>
-        <activity android:name=".GiaoDien.TamUng.TamUng" />
+        <activity android:name=".GiaoDien.TamUng.ThemTamUng" />
         <activity android:name=".GiaoDien.TamUng.BangTamUng" />
         <activity android:name=".GiaoDien.ChamCong.ChamCong" />
         <activity android:name=".GiaoDien.ChamCong.BangChamCong" />

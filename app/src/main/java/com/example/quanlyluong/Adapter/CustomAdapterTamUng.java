@@ -7,31 +7,30 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
-import androidx.annotation.NonNull;
-
 import com.example.quanlyluong.DataBase.DBNhanVien;
+import com.example.quanlyluong.DataBase.DBTamUng;
 import com.example.quanlyluong.GiaoDien.NhanVien.MainNhanVien;
-import com.example.quanlyluong.GiaoDien.NhanVien.SuaNhanVien;
-import com.example.quanlyluong.GiaoDien.NhanVien.ThemNhanVien;
+import com.example.quanlyluong.GiaoDien.TamUng.ThemTamUng;
 import com.example.quanlyluong.Model.NhanVien;
+import com.example.quanlyluong.Model.TamUng;
 import com.example.quanlyluong.R;
 
 import java.util.ArrayList;
 
-public class CustomAdapterNhanVien extends ArrayAdapter {
+
+public class CustomAdapterTamUng extends ArrayAdapter {
     Context context;
     int resource;
-    ArrayList<NhanVien>data;
-    public CustomAdapterNhanVien(@NonNull Context context, int resource, ArrayList<NhanVien>data) {
+    ArrayList<TamUng> data;
+
+    public CustomAdapterTamUng(Context context, int resource, ArrayList<TamUng> data) {
         super(context, resource);
-        this.context=context;
-        this.resource=resource;
-        this.data=data;
+        this.context = context;
+        this.resource = resource;
+        this.data = data;
     }
 
     @Override
@@ -40,56 +39,55 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
     }
 
     private static class Holder {
-        TextView tvMaNV, tvTenNV, tvNgaySinh, tvMaPB, tvLuong;
-        ImageView imgXoa, imgSua, imgHinh;
+        TextView tvMaNV, tvTenNV, tvNgayUng, tvSoTien, tvSoPhieu;
+        ImageView imgTamUng, imgXoa, imgHinh;
 
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = convertView;
-        Holder holder = null;
-        if(view == null) {
-            holder = new Holder();
+        CustomAdapterTamUng.Holder holder = null;
+        if (view == null) {
+            holder = new CustomAdapterTamUng.Holder();
             view = LayoutInflater.from(context).inflate(resource, null);
             holder.tvMaNV = view.findViewById(R.id.tvMaNV);
             holder.tvTenNV = view.findViewById(R.id.tvTenNV);
-            holder.tvNgaySinh = view.findViewById(R.id.tvNgaySinh);
-            holder.tvMaPB = view.findViewById(R.id.tvMaPB);
-            holder.tvLuong = view.findViewById(R.id.tvLuong);
-            holder.imgSua = view.findViewById(R.id.imgSua);
+            holder.tvNgayUng = view.findViewById(R.id.tvNgayUng);
+            holder.tvSoTien = view.findViewById(R.id.tvSoTien);
+            holder.imgTamUng = view.findViewById(R.id.imgTamUng);
             holder.imgXoa = view.findViewById(R.id.imgXoa);
             holder.imgHinh = view.findViewById(R.id.imgHinh);
 
 
             view.setTag(holder);
-        }
-        else
-            holder=(Holder)view.getTag();
+        } else
+            holder = (CustomAdapterTamUng.Holder) view.getTag();
 
-        final NhanVien nhanVien = data.get(position);
+        final TamUng tamUng = data.get(position);
 
 
-        holder.tvMaNV.setText(nhanVien.getMaNhanVien());
-        holder.tvTenNV.setText(nhanVien.getTenNhanVien());
-        holder.tvNgaySinh.setText(nhanVien.getNgaySinh());
-        holder.tvMaPB.setText(nhanVien.getPhongBan());
-        holder.tvLuong.setText(nhanVien.getHeSoLuong());
-        if(nhanVien.getGioiTinh().equals("Nam"))
-        {
+        holder.tvMaNV.setText(tamUng.getMaNhanVien());
+        holder.tvTenNV.setText(tamUng.getTenNhanVien());
+        holder.tvSoTien.setText(tamUng.getSoTien());
+        holder.tvNgayUng.setText(tamUng.getNgayUng());
+        DBNhanVien dbNhanVien = new DBNhanVien(getContext());
+        ArrayList<NhanVien> nhanVien = new ArrayList<>();
+        nhanVien = dbNhanVien.layNhanVien(tamUng.getMaNhanVien());
+
+        if ("Nam".equals(nhanVien.get(0).getGioiTinh())) {
             holder.imgHinh.setImageResource(R.drawable.nam);
 
         }
-        if(nhanVien.getGioiTinh().equals("Nữ"))
-        {
+        if ("Nữ".equals(nhanVien.get(0).getGioiTinh())) {
             holder.imgHinh.setImageResource(R.drawable.nu);
         }
-        holder.imgSua.setOnClickListener(new View.OnClickListener() {
+        holder.imgTamUng.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, SuaNhanVien.class);
+                Intent intent = new Intent(context, ThemTamUng.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("ma",nhanVien.getMaNhanVien());
+                bundle.putString("ma", tamUng.getMaNhanVien());
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }
@@ -97,8 +95,8 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
         holder.imgXoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DBNhanVien dbNhanVien = new DBNhanVien(getContext());
-                dbNhanVien.xoaNhanVien(nhanVien);
+                DBTamUng dbTamUng = new DBTamUng(getContext());
+//                dbTamUng.xoa(nhanVien);
                 Intent intent = new Intent(getContext(), MainNhanVien.class);
                 context.startActivity(intent);
             }

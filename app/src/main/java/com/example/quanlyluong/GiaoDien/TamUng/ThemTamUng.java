@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.quanlyluong.R;
 
-public class TamUng extends AppCompatActivity {
+public class ThemTamUng extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

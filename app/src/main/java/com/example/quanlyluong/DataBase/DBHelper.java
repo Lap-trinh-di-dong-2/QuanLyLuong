@@ -11,10 +11,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String sql = "Create table PhongBan (mapb text PRIMARY KEY NOT NULL, tenpb text) ";
-        sqLiteDatabase.execSQL(sql);
+        String sqlPhongBan = "Create table PhongBan (mapb text PRIMARY KEY NOT NULL, tenpb text) ";
+        sqLiteDatabase.execSQL(sqlPhongBan);
         String sqlNhanVien = "Create table NhanVien (manv text PRIMARY KEY NOT NULL, tennv text, ngaysinh text, gioitinh text,phongban text, hesoluong text)";
         sqLiteDatabase.execSQL(sqlNhanVien);
+        String sqlTamUng = "Create table TamUng (sophieu text PRIMARY KEY NOT NULL, ngay text, sotien text, manv text)";
+        sqLiteDatabase.execSQL(sqlTamUng);
     }
 
     @Override
