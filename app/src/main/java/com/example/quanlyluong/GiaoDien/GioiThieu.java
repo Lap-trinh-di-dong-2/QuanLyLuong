@@ -34,7 +34,7 @@ public class GioiThieu extends AppCompatActivity {
                 Intent intent = new Intent(GioiThieu.this, MenuManager.class);
                 startActivity(intent);
             }
-        }, 10000);
+        }, 1000);
 
         AnimationDrawable runcat = (AnimationDrawable) imgChuyenDong.getDrawable();
         runcat.start();

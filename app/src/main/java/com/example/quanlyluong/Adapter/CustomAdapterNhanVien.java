@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.example.quanlyluong.DataBase.DBNhanVien;
+import com.example.quanlyluong.GiaoDien.ChamCong.ChamCong;
 import com.example.quanlyluong.GiaoDien.NhanVien.MainNhanVien;
 import com.example.quanlyluong.GiaoDien.NhanVien.SuaNhanVien;
 import com.example.quanlyluong.GiaoDien.NhanVien.ThemNhanVien;
@@ -42,7 +44,7 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
     private static class Holder {
         TextView tvMaNV, tvTenNV, tvNgaySinh, tvMaPB, tvLuong;
         ImageView imgXoa, imgSua, imgHinh;
-
+        Button btnChamCong,btnTamUng;
     }
 
     @Override
@@ -60,6 +62,8 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
             holder.imgSua = view.findViewById(R.id.imgSua);
             holder.imgXoa = view.findViewById(R.id.imgXoa);
             holder.imgHinh = view.findViewById(R.id.imgHinh);
+            holder.btnChamCong = view.findViewById(R.id.btnChamCong);
+            holder.btnTamUng = view.findViewById(R.id.btnTamUng);
 
 
             view.setTag(holder);
@@ -103,7 +107,16 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
                 context.startActivity(intent);
             }
         });
-
+        holder.btnChamCong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ChamCong.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("ma",nhanVien.getMaNhanVien());
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
         return view;
     }
 }

@@ -14,17 +14,17 @@
     <TextView
         style="@style/textview"
         android:text="@string/manhanvien"/>
-    <Spinner
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spMaNhanVien"></Spinner>
+        android:id="@+id/tvMaNhanVien"></TextView>
     <TextView
         style="@style/textview"
         android:text="@string/tennhanvien"/>
-    <Spinner
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spTenNhanVien"></Spinner>
+        android:id="@+id/tvTenNhanVien"></TextView>
     <TextView
         style="@style/textview"
         android:text="@string/thang"/>
@@ -36,7 +36,7 @@
         android:text="@string/songaycong"/>
     <EditText
         style="@style/edittext"
-        android:id="@+id/txtSoNgayCon"/>
+        android:id="@+id/txtSoNgayCong"/>
        <TextView
            style="@style/tieude"
            android:text="@string/chucnang"/>
