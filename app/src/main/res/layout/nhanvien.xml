@@ -12,6 +12,7 @@
     <Button
         style="@style/buttonNhanVien"
         android:id="@+id/btnthemNhanVien"
+        android:background="@drawable/them"
         android:text="@string/themnhanvien"/>
     <TextView
        style="@style/tieude"

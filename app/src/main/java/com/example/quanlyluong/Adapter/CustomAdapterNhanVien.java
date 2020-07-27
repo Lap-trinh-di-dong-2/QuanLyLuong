@@ -42,7 +42,7 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
 
     private static class Holder {
         TextView tvMaNV, tvTenNV, tvNgaySinh, tvMaPB, tvLuong;
-        ImageView imgXoa, imgSua, imgHinh;
+        ImageView imgXoa, imgHinh;
         Button btnChamCong,btnTamUng;
     }
 
@@ -58,7 +58,6 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
             holder.tvNgaySinh = view.findViewById(R.id.tvNgaySinh);
             holder.tvMaPB = view.findViewById(R.id.tvMaPB);
             holder.tvLuong = view.findViewById(R.id.tvLuong);
-            holder.imgSua = view.findViewById(R.id.imgSua);
             holder.imgXoa = view.findViewById(R.id.imgXoa);
             holder.imgHinh = view.findViewById(R.id.imgHinh);
             holder.btnChamCong = view.findViewById(R.id.btnChamCong);
@@ -87,7 +86,7 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
         {
             holder.imgHinh.setImageResource(R.drawable.nu);
         }
-        holder.imgSua.setOnClickListener(new View.OnClickListener() {
+        holder.imgHinh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, SuaNhanVien.class);

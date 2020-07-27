@@ -21,8 +21,6 @@
         <activity android:name=".GiaoDien.MenuManager" />
         <activity android:name=".GiaoDien.PhongBan.MainPhongBan" />
         <activity android:name=".GiaoDien.PhongBan.EditPhongBan" />
-        <activity android:name=".GiaoDien.PhongBan.RecyclerViewPhongBan" />
-        <activity android:name=".GiaoDien.PhongBan.GridviewPhongBan" />
         <activity android:name=".GiaoDien.PhongBan.ListViewPhongBan" />
         <activity android:name=".GiaoDien.GioiThieu">
             <intent-filter>

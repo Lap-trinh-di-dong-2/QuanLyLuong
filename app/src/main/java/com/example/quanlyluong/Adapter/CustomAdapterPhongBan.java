@@ -40,7 +40,6 @@ public class CustomAdapterPhongBan extends ArrayAdapter {
     @Override
     public View getView(int position, final View convertView, ViewGroup parent) {
         View view = LayoutInflater.from(context).inflate(resource,null);
-        ImageView imgChiTiet = view.findViewById(R.id.imgChitiet);
         ImageView imgXoa = view.findViewById(R.id.imgXoa);
         ImageView imgHinh = view.findViewById(R.id.imgHinh);
         TextView tvMaPhong = view.findViewById(R.id.tvMaPhong);
@@ -50,7 +49,7 @@ public class CustomAdapterPhongBan extends ArrayAdapter {
         imgHinh.setImageResource(R.drawable.phong);
         tvMaPhong.setText(phongBan.getMaPhong());
         tvTenPhong.setText(phongBan.getTenPhong());
-        imgChiTiet.setOnClickListener(new View.OnClickListener() {
+        imgHinh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent((Activity) context, EditPhongBan.class);

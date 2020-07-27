@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.quanlyluong.R;
 
 public class GioiThieu extends AppCompatActivity {
-    ImageView imgChuyenDong,imgTien1,imgTien2,imgTien3,imgTien4,imgTien5;
+    ImageView imgChuyenDong,imgTien1,imgTien2,imgTien3,imgTien4,imgTien5,imgTien6,imgTien7,imgTien8;
     Animation aniHien,aniHien1,aniHien2,aniHien3,aniHien4,aniQuan,aniLy,aniLuong,aniPhongTo,aniChayRa;
     TextView tvQuan,tvLy,tvLuong,tvLuongVe;
     @Override
@@ -53,6 +53,9 @@ public class GioiThieu extends AppCompatActivity {
         imgTien3.startAnimation(aniHien2);
         imgTien4.startAnimation(aniHien3);
         imgTien5.startAnimation(aniHien4);
+        imgTien6.startAnimation(aniHien4);
+        imgTien7.startAnimation(aniHien2);
+        imgTien8.startAnimation(aniHien3);
         tvQuan.startAnimation(aniQuan);
         tvLy.startAnimation(aniLy);
         tvLuong.startAnimation(aniLuong);
@@ -67,6 +70,9 @@ public class GioiThieu extends AppCompatActivity {
         imgTien3=findViewById(R.id.imgTien3);
         imgTien4=findViewById(R.id.imgTien4);
         imgTien5=findViewById(R.id.imgTien5);
+        imgTien6=findViewById(R.id.imgTien6);
+        imgTien7=findViewById(R.id.imgTien7);
+        imgTien8=findViewById(R.id.imgTien8);
         tvQuan = findViewById(R.id.tvQuan);
         tvLy = findViewById(R.id.tvLy);
         tvLuong = findViewById(R.id.tvLuong);

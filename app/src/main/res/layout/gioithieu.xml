@@ -97,9 +97,43 @@
         android:id="@+id/imgTien5"
         android:layout_width="20sp"
         android:layout_height="20sp"
+        android:layout_marginStart="144dp"
+        android:layout_marginLeft="144dp"
+        android:layout_marginTop="172dp"
+        android:src="@drawable/dongtien1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/imgTien6"
+        android:layout_width="20sp"
+        android:layout_height="20sp"
         android:layout_marginStart="176dp"
         android:layout_marginLeft="176dp"
         android:layout_marginTop="120dp"
+        android:src="@drawable/dongtien1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgTien7"
+        android:layout_width="14dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="192dp"
+        android:layout_marginLeft="192dp"
+        android:layout_marginTop="224dp"
+        android:src="@drawable/dongtien1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgTien8"
+        android:layout_width="14dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="232dp"
         android:src="@drawable/dongtien1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

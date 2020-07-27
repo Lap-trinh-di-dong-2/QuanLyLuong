@@ -9,27 +9,22 @@
     <TextView
        style="@style/tieude"
         android:text="@string/themnhanvien"/>
-    <TextView
-        style="@style/textview"
-        android:text="@string/manhanvien"/>
-    <EditText
-        style="@style/tvMaNhanVien"
-        android:id="@+id/txtMaNhanVien"/>
-    <TextView
-        style="@style/textview"
-        android:text="@string/tennhanvien"/>
+
     <EditText
         style="@style/edittext"
+        android:hint="Nhập mã nhân viên"
+        android:id="@+id/txtMaNhanVien"/>
+    <EditText
+        style="@style/edittext"
+        android:hint="Nhập tên nhân viên"
         android:id="@+id/txtTenNhanVien"/>
-    <TextView
-        style="@style/textview"
-        android:text="@string/ngaysinh"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
     <EditText
         android:layout_width="wrap_content"
+        android:hint="Nhập ngày sinh"
         android:layout_height="wrap_content"
         android:id="@+id/txtNgaySinh"
         android:layout_weight="1"
@@ -41,9 +36,6 @@
             android:text="Day"
             />
     </LinearLayout>
-    <TextView
-        style="@style/textview"
-        android:text="@string/gioitinh"/>
     <RadioGroup
        style="@style/groupButTon">
         <RadioButton

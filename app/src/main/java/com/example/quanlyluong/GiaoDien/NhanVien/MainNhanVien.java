@@ -53,7 +53,6 @@ public class MainNhanVien extends AppCompatActivity {
     private void setControl() {
         btnThemNhanVien = findViewById(R.id.btnthemNhanVien);
         imgXoa = findViewById(R.id.imgXoa);
-        imgSua = findViewById(R.id.imgSua);
         lvDanhSachNV = findViewById(R.id.lvNhanVien);
     }
 }

@@ -14,16 +14,4 @@
         android:icon="@drawable/danhsach1"
         app:showAsAction="ifRoom">
     </item>
-    <item
-        android:id="@+id/gridview"
-        android:title="gridview"
-        android:icon="@drawable/danhsach3"
-        app:showAsAction="ifRoom">
-    </item>
-    <item
-        android:id="@+id/recycleview"
-        android:title="recycleview"
-        android:icon="@drawable/danhsach2"
-        app:showAsAction="ifRoom">
-    </item>
 </menu>
