@@ -16,7 +16,7 @@ import com.example.quanlyluong.R;
 
 public class GioiThieu extends AppCompatActivity {
     ImageView imgChuyenDong,imgTien1,imgTien2,imgTien3,imgTien4,imgTien5;
-    Animation aniHien,aniHien1,aniHien2,aniHien3,aniHien4,aniQuan,aniLy,aniLuong,aniPhongTo;
+    Animation aniHien,aniHien1,aniHien2,aniHien3,aniHien4,aniQuan,aniLy,aniLuong,aniPhongTo,aniChayRa;
     TextView tvQuan,tvLy,tvLuong,tvLuongVe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class GioiThieu extends AppCompatActivity {
                 Intent intent = new Intent(GioiThieu.this, MenuManager.class);
                 startActivity(intent);
             }
-        }, 1000);
+        }, 10000);
 
         AnimationDrawable runcat = (AnimationDrawable) imgChuyenDong.getDrawable();
         runcat.start();
@@ -47,6 +47,7 @@ public class GioiThieu extends AppCompatActivity {
         aniLy = AnimationUtils.loadAnimation(this,R.anim.ly);
         aniLuong = AnimationUtils.loadAnimation(this,R.anim.luong);
         aniPhongTo=AnimationUtils.loadAnimation(this,R.anim.phongto);
+        aniChayRa = AnimationUtils.loadAnimation(this,R.anim.chayra);
         imgTien1.startAnimation(aniHien);
         imgTien2.startAnimation(aniHien1);
         imgTien3.startAnimation(aniHien2);
@@ -56,6 +57,7 @@ public class GioiThieu extends AppCompatActivity {
         tvLy.startAnimation(aniLy);
         tvLuong.startAnimation(aniLuong);
         tvLuongVe.startAnimation(aniPhongTo);
+        imgChuyenDong.startAnimation(aniChayRa);
 
     }
 
