@@ -34,9 +34,6 @@ public class BangTamUng extends AppCompatActivity {
     private void HienThiDL() {
         DBTamUng dbTamUng = new DBTamUng(getApplicationContext());
         dataTU = dbTamUng.layDuLieu();
-        TamUng tamUng = new TamUng();
-        tamUng.setMaNhanVien("1");
-        dataTU.add(tamUng);
         adapterTU = new CustomAdapterTamUng(BangTamUng.this, R.layout.listview_tamung, dataTU);
         adapterTU.notifyDataSetChanged();
         lvDanhSachTU.setAdapter(adapterTU);

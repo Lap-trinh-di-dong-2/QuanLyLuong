@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.quanlyluong.Model.PhongBan;
 import com.example.quanlyluong.Model.TamUng;
 
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ public class DBTamUng {
 
     public ArrayList<TamUng> layDuLieu() {
         ArrayList<TamUng> data = new ArrayList<>();
-        String sql = "Select * from TamUng ";
+        String sql = "Select * from TamUng";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
         try {
@@ -46,5 +47,11 @@ public class DBTamUng {
             ex.printStackTrace();
         }
         return data;
+    }
+
+    public void xoaTamUng(TamUng tamUng) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        db.delete("TamUng", "sophieu= '" + tamUng.getSoPhieu() + "'", null);
+        db.close();
     }
 }

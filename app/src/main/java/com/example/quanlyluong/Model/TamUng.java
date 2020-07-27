@@ -1,17 +1,8 @@
 package com.example.quanlyluong.Model;
 
-public class TamUng extends NhanVien {
+public class TamUng {
     String soPhieu, ngayUng, soTien, maNhanVien;
 
-    public NhanVien getNhanVien() {
-        return nhanVien;
-    }
-
-    public void setNhanVien(NhanVien nhanVien) {
-        this.nhanVien = nhanVien;
-    }
-
-    NhanVien nhanVien;
     public String getSoPhieu() {
         return soPhieu;
     }

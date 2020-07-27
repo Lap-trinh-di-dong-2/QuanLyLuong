@@ -20,7 +20,9 @@ import com.example.quanlyluong.GiaoDien.ChamCong.ChamCong;
 import com.example.quanlyluong.GiaoDien.NhanVien.MainNhanVien;
 import com.example.quanlyluong.GiaoDien.NhanVien.SuaNhanVien;
 import com.example.quanlyluong.GiaoDien.NhanVien.ThemNhanVien;
+import com.example.quanlyluong.GiaoDien.TamUng.ThemTamUng;
 import com.example.quanlyluong.Model.NhanVien;
+import com.example.quanlyluong.Model.TamUng;
 import com.example.quanlyluong.R;
 
 import java.util.ArrayList;
@@ -111,6 +113,17 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, ChamCong.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("ma",nhanVien.getMaNhanVien());
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
+
+        holder.btnTamUng.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ThemTamUng.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("ma",nhanVien.getMaNhanVien());
                 intent.putExtras(bundle);

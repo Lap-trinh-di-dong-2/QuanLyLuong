@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.quanlyluong.DataBase.DBNhanVien;
 import com.example.quanlyluong.DataBase.DBTamUng;
-import com.example.quanlyluong.GiaoDien.NhanVien.MainNhanVien;
+import com.example.quanlyluong.GiaoDien.TamUng.BangTamUng;
 import com.example.quanlyluong.GiaoDien.TamUng.ThemTamUng;
 import com.example.quanlyluong.Model.NhanVien;
 import com.example.quanlyluong.Model.TamUng;
@@ -25,6 +25,7 @@ public class CustomAdapterTamUng extends ArrayAdapter {
     Context context;
     int resource;
     ArrayList<TamUng> data;
+    ArrayList<NhanVien> nhanVien = new ArrayList<>();
 
     public CustomAdapterTamUng(Context context, int resource, ArrayList<TamUng> data) {
         super(context, resource);
@@ -68,13 +69,12 @@ public class CustomAdapterTamUng extends ArrayAdapter {
 
 
         holder.tvMaNV.setText(tamUng.getMaNhanVien());
-        holder.tvTenNV.setText(tamUng.getTenNhanVien());
+
         holder.tvSoTien.setText(tamUng.getSoTien());
         holder.tvNgayUng.setText(tamUng.getNgayUng());
         DBNhanVien dbNhanVien = new DBNhanVien(getContext());
-        ArrayList<NhanVien> nhanVien = new ArrayList<>();
         nhanVien = dbNhanVien.layNhanVien(tamUng.getMaNhanVien());
-
+        holder.tvTenNV.setText(nhanVien.get(0).getTenNhanVien());
         if ("Nam".equals(nhanVien.get(0).getGioiTinh())) {
             holder.imgHinh.setImageResource(R.drawable.nam);
 
@@ -96,8 +96,8 @@ public class CustomAdapterTamUng extends ArrayAdapter {
             @Override
             public void onClick(View v) {
                 DBTamUng dbTamUng = new DBTamUng(getContext());
-//                dbTamUng.xoa(nhanVien);
-                Intent intent = new Intent(getContext(), MainNhanVien.class);
+                dbTamUng.xoaTamUng(tamUng);
+                Intent intent = new Intent(getContext(), BangTamUng.class);
                 context.startActivity(intent);
             }
         });
