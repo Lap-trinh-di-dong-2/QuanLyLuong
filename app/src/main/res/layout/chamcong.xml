@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".GiaoDien.ChamCong.ChamCong">
+    tools:context=".GiaoDien.ChamCong.ThemChamCong">
 
     <TextView
         style="@style/tieude"
@@ -30,7 +30,7 @@
         android:text="@string/thang"/>
     <EditText
         style="@style/edittext"
-        android:id="@+id/txtThang"/>
+        android:id="@+id/txtNgayChamCong"/>
     <TextView
         style="@style/textview"
         android:text="@string/songaycong"/>

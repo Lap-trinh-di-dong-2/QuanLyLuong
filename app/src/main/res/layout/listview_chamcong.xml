@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <ImageView
+            android:background="#9DA38B"
+            android:layout_width="100sp"
+            android:layout_height="80sp"
+            android:id="@+id/imgHinh"
+            android:src="@drawable/nam" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#BBB2CA"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvMaNhanVien"
+            style="@style/tv_model"
+            android:text="@string/manhanvien" />
+
+        <TextView
+            android:id="@+id/tvTenNhanVien"
+            style="@style/tv_model"
+            android:text="@string/tennhanvien" />
+
+        <TextView
+            android:id="@+id/tvNgayChamCong"
+            style="@style/tv_model"
+            android:text="@string/thang" />
+
+        <TextView
+            android:id="@+id/tvSoNgayCong"
+            style="@style/tv_model"
+            android:text="@string/songaycong" />
+    </LinearLayout>
+
+</LinearLayout>

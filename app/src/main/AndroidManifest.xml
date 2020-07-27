@@ -13,7 +13,7 @@
         <activity android:name=".GiaoDien.Thongke.ThongKe"></activity>
         <activity android:name=".GiaoDien.TamUng.ThemTamUng" />
         <activity android:name=".GiaoDien.TamUng.BangTamUng" />
-        <activity android:name=".GiaoDien.ChamCong.ChamCong" />
+        <activity android:name=".GiaoDien.ChamCong.ThemChamCong" />
         <activity android:name=".GiaoDien.ChamCong.BangChamCong" />
         <activity android:name=".GiaoDien.NhanVien.SuaNhanVien" />
         <activity android:name=".GiaoDien.NhanVien.ThemNhanVien" />
