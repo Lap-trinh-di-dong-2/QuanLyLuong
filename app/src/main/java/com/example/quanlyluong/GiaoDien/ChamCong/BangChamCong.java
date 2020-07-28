@@ -1,22 +1,20 @@
 package com.example.quanlyluong.GiaoDien.ChamCong;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quanlyluong.Adapter.CustomAdapterChamCong;
-import com.example.quanlyluong.Adapter.CustomAdapterTamUng;
 import com.example.quanlyluong.DataBase.DBChamCong;
-import com.example.quanlyluong.DataBase.DBTamUng;
-import com.example.quanlyluong.GiaoDien.TamUng.BangTamUng;
 import com.example.quanlyluong.Model.ChamCong;
-import com.example.quanlyluong.Model.TamUng;
 import com.example.quanlyluong.R;
 
 import java.util.ArrayList;
 
 public class BangChamCong extends AppCompatActivity {
+    ImageView imgXoa, imgTamUng;
     ListView lvChamCong;
    CustomAdapterChamCong adapter_chamcong;
     ArrayList<ChamCong> data_chamcong = new ArrayList<>();
@@ -40,5 +38,6 @@ public class BangChamCong extends AppCompatActivity {
     }
     private void setControl() {
         lvChamCong =findViewById(R.id.lvBangChamCong);
+
     }
 }

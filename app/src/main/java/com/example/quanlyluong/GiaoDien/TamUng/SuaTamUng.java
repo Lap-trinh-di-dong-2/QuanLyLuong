@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.quanlyluong.DataBase.DBNhanVien;
 import com.example.quanlyluong.DataBase.DBTamUng;
@@ -51,6 +52,7 @@ public class SuaTamUng extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 suaTamUng();
+                Toast.makeText(getApplicationContext(),"Sửa thành công",Toast.LENGTH_SHORT).show();
                 Intent intent =new Intent(SuaTamUng.this, BangTamUng.class);
                 startActivity(intent);
             }

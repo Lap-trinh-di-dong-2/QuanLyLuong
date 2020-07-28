@@ -46,4 +46,10 @@ public class DBChamCong {
         }
         return data;
     }
+
+    public void xoaChamCong(ChamCong chamCong) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        db.delete("TamUng", "manv= '" + chamCong.getMaNhanVien() + "'", null);
+        db.close();
+    }
 }

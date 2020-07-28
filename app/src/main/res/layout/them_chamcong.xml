@@ -14,10 +14,11 @@
     <TextView
         style="@style/textview"
         android:text="@string/manhanvien"/>
+
     <TextView
+        android:id="@+id/tvMaNhanVien"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvMaNhanVien"></TextView>
+        android:layout_height="wrap_content"></TextView>
     <TextView
         style="@style/textview"
         android:text="@string/tennhanvien"/>

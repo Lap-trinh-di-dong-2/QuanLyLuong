@@ -3,14 +3,18 @@ package com.example.quanlyluong.GiaoDien.ChamCong;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.quanlyluong.DataBase.DBChamCong;
 import com.example.quanlyluong.DataBase.DBNhanVien;
+import com.example.quanlyluong.GiaoDien.TamUng.BangTamUng;
+import com.example.quanlyluong.GiaoDien.TamUng.ThemTamUng;
 import com.example.quanlyluong.Model.ChamCong;
 import com.example.quanlyluong.Model.NhanVien;
 import com.example.quanlyluong.R;
@@ -25,7 +29,7 @@ public class ThemChamCong extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.chamcong);
+        setContentView(R.layout.them_chamcong);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         setControl();
@@ -41,15 +45,23 @@ public class ThemChamCong extends AppCompatActivity {
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ChamCong chamCong = new ChamCong();
-                chamCong.setMaNhanVien(tvMaNhanVien.getText().toString());
-                chamCong.setThang(txtNgayChamCong.getText().toString());
-                chamCong.setSoNgayCong(txtSoNgayCong.getText().toString());
-                DBChamCong dbChamCong =new DBChamCong(getApplicationContext());
-                dbChamCong.themChamCong(chamCong);
+                themChamCong();
+                Toast.makeText(getApplicationContext(),"Thêm thành công",Toast.LENGTH_SHORT).show();
+                Intent intent =new Intent(ThemChamCong.this, BangChamCong.class);
+                startActivity(intent);
             }
         });
     }
+
+    private void themChamCong() {
+        ChamCong chamCong = new ChamCong();
+        chamCong.setMaNhanVien(tvMaNhanVien.getText().toString());
+        chamCong.setThang(txtNgayChamCong.getText().toString());
+        chamCong.setSoNgayCong(txtSoNgayCong.getText().toString());
+        DBChamCong dbChamCong =new DBChamCong(getApplicationContext());
+        dbChamCong.themChamCong(chamCong);
+    }
+
 
     private void setControl() {
         tvMaNhanVien =findViewById(R.id.tvMaNhanVien);
