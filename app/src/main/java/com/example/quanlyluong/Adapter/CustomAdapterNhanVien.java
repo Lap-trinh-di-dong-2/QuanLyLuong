@@ -19,6 +19,7 @@ import com.example.quanlyluong.DataBase.DBNhanVien;
 import com.example.quanlyluong.GiaoDien.ChamCong.ThemChamCong;
 import com.example.quanlyluong.GiaoDien.NhanVien.MainNhanVien;
 import com.example.quanlyluong.GiaoDien.NhanVien.SuaNhanVien;
+import com.example.quanlyluong.GiaoDien.TamUng.SuaTamUng;
 import com.example.quanlyluong.Model.NhanVien;
 import com.example.quanlyluong.R;
 
@@ -111,6 +112,16 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
                 Intent intent = new Intent(context, ThemChamCong.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("ma",nhanVien.getMaNhanVien());
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
+        holder.btnTamUng.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, SuaTamUng.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("ma", nhanVien.getMaNhanVien());
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }
