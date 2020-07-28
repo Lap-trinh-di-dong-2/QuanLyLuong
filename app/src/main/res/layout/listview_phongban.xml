@@ -7,7 +7,7 @@
     <ImageView
         style="@style/img"
         android:id="@+id/imgHinh"
-        android:src="@drawable/phong"
+        android:src="@drawable/phong2"
         android:layout_gravity="center"
         android:layout_marginRight="10sp"/>
     <LinearLayout

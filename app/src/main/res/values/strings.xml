@@ -30,14 +30,16 @@
 
     <string name="tieude2">Bảng Chấm Công</string>
     <string name="chamcong">Chấm Công</string>
-    <string name="thang">Ngày Chấm Công</string>
-    <string name="songaycong">Số Ngày Công</string>
+    <string name="thang">Ngày Chấm Công : </string>
+    <string name="luuchamcong">Lưu Chấm Công</string>
+    <string name="songaycong">Số Ngày Công : </string>
 
     <string name="tieude4">Bảng Tạm Ứng</string>
     <string name="tamung">Tạm Ứng</string>
-    <string name="sophieu">Số Phiếu</string>
-    <string name="ngayung">Ngày Ứng Tiền</string>
-    <string name="sotien">Số Tiền</string>
+    <string name="sophieu">Số Phiếu :</string>
+    <string name="ngayung">Ngày Ứng : </string>
+    <string name="sotien">Số Tiền : </string>
+    <string name="luutamung">Lưu Tạm Ứng</string>
 
     <string name="thongke">Thống Kê</string>
 

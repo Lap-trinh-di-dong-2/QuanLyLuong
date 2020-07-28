@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,7 +28,7 @@ public class ThemChamCong extends AppCompatActivity {
     EditText txtSoNgayCong;
     Button btnLuu,btnThoat;
     Calendar calendar;
-    int year, month;
+    int day ,year, month;
     ArrayList<NhanVien> dataNV = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,5 +83,10 @@ public class ThemChamCong extends AppCompatActivity {
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onBackPressed();
+        return super.onOptionsItemSelected(item);
     }
 }

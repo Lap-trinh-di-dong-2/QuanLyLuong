@@ -1,6 +1,7 @@
 package com.example.quanlyluong.GiaoDien.TamUng;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -14,7 +15,7 @@ import com.example.quanlyluong.R;
 import java.util.ArrayList;
 
 public class BangTamUng extends AppCompatActivity {
-    ImageView imgXoa, imgTamUng;
+    ImageView imgXoa;
     ListView lvDanhSachTU;
     CustomAdapterTamUng adapterTU;
     ArrayList<TamUng> dataTU = new ArrayList<>();
@@ -40,9 +41,13 @@ public class BangTamUng extends AppCompatActivity {
     }
 
     private void setControl() {
-        imgTamUng = findViewById(R.id.imgTamUng);
         imgXoa = findViewById(R.id.imgXoa);
         lvDanhSachTU = findViewById(R.id.lvBangTamUng);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onBackPressed();
+        return super.onOptionsItemSelected(item);
     }
 
 

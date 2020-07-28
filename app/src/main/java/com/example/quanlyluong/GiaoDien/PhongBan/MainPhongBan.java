@@ -62,4 +62,9 @@ public class MainPhongBan extends AppCompatActivity {
         btnThem = findViewById(R.id.btnThem);
         lvDanhSach = findViewById(R.id.lvDanhSach);
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onBackPressed();
+        return super.onOptionsItemSelected(item);
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.quanlyluong.GiaoDien.ChamCong;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -39,5 +40,10 @@ public class BangChamCong extends AppCompatActivity {
     private void setControl() {
         lvChamCong =findViewById(R.id.lvBangChamCong);
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onBackPressed();
+        return super.onOptionsItemSelected(item);
     }
 }

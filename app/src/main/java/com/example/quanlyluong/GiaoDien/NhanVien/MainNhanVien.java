@@ -2,6 +2,7 @@ package com.example.quanlyluong.GiaoDien.NhanVien;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -54,5 +55,10 @@ public class MainNhanVien extends AppCompatActivity {
         btnThemNhanVien = findViewById(R.id.btnthemNhanVien);
         imgXoa = findViewById(R.id.imgXoa);
         lvDanhSachNV = findViewById(R.id.lvNhanVien);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onBackPressed();
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -46,7 +46,7 @@ public class CustomAdapterPhongBan extends ArrayAdapter {
         TextView tvTenPhong = view.findViewById(R.id.tvTenPhong);
         final PhongBan phongBan = data.get(position);
 
-        imgHinh.setImageResource(R.drawable.phong);
+        imgHinh.setImageResource(R.drawable.phong2);
         tvMaPhong.setText(phongBan.getMaPhong());
         tvTenPhong.setText(phongBan.getTenPhong());
         imgHinh.setOnClickListener(new View.OnClickListener() {
