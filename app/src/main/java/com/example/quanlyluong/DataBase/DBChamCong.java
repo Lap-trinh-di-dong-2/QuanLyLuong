@@ -21,7 +21,6 @@ public class DBChamCong {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("manv",chamCong.getMaNhanVien());
-        values.put("tennv",chamCong.getTenNhanVien());
         values.put("ngaycham",chamCong.getThang());
         values.put("songaycong",chamCong.getSoNgayCong());
         db.insert("ChamCong", null, values);
@@ -29,7 +28,7 @@ public class DBChamCong {
     }
     public ArrayList<ChamCong> layDuLieu() {
         ArrayList<ChamCong> data = new ArrayList<>();
-        String sql = "Select * from ChamCong";
+        String sql = "Select * from ChamCong ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
         try {

@@ -10,34 +10,46 @@
        style="@style/tieude"
         android:text="@string/themnhanvien"/>
 
-    <EditText
-        style="@style/edittext"
-        android:hint="Nhập mã nhân viên"
-        android:id="@+id/txtMaNhanVien"/>
-    <EditText
-        style="@style/edittext"
-        android:hint="Nhập tên nhân viên"
-        android:id="@+id/txtTenNhanVien"/>
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        style="@style/linerlayout">
+        <TextView
+            style="@style/textview1"
+            android:text="@string/manhanvien"
+            />
     <EditText
-        android:layout_width="wrap_content"
-        android:hint="Nhập ngày sinh"
-        android:layout_height="wrap_content"
+        style="@style/edittext"
+        android:id="@+id/txtMaNhanVien"/>
+    </LinearLayout>
+    <LinearLayout
+       style="@style/linerlayout">
+        <TextView
+            style="@style/textview1"
+            android:text="@string/tennhanvien"/>
+    <EditText
+        style="@style/edittext"
+        android:id="@+id/txtTenNhanVien"/>
+    </LinearLayout>
+    <LinearLayout
+        style="@style/linerlayout">
+        <TextView
+            style="@style/textview1"
+            android:text="@string/ngaysinh"/>
+    <EditText
+        style="@style/edittext"
         android:id="@+id/txtNgaySinh"
         android:layout_weight="1"
         />
-
         <Button
-            style="@style/button"
+            style="@style/buttonDay"
             android:id="@+id/btnDay"
-            android:text="Day"
+            android:background="@drawable/ngay"
             />
     </LinearLayout>
     <RadioGroup
        style="@style/groupButTon">
+        <TextView
+            style="@style/textview1"
+            android:text="@string/gioitinh"/>
         <RadioButton
             style="@style/rad"
             android:id="@+id/radNam"
@@ -48,30 +60,36 @@
             android:id="@+id/radNu"
             android:text="@string/nu"/>
     </RadioGroup>
-    <TextView
-        style="@style/textview"
-        android:text="@string/phongban"/>
+    <LinearLayout
+        style="@style/linerlayout">
+        <TextView
+            style="@style/textview1"
+            android:text="@string/phongban"/>
     <Spinner
         style="@style/spin"
         android:id="@+id/spPhongBan"/>
-    <TextView
-        style="@style/textview"
-        android:text="@string/hesoluong"/>
+    </LinearLayout>
+    <LinearLayout
+       style="@style/linerlayout">
+        <TextView
+            style="@style/textview1"
+            android:text="@string/hesoluong"/>
     <EditText
         style="@style/edittext"
         android:id="@+id/txtHeSoLuong"/>
+    </LinearLayout>
     <TextView
         style="@style/tieude"
         android:text="@string/chucnang"/>
     <LinearLayout
         style="@style/linerlayout">
         <Button
-            style="@style/button"
+            style="@style/buttonluu"
             android:id="@+id/btnSuaNhanVien"
-            android:text="@string/luu"
+            android:text="@string/luunhanvien"
             />
         <Button
-            style="@style/button"
+            style="@style/buttonhuy"
             android:id="@+id/btnThoat"
             android:text="@string/thoat"
             />

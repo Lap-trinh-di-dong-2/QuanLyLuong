@@ -1,7 +1,7 @@
 package com.example.quanlyluong.Model;
 
 public class ChamCong {
-    String maNhanVien,tenNhanVien,thang,soNgayCong;
+    String maNhanVien,thang,soNgayCong;
 
     public String getMaNhanVien() {
         return maNhanVien;
@@ -9,14 +9,6 @@ public class ChamCong {
 
     public void setMaNhanVien(String maNhanVien) {
         this.maNhanVien = maNhanVien;
-    }
-
-    public String getTenNhanVien() {
-        return tenNhanVien;
-    }
-
-    public void setTenNhanVien(String tenNhanVien) {
-        this.tenNhanVien = tenNhanVien;
     }
 
     public String getThang() {
@@ -39,7 +31,6 @@ public class ChamCong {
     public String toString() {
         return "ChamCong{" +
                 "maNhanVien='" + maNhanVien + '\'' +
-                ", tenNhanVien='" + tenNhanVien + '\'' +
                 ", thang='" + thang + '\'' +
                 ", soNgayCong='" + soNgayCong + '\'' +
                 '}';
