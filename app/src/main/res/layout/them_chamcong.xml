@@ -29,8 +29,8 @@
     <TextView
         style="@style/textview"
         android:text="@string/thang"/>
-    <EditText
-        style="@style/edittext"
+    <TextView
+        style="@style/textview1"
         android:id="@+id/txtNgayChamCong"/>
     <TextView
         style="@style/textview"

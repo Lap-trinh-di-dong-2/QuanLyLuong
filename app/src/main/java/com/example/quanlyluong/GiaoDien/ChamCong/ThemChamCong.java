@@ -20,11 +20,14 @@ import com.example.quanlyluong.Model.NhanVien;
 import com.example.quanlyluong.R;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class ThemChamCong extends AppCompatActivity {
-    TextView tvMaNhanVien,tvTenNhanVien;
-    EditText txtNgayChamCong,txtSoNgayCong;
+    TextView tvMaNhanVien,tvTenNhanVien,tvNgayChamCong;
+    EditText txtSoNgayCong;
     Button btnLuu,btnThoat;
+    Calendar calendar;
+    int year, month;
     ArrayList<NhanVien> dataNV = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,7 @@ public class ThemChamCong extends AppCompatActivity {
     }
 
     private void setEvent() {
+        showDate(year, month + 1);
         String manv = getIntent().getExtras().getString("ma");
         DBNhanVien dbNhanVien = new DBNhanVien(this);
         dataNV = dbNhanVien.layNhanVienChamCong(manv);
@@ -56,19 +60,27 @@ public class ThemChamCong extends AppCompatActivity {
     private void themChamCong() {
         ChamCong chamCong = new ChamCong();
         chamCong.setMaNhanVien(tvMaNhanVien.getText().toString());
-        chamCong.setThang(txtNgayChamCong.getText().toString());
+        chamCong.setThang(tvNgayChamCong.getText().toString());
         chamCong.setSoNgayCong(txtSoNgayCong.getText().toString());
         DBChamCong dbChamCong =new DBChamCong(getApplicationContext());
         dbChamCong.themChamCong(chamCong);
     }
 
+    private void showDate(int year, int month) {
+        tvNgayChamCong.setText(new StringBuilder().append(month > 9 ?
+                month: "0" + month).append("/").append(year));
+    }
 
     private void setControl() {
         tvMaNhanVien =findViewById(R.id.tvMaNhanVien);
         tvTenNhanVien = findViewById(R.id.tvTenNhanVien);
-        txtNgayChamCong =findViewById(R.id.txtNgayChamCong);
+        tvNgayChamCong =findViewById(R.id.txtNgayChamCong);
         txtSoNgayCong = findViewById(R.id.txtSoNgayCong);
         btnLuu = findViewById(R.id.btnLuuChamCong);
         btnThoat= findViewById(R.id.btnThoat);
+
+        calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
+        month = calendar.get(Calendar.MONTH);
     }
 }

@@ -5,46 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".GiaoDien.TamUng.SuaTamUng">
+    tools:context=".GiaoDien.ChamCong.SuaChamCong">
 
     <TextView
         style="@style/tieude"
-        android:text="@string/tamung"/>
-    <TextView
-        style="@style/textview"
-        android:text="@string/sophieu"/>
-    <TextView
-        style="@style/textview1"
-        android:id="@+id/tvSoPhieu"/>
+        android:text="@string/chamcong"
+        />
     <TextView
         style="@style/textview"
         android:text="@string/manhanvien"/>
+
     <TextView
-        style="@style/textview1"
-        android:id="@+id/tvMaNhanVien"></TextView>
+        android:id="@+id/tvMaNhanVien"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TextView>
     <TextView
         style="@style/textview"
         android:text="@string/tennhanvien"/>
     <TextView
-        style="@style/textview1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/tvTenNhanVien"></TextView>
     <TextView
         style="@style/textview"
-        android:text="@string/ngayung"/>
+        android:text="@string/thang"/>
     <TextView
         style="@style/textview1"
-        android:id="@+id/tvNgayUng"/>
+        android:id="@+id/txtNgayChamCong"/>
     <TextView
         style="@style/textview"
-        android:text="@string/sotien"/>
+        android:text="@string/songaycong"/>
     <EditText
         style="@style/edittext"
-        android:id="@+id/txtSoTien"/>
+        android:id="@+id/txtSoNgayCong"/>
+    <TextView
+        style="@style/tieude"
+        android:text="@string/chucnang"/>
     <LinearLayout
         style="@style/linerlayout">
         <Button
             style="@style/button"
-            android:id="@+id/btnTamUng"
+            android:id="@+id/btnLuuChamCong"
             android:text="@string/luu"
             />
         <Button
