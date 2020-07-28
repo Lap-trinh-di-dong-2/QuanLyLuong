@@ -97,25 +97,5 @@ public class DBNhanVien {
         db.close();
         return data;
     }
-    public ArrayList<NhanVien> layNhanVienChamCong(String manv) {
-        ArrayList<NhanVien> data = new ArrayList<>();
-        String sql = "select * from NhanVien where manv ='" + manv + "'";
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery(sql, null);
-        try {
-            cursor.moveToFirst();
-            do {
-                NhanVien nhanVien = new NhanVien();
-                nhanVien.setMaNhanVien(cursor.getString(0));
-                nhanVien.setTenNhanVien(cursor.getString(1));
-                data.add(nhanVien);
-            }
-            while (cursor.moveToNext());
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
 
-        db.close();
-        return data;
-    }
 }

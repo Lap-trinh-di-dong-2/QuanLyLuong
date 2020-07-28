@@ -1,9 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".GiaoDien.ChamCong.SuaChamCong">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        style="@style/tieude"
+        android:text="@string/chamcong"
+        />
+    <TextView
+        style="@style/textview"
+        android:text="@string/manhanvien"/>
+
+    <TextView
+        android:id="@+id/tvMaNhanVien"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TextView>
+    <TextView
+        style="@style/textview"
+        android:text="@string/tennhanvien"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvTenNhanVien"></TextView>
+    <TextView
+        style="@style/textview"
+        android:text="@string/thang"/>
+    <TextView
+        style="@style/textview1"
+        android:id="@+id/txtNgayChamCong"/>
+    <TextView
+        style="@style/textview"
+        android:text="@string/songaycong"/>
+    <EditText
+        style="@style/edittext"
+        android:id="@+id/txtSoNgayCong"/>
+    <TextView
+        style="@style/tieude"
+        android:text="@string/chucnang"/>
+    <LinearLayout
+        style="@style/linerlayout">
+        <Button
+            style="@style/button"
+            android:id="@+id/btnLuuChamCong"
+            android:text="@string/luu"
+            />
+        <Button
+            style="@style/button"
+            android:id="@+id/btnThoat"
+            android:text="@string/thoat"
+            />
+    </LinearLayout>
+</LinearLayout>

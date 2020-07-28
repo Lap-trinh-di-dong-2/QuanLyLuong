@@ -43,7 +43,7 @@ public class ThemChamCong extends AppCompatActivity {
         showDate(year, month + 1);
         String manv = getIntent().getExtras().getString("ma");
         DBNhanVien dbNhanVien = new DBNhanVien(this);
-        dataNV = dbNhanVien.layNhanVienChamCong(manv);
+        dataNV = dbNhanVien.layNhanVien(manv);
         tvMaNhanVien.setText(dataNV.get(0).getMaNhanVien());
         tvTenNhanVien.setText(dataNV.get(0).getTenNhanVien());
         btnLuu.setOnClickListener(new View.OnClickListener() {

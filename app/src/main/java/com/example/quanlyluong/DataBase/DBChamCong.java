@@ -4,8 +4,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
 import com.example.quanlyluong.Model.ChamCong;
-import com.example.quanlyluong.Model.TamUng;
 
 import java.util.ArrayList;
 
@@ -16,16 +16,26 @@ public class DBChamCong {
         this.dbHelper = new DBHelper(context);
     }
 
-    public  void themChamCong(ChamCong chamCong)
-    {
+    public void themChamCong(ChamCong chamCong) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("manv",chamCong.getMaNhanVien());
-        values.put("ngaycham",chamCong.getThang());
-        values.put("songaycong",chamCong.getSoNgayCong());
+        values.put("manv", chamCong.getMaNhanVien());
+        values.put("ngaycham", chamCong.getThang());
+        values.put("songaycong", chamCong.getSoNgayCong());
         db.insert("ChamCong", null, values);
         db.close();
     }
+
+    public void suaChamCong(ChamCong chamCong) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("manv", chamCong.getMaNhanVien());
+        values.put("ngaycham", chamCong.getThang());
+        values.put("songaycong", chamCong.getSoNgayCong());
+        db.update("ChamCong", values, "manv ='" + chamCong.getMaNhanVien() + "'", null);
+        db.close();
+    }
+
     public ArrayList<ChamCong> layDuLieu() {
         ArrayList<ChamCong> data = new ArrayList<>();
         String sql = "Select * from ChamCong ";
@@ -49,7 +59,29 @@ public class DBChamCong {
 
     public void xoaChamCong(ChamCong chamCong) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        db.delete("TamUng", "manv= '" + chamCong.getMaNhanVien() + "'", null);
+        db.delete("ChamCong", "manv= '" + chamCong.getMaNhanVien() + "'", null);
         db.close();
+    }
+
+    public ArrayList<ChamCong> layChamCong(String manv) {
+        ArrayList<ChamCong> data = new ArrayList<>();
+        String sql = "select * from ChamCong where manv ='" + manv + "'";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        try {
+            cursor.moveToFirst();
+            do {
+                ChamCong chamCong = new ChamCong();
+                chamCong.setMaNhanVien(cursor.getString(0));
+                chamCong.setThang(cursor.getString(1));
+                chamCong.setSoNgayCong(cursor.getString(2));
+                data.add(chamCong);
+            }
+            while (cursor.moveToNext());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        db.close();
+        return data;
     }
 }
