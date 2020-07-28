@@ -18,50 +18,54 @@ import com.example.quanlyluong.R;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class ThemTamUng extends AppCompatActivity {
-    EditText txtSophieu, txtSoTien;
-    TextView tvMaNhanVien, tvTenNhanVien, tvNgayUng;
+public class SuaTamUng extends AppCompatActivity {
+    EditText  txtSoTien;
+    TextView tvMaNhanVien, tvTenNhanVien, tvNgayUng, tvSophieu;
     Calendar calendar;
     int year, month, day;
     Button btnTamUng;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.them_tamung);
+        setContentView(R.layout.sua_tamung);
         setControl();
         setEvent();
     }
 
     private void setEvent() {
+
         showDate(year, month + 1, day);
-        String manv = getIntent().getExtras().getString("ma");
+        String sophieu = getIntent().getExtras().getString("sophieu");
+        DBTamUng dbTamUng = new DBTamUng(getApplicationContext());
+        ArrayList<TamUng> tamUngs = dbTamUng.layPhieu(sophieu);
+        tvSophieu.setText(tamUngs.get(0).getSoPhieu());
+        txtSoTien.setText(tamUngs.get(0).getSoTien());
+        String manv = tamUngs.get(0).getMaNhanVien();
         DBNhanVien dbNhanVien = new DBNhanVien(getApplicationContext());
         ArrayList<NhanVien> nhanViens = dbNhanVien.layNhanVien(manv);
         tvMaNhanVien.setText(nhanViens.get(0).getMaNhanVien());
         tvTenNhanVien.setText(nhanViens.get(0).getTenNhanVien());
 
+
         btnTamUng.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                themTamUng();
-                Intent intent =new Intent(ThemTamUng.this, BangTamUng.class);
+                suaTamUng();
+                Intent intent =new Intent(SuaTamUng.this, BangTamUng.class);
                 startActivity(intent);
             }
         });
 
-
     }
 
-    private void themTamUng() {
+    private void suaTamUng() {
         TamUng tamUng = new TamUng();
-        tamUng.setSoPhieu(txtSophieu.getText().toString());
-        tamUng.setMaNhanVien(tvMaNhanVien.getText().toString());
+        tamUng.setSoPhieu(tvSophieu.getText().toString());
         tamUng.setNgayUng(tvNgayUng.getText().toString());
+        tamUng.setMaNhanVien(tvMaNhanVien.getText().toString());
         tamUng.setSoTien(txtSoTien.getText().toString());
         DBTamUng dbTamUng = new DBTamUng(getApplicationContext());
-        dbTamUng.themTamUng(tamUng);
-
+        dbTamUng.suaTamUng(tamUng);
     }
 
     private void showDate(int year, int month, int day) {
@@ -69,8 +73,9 @@ public class ThemTamUng extends AppCompatActivity {
                 month: "0" + month).append("/").append(year));
     }
 
+
     private void setControl() {
-        txtSophieu = findViewById(R.id.txtSoPhieu);
+        tvSophieu = findViewById(R.id.tvSoPhieu);
         txtSoTien = findViewById(R.id.txtSoTien);
 
         tvMaNhanVien = findViewById(R.id.tvMaNhanVien);
@@ -84,6 +89,4 @@ public class ThemTamUng extends AppCompatActivity {
         day = calendar.get(Calendar.DAY_OF_MONTH);
 
     }
-
-
 }

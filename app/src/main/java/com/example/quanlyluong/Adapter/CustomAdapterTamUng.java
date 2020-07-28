@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.quanlyluong.DataBase.DBNhanVien;
 import com.example.quanlyluong.DataBase.DBTamUng;
 import com.example.quanlyluong.GiaoDien.TamUng.BangTamUng;
+import com.example.quanlyluong.GiaoDien.TamUng.SuaTamUng;
 import com.example.quanlyluong.GiaoDien.TamUng.ThemTamUng;
 import com.example.quanlyluong.Model.NhanVien;
 import com.example.quanlyluong.Model.TamUng;
@@ -52,6 +53,7 @@ public class CustomAdapterTamUng extends ArrayAdapter {
         if (view == null) {
             holder = new CustomAdapterTamUng.Holder();
             view = LayoutInflater.from(context).inflate(resource, null);
+            holder.tvSoPhieu = view.findViewById(R.id.tvSoPhieu);
             holder.tvMaNV = view.findViewById(R.id.tvMaNV);
             holder.tvTenNV = view.findViewById(R.id.tvTenNV);
             holder.tvNgayUng = view.findViewById(R.id.tvNgayUng);
@@ -68,8 +70,8 @@ public class CustomAdapterTamUng extends ArrayAdapter {
         final TamUng tamUng = data.get(position);
 
 
+        holder.tvSoPhieu.setText(tamUng.getSoPhieu());
         holder.tvMaNV.setText(tamUng.getMaNhanVien());
-
         holder.tvSoTien.setText(tamUng.getSoTien());
         holder.tvNgayUng.setText(tamUng.getNgayUng());
         DBNhanVien dbNhanVien = new DBNhanVien(getContext());
@@ -85,9 +87,9 @@ public class CustomAdapterTamUng extends ArrayAdapter {
         holder.imgTamUng.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, ThemTamUng.class);
+                Intent intent = new Intent(context, SuaTamUng.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("ma", tamUng.getMaNhanVien());
+                bundle.putString("sophieu", tamUng.getSoPhieu());
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }
