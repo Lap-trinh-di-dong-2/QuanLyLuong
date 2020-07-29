@@ -15,9 +15,9 @@
         <TextView
             style="@style/textview1"
             android:text="@string/sophieu"/>
-        <EditText
+        <TextView
             style="@style/edittext"
-            android:id="@+id/txtSoPhieu"/>
+            android:id="@+id/tvSoPhieu"/>
     </LinearLayout>
     <LinearLayout
         style="@style/linerlayout">

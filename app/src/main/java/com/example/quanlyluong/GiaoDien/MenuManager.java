@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quanlyluong.GiaoDien.ChamCong.BangChamCong;
@@ -24,6 +25,8 @@ public class MenuManager extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manager);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         setControl();
         setEvent();
     }
@@ -94,6 +97,9 @@ public class MenuManager extends AppCompatActivity {
                 break;
 
         }
+        onBackPressed();
         return super.onOptionsItemSelected(item);
     }
+
+
 }
