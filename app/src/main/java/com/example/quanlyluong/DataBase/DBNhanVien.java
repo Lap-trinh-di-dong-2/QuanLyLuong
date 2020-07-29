@@ -100,9 +100,36 @@ public class DBNhanVien {
     }
 
 
-    public ArrayList<ThongKe> layDSTongKe() {
+    public ArrayList<ThongKe> layDSThongKe() {
         ArrayList<ThongKe> data = new ArrayList<>();
         String sql = "select NhanVien.manv,NhanVien.tennv,NhanVien.phongban,NhanVien.hesoluong,ChamCong.ngaycham,ChamCong.songaycong,TamUng.sotien from NhanVien INNER JOIN  ChamCong on NhanVien.manv = ChamCong.manv  INNER JOIN TamUng on NhanVien.manv = TamUng.manv ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        try {
+            cursor.moveToFirst();
+            do {
+                ThongKe thongKe = new ThongKe();
+                thongKe.setMaNhanVien(cursor.getString(0));
+                thongKe.setTenNhanVien(cursor.getString(1));
+                thongKe.setTenPhongBan(cursor.getString(2));
+                thongKe.setLuongCoBan(cursor.getString(3));
+                thongKe.setNgayChamCong(cursor.getString(4));
+                thongKe.setNgayCong(cursor.getString(5));
+                thongKe.setTamUng(cursor.getString(6));
+                data.add(thongKe);
+            }
+            while (cursor.moveToNext());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return data;
+    }
+
+    public ArrayList<ThongKe> locDSThongKe(String key) {
+        ArrayList<ThongKe> data = new ArrayList<>();
+        String sql = "SELECT NhanVien.manv,NhanVien.tennv,NhanVien.phongban,NhanVien.hesoluong,ChamCong.ngaycham,ChamCong.songaycong,TamUng.sotien " +
+                "FROM NhanVien INNER JOIN  ChamCong on NhanVien.manv = ChamCong.manv  " +
+                "INNER JOIN TamUng ON NhanVien.manv = TamUng.manv WHERE ChamCong.ngaycham LIKE \"%"+key+"%\" ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
         try {

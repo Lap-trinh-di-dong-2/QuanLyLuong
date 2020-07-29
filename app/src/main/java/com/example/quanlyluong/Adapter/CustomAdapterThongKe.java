@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.quanlyluong.Model.NhanVien;
-import com.example.quanlyluong.Model.TamUng;
 import com.example.quanlyluong.Model.ThongKe;
 import com.example.quanlyluong.R;
 
@@ -77,4 +75,23 @@ public class CustomAdapterThongKe extends ArrayAdapter {
 
         return view;
     }
+
+
+        //filter
+//    public void filter (String charText){
+//        charText = charText.toLowerCase(Locale.getDefault());
+//        data.clear();
+//        if (charText.length()==0){
+//            data.addAll(data_DS);
+//        }
+//        else {
+//            for (ChamCong model : data_DS){
+//                if (model.getTenSV().toLowerCase(Locale.getDefault())
+//                        .contains(charText) ){
+//                    data.add(model);
+//                }
+//            }
+//        }
+//        notifyDataSetChanged();
+//    }
 }
