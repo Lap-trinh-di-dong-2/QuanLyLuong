@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    android:background="@drawable/background1"
+    android:background="@drawable/background4"
     tools:context=".GiaoDien.PhongBan.MainPhongBan">
 
     <TextView
