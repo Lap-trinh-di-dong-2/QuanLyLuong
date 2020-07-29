@@ -9,7 +9,35 @@
 
     <TextView
         style="@style/tieude"
-        android:text="@string/thongke"/>
+        android:text="Lọc theo tháng"/>
+    <LinearLayout
+        style="@style/linerlayout"
+        >
+        <Spinner
+            style="@style/spin1"
+            android:layout_weight="1"
+            android:id="@+id/spNgayCham"
+          />
+
+        <Button
+            style="@style/button"
+            android:id="@+id/btnLoc"
+            android:text="Lọc"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/linerlayout"
+        android:gravity="center">
+        <TextView
+            style="@style/textview1"
+            android:text="@string/tongluong"/>
+
+        <TextView
+            android:id="@+id/tvTongLuong"
+            style="@style/textview1"
+            android:text="5000000" />
+    </LinearLayout>
     <ListView
         style="@style/listview"
         android:id="@+id/lvThongKe"/>

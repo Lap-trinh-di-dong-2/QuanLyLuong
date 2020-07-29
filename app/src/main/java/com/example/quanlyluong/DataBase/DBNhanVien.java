@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.quanlyluong.Model.NhanVien;
+import com.example.quanlyluong.Model.ThongKe;
 
 import java.util.ArrayList;
 
@@ -95,6 +96,32 @@ public class DBNhanVien {
         }
 
         db.close();
+        return data;
+    }
+
+
+    public ArrayList<ThongKe> layDSTongKe() {
+        ArrayList<ThongKe> data = new ArrayList<>();
+        String sql = "select NhanVien.manv,NhanVien.tennv,NhanVien.phongban,NhanVien.hesoluong,ChamCong.ngaycham,ChamCong.songaycong,TamUng.sotien from NhanVien INNER JOIN  ChamCong on NhanVien.manv = ChamCong.manv  INNER JOIN TamUng on NhanVien.manv = TamUng.manv ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        try {
+            cursor.moveToFirst();
+            do {
+                ThongKe thongKe = new ThongKe();
+                thongKe.setMaNhanVien(cursor.getString(0));
+                thongKe.setTenNhanVien(cursor.getString(1));
+                thongKe.setTenPhongBan(cursor.getString(2));
+                thongKe.setLuongCoBan(cursor.getString(3));
+                thongKe.setNgayChamCong(cursor.getString(4));
+                thongKe.setNgayCong(cursor.getString(5));
+                thongKe.setTamUng(cursor.getString(6));
+                data.add(thongKe);
+            }
+            while (cursor.moveToNext());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
         return data;
     }
 

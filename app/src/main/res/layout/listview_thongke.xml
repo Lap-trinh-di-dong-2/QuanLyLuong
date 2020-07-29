@@ -5,15 +5,7 @@
 <TextView
    style="@style/tieude"
     android:text="@string/thongke"/>
-    <LinearLayout
-        style="@style/linerlayout">
-    <TextView
-        style="@style/textview1"
-        android:text="@string/tongluong"/>
-        <TextView
-           style="@style/textview1"
-            android:text="5000000"/>
-    </LinearLayout>
+
     <LinearLayout
        style="@style/linerlayout">
         <TextView
@@ -42,7 +34,7 @@
             android:text="@string/phongban"/>
         <TextView
             style="@style/textview1"
-            android:id="@+id/tvPhongBan"
+            android:id="@+id/tvTenPhongBan"
             android:text="Nhân Sự"/>
     </LinearLayout>
     <LinearLayout
@@ -74,6 +66,16 @@
             style="@style/textview1"
             android:id="@+id/tvTamUng"
             android:text="500000"/>
+    </LinearLayout>
+    <LinearLayout
+        style="@style/linerlayout">
+        <TextView
+            style="@style/textview2"
+            android:text="@string/thoigiancham"/>
+        <TextView
+            style="@style/textview1"
+            android:id="@+id/tvThoiGianCham"
+            android:text="08/2020"/>
     </LinearLayout>
     <LinearLayout
         style="@style/linerlayout">

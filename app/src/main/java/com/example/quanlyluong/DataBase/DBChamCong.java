@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.quanlyluong.Model.ChamCong;
+import com.example.quanlyluong.Model.PhongBan;
 
 import java.util.ArrayList;
 
@@ -82,6 +83,27 @@ public class DBChamCong {
             ex.printStackTrace();
         }
         db.close();
+        return data;
+    }
+
+    public ArrayList<String> layDSNgayCham() {
+        ArrayList<String> data = new ArrayList<>();
+        String sql = "SELECT DISTINCT ngaycham FROM ChamCong ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        try {
+            cursor.moveToFirst();
+            do {
+                ChamCong chamCong = new ChamCong();
+                String ngayCham = "";
+                chamCong.setThang(cursor.getString(0));
+                ngayCham = chamCong.getThang();
+                data.add(ngayCham);
+            }
+            while (cursor.moveToNext());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
         return data;
     }
 }

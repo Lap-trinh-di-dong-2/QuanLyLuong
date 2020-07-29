@@ -58,6 +58,13 @@
         <item name="android:orientation">horizontal</item>
 
     </style>
+
+    <style name="linerlayout1">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+
+    </style>
     <style name="linerlayoutveti">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -121,6 +128,14 @@
         <item name="android:layout_marginRight">30sp</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+
+    <style name="spin1">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+
+    </style>
+
     <style name="tvMaNhanVien">
         <item name="android:layout_width">match_parent</item>
         <item name="android:gravity">center</item>
