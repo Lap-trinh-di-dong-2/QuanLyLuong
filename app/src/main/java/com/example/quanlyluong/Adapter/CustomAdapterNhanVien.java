@@ -104,6 +104,7 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
                 dbNhanVien.xoaNhanVien(nhanVien);
                 Intent intent = new Intent(getContext(), MainNhanVien.class);
                 context.startActivity(intent);
+
             }
         });
         holder.btnChamCong.setOnClickListener(new View.OnClickListener() {

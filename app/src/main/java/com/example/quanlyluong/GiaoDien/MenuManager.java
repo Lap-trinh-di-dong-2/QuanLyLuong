@@ -13,7 +13,7 @@ import com.example.quanlyluong.GiaoDien.ChamCong.BangChamCong;
 import com.example.quanlyluong.GiaoDien.NhanVien.MainNhanVien;
 import com.example.quanlyluong.GiaoDien.PhongBan.MainPhongBan;
 import com.example.quanlyluong.GiaoDien.TamUng.BangTamUng;
-import com.example.quanlyluong.GiaoDien.Thongke.ThongKe;
+import com.example.quanlyluong.GiaoDien.Thongke.BangThongKe;
 import com.example.quanlyluong.R;
 
 public class MenuManager extends AppCompatActivity {
@@ -60,7 +60,7 @@ public class MenuManager extends AppCompatActivity {
         btnThongke.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent4 = new Intent(MenuManager.this, ThongKe.class);
+                Intent intent4 = new Intent(MenuManager.this, BangThongKe.class);
                 startActivity(intent4);
             }
         });

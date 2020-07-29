@@ -1,5 +1,6 @@
 package com.example.quanlyluong.GiaoDien.TamUng;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -31,6 +32,7 @@ public class ThemTamUng extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.them_tamung);
+
         setControl();
         setEvent();
     }
@@ -92,6 +94,7 @@ public class ThemTamUng extends AppCompatActivity {
         onBackPressed();
         return super.onOptionsItemSelected(item);
     }
+
 
 
 }

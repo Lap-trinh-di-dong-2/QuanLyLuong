@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quanlyluong.Adapter.CustomAdapterNhanVien;
@@ -28,6 +29,8 @@ public class MainNhanVien extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nhanvien);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         setControl();
         setEvent();
     }
@@ -39,6 +42,7 @@ public class MainNhanVien extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainNhanVien.this, ThemNhanVien.class);
                 startActivity(intent);
+
             }
         });
     }

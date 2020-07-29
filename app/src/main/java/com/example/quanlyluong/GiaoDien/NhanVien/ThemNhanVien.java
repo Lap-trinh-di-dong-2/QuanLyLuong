@@ -38,8 +38,6 @@ public class ThemNhanVien extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.them_nhanvien);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
         setControl();
         setEvent();
     }
@@ -68,6 +66,7 @@ public class ThemNhanVien extends AppCompatActivity {
                 themNhanVien();
                 Intent intent =new Intent(ThemNhanVien.this,MainNhanVien.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
