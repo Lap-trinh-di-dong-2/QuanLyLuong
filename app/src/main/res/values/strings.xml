@@ -42,6 +42,6 @@
     <string name="luutamung">Lưu Tạm Ứng</string>
 
     <string name="thongke">Thống Kê</string>
-
-
+    <string name="tongluong">Tổng Lương : </string>
+    <string name="luong">Lương : </string>
 </resources>
