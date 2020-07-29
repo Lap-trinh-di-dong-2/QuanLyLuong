@@ -30,7 +30,7 @@
 
     <string name="tieude2">Bảng Chấm Công</string>
     <string name="chamcong">Chấm Công</string>
-    <string name="thang">Ngày Chấm Công : </string>
+    <string name="thang">Tháng : </string>
     <string name="luuchamcong">Lưu Chấm Công</string>
     <string name="songaycong">Số Ngày Công : </string>
 
