@@ -31,7 +31,7 @@ public class CustomAdapterThongKe extends ArrayAdapter {
     }
 
     private static class Holder {
-        TextView tvMaNV, tvTenNV, tvThoiGianCham, tvTenPhongBan, tvLuongCoBan, tvNgayCong, tvTamUng, tvLuong;
+        TextView tvMaNV, tvTenNV, tvThoiGianCham, tvTenPhongBan, tvLuongCoBan, tvNgayCong, tvTamUng, tvLuong, tvThucLanh, tvTongLuong;
 
     }
 
@@ -53,6 +53,8 @@ public class CustomAdapterThongKe extends ArrayAdapter {
             holder.tvNgayCong = view.findViewById(R.id.tvSoNgayCong);
             holder.tvTamUng = view.findViewById(R.id.tvTamUng);
             holder.tvLuong = view.findViewById(R.id.tvLuong);
+            holder.tvThucLanh = view.findViewById(R.id.tvThucLanh);
+            holder.tvTongLuong = view.findViewById(R.id.tvTongLuong);
 
             view.setTag(holder);
         } else
@@ -68,10 +70,21 @@ public class CustomAdapterThongKe extends ArrayAdapter {
 
         int luong = 0;
         int ngayCong = Integer.parseInt(thongKe.getNgayCong());
-        int luongCoBan = Integer.parseInt(thongKe.getNgayCong());
+        int luongCoBan = Integer.parseInt(thongKe.getLuongCoBan());
+        int tamUng = Integer.parseInt(thongKe.getTamUng());
         luong = ((luongCoBan * 26) / ngayCong);
         thongKe.setLuong(luong+"");
         holder.tvLuong.setText(thongKe.getLuong());
+        int thucLanh = 0;
+        thucLanh = luong - tamUng;
+        thongKe.setThucLanh(thucLanh+"");
+        holder.tvThucLanh.setText(thongKe.getThucLanh());
+        int tongLuong = 0;
+        tongLuong = tongLuong + thucLanh;
+        thongKe.setTongLuong(tongLuong+"");
+        holder.tvTongLuong.setText(thongKe.getTongLuong());
+
+
 
         return view;
     }

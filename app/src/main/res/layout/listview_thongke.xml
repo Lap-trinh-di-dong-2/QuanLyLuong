@@ -87,4 +87,15 @@
             android:id="@+id/tvLuong"
             android:text="50000000"/>
     </LinearLayout>
+
+    <LinearLayout
+        style="@style/linerlayout">
+        <TextView
+            style="@style/textview2"
+            android:text="Thực lãnh"/>
+        <TextView
+            style="@style/textview1"
+            android:id="@+id/tvThucLanh"
+            android:text="50000000"/>
+    </LinearLayout>
 </LinearLayout>

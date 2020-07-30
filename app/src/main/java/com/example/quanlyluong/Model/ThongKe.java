@@ -1,7 +1,7 @@
 package com.example.quanlyluong.Model;
 
 public class ThongKe {
-    String maNhanVien, tenNhanVien, tenPhongBan, luongCoBan, ngayCong, tamUng, ngayChamCong,luong;
+    String maNhanVien, tenNhanVien, tenPhongBan, luongCoBan, ngayCong, tamUng, ngayChamCong,luong, thucLanh, tongLuong;
 
     public String getMaNhanVien() {
         return maNhanVien;
@@ -65,6 +65,22 @@ public class ThongKe {
 
     public void setLuong(String luong) {
         this.luong = luong;
+    }
+
+    public String getThucLanh() {
+        return thucLanh;
+    }
+
+    public void setThucLanh(String thucLanh) {
+        this.thucLanh = thucLanh;
+    }
+
+    public String getTongLuong() {
+        return tongLuong;
+    }
+
+    public void setTongLuong(String tongLuong) {
+        this.tongLuong = tongLuong;
     }
 
     @Override

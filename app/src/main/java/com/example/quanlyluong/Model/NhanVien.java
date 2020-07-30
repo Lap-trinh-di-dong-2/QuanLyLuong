@@ -1,7 +1,10 @@
 package com.example.quanlyluong.Model;
 
+import java.util.Arrays;
+
 public class NhanVien {
     String maNhanVien, tenNhanVien, ngaySinh, gioiTinh, phongBan, heSoLuong;
+    byte[] anh;
 
     public String getMaNhanVien() {
         return maNhanVien;
@@ -51,6 +54,14 @@ public class NhanVien {
         this.heSoLuong = heSoLuong;
     }
 
+    public byte[] getAnh() {
+        return anh;
+    }
+
+    public void setAnh(byte[] anh) {
+        this.anh = anh;
+    }
+
     @Override
     public String toString() {
         return "NhanVien{" +
@@ -60,6 +71,7 @@ public class NhanVien {
                 ", gioiTinh='" + gioiTinh + '\'' +
                 ", phongBan='" + phongBan + '\'' +
                 ", heSoLuong='" + heSoLuong + '\'' +
+                ", anh=" + Arrays.toString(anh) +
                 '}';
     }
 }

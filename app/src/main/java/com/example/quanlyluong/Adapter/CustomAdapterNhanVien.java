@@ -2,6 +2,8 @@ package com.example.quanlyluong.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -78,15 +80,18 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
         holder.tvNgaySinh.setText(nhanVien.getNgaySinh());
         holder.tvMaPB.setText(nhanVien.getPhongBan());
         holder.tvLuong.setText(nhanVien.getHeSoLuong());
-        if(nhanVien.getGioiTinh().equals("Nam"))
-        {
-            holder.imgHinh.setImageResource(R.drawable.nam);
 
-        }
-        if(nhanVien.getGioiTinh().equals("Nữ"))
-        {
-            holder.imgHinh.setImageResource(R.drawable.nu);
-        }
+        Bitmap bmHinhDaiDien = BitmapFactory.decodeByteArray(nhanVien.getAnh(), 0, nhanVien.getAnh().length);
+        holder.imgHinh.setImageBitmap(bmHinhDaiDien);
+//        if(nhanVien.getGioiTinh().equals("Nam"))
+//        {
+//            holder.imgHinh.setImageResource(R.drawable.nam);
+//
+//        }
+//        if(nhanVien.getGioiTinh().equals("Nữ"))
+//        {
+//            holder.imgHinh.setImageResource(R.drawable.nu);
+//        }
         holder.imgHinh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

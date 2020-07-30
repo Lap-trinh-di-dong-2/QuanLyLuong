@@ -26,6 +26,7 @@ public class DBNhanVien {
         values.put("gioitinh", nhanVien.getGioiTinh());
         values.put("phongban", nhanVien.getPhongBan());
         values.put("hesoluong", nhanVien.getHeSoLuong());
+        values.put("hinh", nhanVien.getAnh());
         db.insert("NhanVien", null, values);
         db.close();
     }
@@ -64,6 +65,7 @@ public class DBNhanVien {
                 nhanVien.setGioiTinh(cursor.getString(3));
                 nhanVien.setPhongBan(cursor.getString(4));
                 nhanVien.setHeSoLuong(cursor.getString(5));
+                nhanVien.setAnh(cursor.getBlob(6));
                 data.add(nhanVien);
             }
             while (cursor.moveToNext());
@@ -88,6 +90,7 @@ public class DBNhanVien {
                 nhanVien.setGioiTinh(cursor.getString(3));
                 nhanVien.setPhongBan(cursor.getString(4));
                 nhanVien.setHeSoLuong(cursor.getString(5));
+                nhanVien.setAnh(cursor.getBlob(6));
                 data.add(nhanVien);
             }
             while (cursor.moveToNext());

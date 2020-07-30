@@ -6,13 +6,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 
@@ -22,10 +28,17 @@ import com.example.quanlyluong.Model.NhanVien;
 import com.example.quanlyluong.Model.PhongBan;
 import com.example.quanlyluong.R;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 
 public class ThemNhanVien extends AppCompatActivity {
+    final int RESQUEST_TAKE_PHOTO = 123;
+    final int REQUEST_CHOOSE_PHOTO = 321;
+    Button btnChonHinh, btnChupHinh, btnHuy;
+    ImageView imgHinhDaiDien;
     Button btnLuuNhanVien, btnsetDay;
     Calendar calendar;
     int year, month, day;
@@ -69,6 +82,27 @@ public class ThemNhanVien extends AppCompatActivity {
                 finish();
             }
         });
+
+        btnChonHinh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                choosePhoto();
+            }
+        });
+        btnChupHinh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                takePicture();
+            }
+        });
+
+
+        btnHuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cancel();
+            }
+        });
     }
 
     private void themNhanVien() {
@@ -85,6 +119,8 @@ public class ThemNhanVien extends AppCompatActivity {
         if(radNam.isChecked() == true){
             nhanVien.setGioiTinh("Nam");
         }
+        byte[] anh = getByteArrayFromImageView(imgHinhDaiDien);
+        nhanVien.setAnh(anh);
         nhanVien.setPhongBan(spPhongBan.getSelectedItem().toString());
         nhanVien.setHeSoLuong(txtHeSoLuong.getText().toString());
 
@@ -108,6 +144,14 @@ public class ThemNhanVien extends AppCompatActivity {
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
+
+
+        btnChonHinh = findViewById(R.id.btnChonHinh);
+        btnChupHinh = findViewById(R.id.btnChupHinh);
+        btnHuy = findViewById(R.id.btnHuy);
+        imgHinhDaiDien = findViewById(R.id.imgHinhDaiDien);
+
+
 
     }
 
@@ -142,4 +186,52 @@ public class ThemNhanVien extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+    private void choosePhoto(){
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        startActivityForResult(intent, REQUEST_CHOOSE_PHOTO);
+    }
+
+    private void takePicture(){
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, RESQUEST_TAKE_PHOTO);
+    }
+    private void cancel(){
+        Intent intent = new Intent(this, MainNhanVien.class);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == REQUEST_CHOOSE_PHOTO) {
+                try {
+                    Uri imageUri = data.getData();
+                    InputStream is = getContentResolver().openInputStream(imageUri);
+                    Bitmap bitmap = BitmapFactory.decodeStream(is);
+                    imgHinhDaiDien.setImageBitmap(bitmap);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            } else if (requestCode == RESQUEST_TAKE_PHOTO) {
+                Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+                imgHinhDaiDien.setImageBitmap(bitmap);
+            }
+        }
+    }
+
+    private byte[] getByteArrayFromImageView(ImageView imgv){
+
+        BitmapDrawable drawable = (BitmapDrawable) imgv.getDrawable();
+        Bitmap bmp = drawable.getBitmap();
+
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        return byteArray;
+    }
+
 }
