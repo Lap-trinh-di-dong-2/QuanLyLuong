@@ -98,7 +98,7 @@ public class ThemNhanVien extends AppCompatActivity {
     }
 
     private void themNhanVien() {
-
+        DBNhanVien dbNhanVien = new DBNhanVien(getApplicationContext());
         NhanVien nhanVien = new NhanVien();
         nhanVien.setMaNhanVien(txtMaNhanVien.getText().toString());
         nhanVien.setTenNhanVien(txtTenNhanVien.getText().toString());
@@ -113,7 +113,6 @@ public class ThemNhanVien extends AppCompatActivity {
         }
         byte[] anh = getByteArrayFromImageView(imgHinhDaiDien);
         nhanVien.setAnh(anh);
-        DBNhanVien dbNhanVien = new DBNhanVien(getApplicationContext());
         String maPhong = dbNhanVien.layMaPhong(spPhongBan.getSelectedItem().toString());
         nhanVien.setPhongBan(maPhong);
         nhanVien.setHeSoLuong(txtHeSoLuong.getText().toString());

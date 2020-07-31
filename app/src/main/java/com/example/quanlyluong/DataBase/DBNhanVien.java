@@ -177,4 +177,29 @@ public class DBNhanVien {
         return maPhong;
     }
 
+    public boolean checkXoaNhanVienTamUng(String maNhanVien) {
+        boolean check = false;
+        String sql = "SELECT count(*) FROM TamUng WHERE manv LIKE \"%"+maNhanVien+"%\" ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        cursor.moveToFirst();
+        int count  = cursor.getInt(0);
+        if(count > 0) {
+            check = true;
+        }
+        return check;
+    }
+
+    public boolean checkXoaNhanVienChamCong(String maNhanVien) {
+        boolean check = false;
+        String sql = "SELECT count(*) FROM ChamCong WHERE manv LIKE \"%"+maNhanVien+"%\" ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        cursor.moveToFirst();
+        int count  = cursor.getInt(0);
+        if(count > 0) {
+            check = true;
+        }
+        return check;
+    }
 }

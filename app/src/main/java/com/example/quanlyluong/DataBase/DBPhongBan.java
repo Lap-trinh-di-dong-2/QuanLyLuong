@@ -106,6 +106,7 @@ public class DBPhongBan {
         String sql = "SELECT tenpb FROM PhongBan WHERE mapb LIKE \"%"+maPhong+"%\" ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
+
         try {
             cursor.moveToFirst();
             do {
@@ -118,5 +119,18 @@ public class DBPhongBan {
             ex.printStackTrace();
         }
         return tenPhong;
+    }
+
+    public boolean checkXoaPhong(String maPhong) {
+        boolean check = false;
+        String sql = "SELECT count(*) FROM NhanVien WHERE mapb LIKE \""+maPhong+"\" ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        cursor.moveToFirst();
+        int count  = cursor.getInt(0);
+        if(count > 0) {
+            check = true;
+        }
+        return check;
     }
 }

@@ -1,6 +1,8 @@
 package com.example.quanlyluong.Adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,11 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -31,12 +32,14 @@ import java.util.ArrayList;
 public class CustomAdapterNhanVien extends ArrayAdapter {
     Context context;
     int resource;
-    ArrayList<NhanVien>data;
-    public CustomAdapterNhanVien(@NonNull Context context, int resource, ArrayList<NhanVien>data) {
+    ArrayList<NhanVien> data;
+    final DBNhanVien dbNhanVien = new DBNhanVien(getContext());
+
+    public CustomAdapterNhanVien(@NonNull Context context, int resource, ArrayList<NhanVien> data) {
         super(context, resource);
-        this.context=context;
-        this.resource=resource;
-        this.data=data;
+        this.context = context;
+        this.resource = resource;
+        this.data = data;
     }
 
     @Override
@@ -45,16 +48,16 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
     }
 
     private static class Holder {
-        TextView tvMaNV, tvTenNV, tvNgaySinh, tvMaPB, tvLuong,tvGioiTinh;
+        TextView tvMaNV, tvTenNV, tvNgaySinh, tvMaPB, tvLuong, tvGioiTinh;
         ImageView imgXoa, imgHinh;
-        Button btnChamCong,btnTamUng;
+        Button btnChamCong, btnTamUng;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = convertView;
         Holder holder = null;
-        if(view == null) {
+        if (view == null) {
             holder = new Holder();
             view = LayoutInflater.from(context).inflate(resource, null);
             holder.tvMaNV = view.findViewById(R.id.tvMaNV);
@@ -70,9 +73,8 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
 
 
             view.setTag(holder);
-        }
-        else
-            holder=(Holder)view.getTag();
+        } else
+            holder = (Holder) view.getTag();
 
         final NhanVien nhanVien = data.get(position);
 
@@ -88,13 +90,11 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
 
         Bitmap bmHinhDaiDien = BitmapFactory.decodeByteArray(nhanVien.getAnh(), 0, nhanVien.getAnh().length);
         holder.imgHinh.setImageBitmap(bmHinhDaiDien);
-        if(nhanVien.getGioiTinh().equals("Nam"))
-        {
+        if (nhanVien.getGioiTinh().equals("Nam")) {
             holder.tvGioiTinh.setText(nhanVien.getGioiTinh());
 
         }
-        if(nhanVien.getGioiTinh().equals("Nữ"))
-        {
+        if (nhanVien.getGioiTinh().equals("Nữ")) {
             holder.tvGioiTinh.setText(nhanVien.getGioiTinh());
         }
         holder.imgHinh.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +102,7 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
             public void onClick(View v) {
                 Intent intent = new Intent(context, SuaNhanVien.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("ma",nhanVien.getMaNhanVien());
+                bundle.putString("ma", nhanVien.getMaNhanVien());
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }
@@ -110,10 +110,41 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
         holder.imgXoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DBNhanVien dbNhanVien = new DBNhanVien(getContext());
-                dbNhanVien.xoaNhanVien(nhanVien);
-                Intent intent = new Intent(getContext(), MainNhanVien.class);
-                context.startActivity(intent);
+
+                boolean checkChamCong = false;
+                boolean checkTamUng = false;
+                checkChamCong = dbNhanVien.checkXoaNhanVienChamCong(nhanVien.getMaNhanVien());
+                checkTamUng = dbNhanVien.checkXoaNhanVienTamUng(nhanVien.getMaNhanVien());
+                if (checkChamCong == true && checkTamUng == false) {
+                    Toast.makeText(context, "Cần xóa dữ liệu chấm công của Nhân viên trước", Toast.LENGTH_LONG).show();
+                }
+                if (checkTamUng == true && checkChamCong == false) {
+                    Toast.makeText(context, "Cần xóa dữ liệu tạm ứng của Nhân viên trước", Toast.LENGTH_LONG).show();
+                }
+                if (checkTamUng == true && checkChamCong == true) {
+                    Toast.makeText(context, "Cần xóa dữ liệu chấm công và tạm ứng của Nhân viên trước", Toast.LENGTH_LONG).show();
+                }
+                if (checkTamUng == false && checkChamCong == false) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setTitle("Thông báo");
+                    builder.setMessage("Bạn có muốn xóa không");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dbNhanVien.xoaNhanVien(nhanVien);
+                            Intent intent = new Intent(getContext(), MainNhanVien.class);
+                            context.startActivity(intent);
+                        }
+                    });
+                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    builder.show();
+                }
+
 
             }
         });
@@ -122,7 +153,7 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
             public void onClick(View view) {
                 Intent intent = new Intent(context, ThemChamCong.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("ma",nhanVien.getMaNhanVien());
+                bundle.putString("ma", nhanVien.getMaNhanVien());
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }
@@ -132,7 +163,7 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
             public void onClick(View view) {
                 Intent intent = new Intent(context, ThemTamUng.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("ma",nhanVien.getMaNhanVien());
+                bundle.putString("ma", nhanVien.getMaNhanVien());
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }
