@@ -44,7 +44,7 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
     }
 
     private static class Holder {
-        TextView tvMaNV, tvTenNV, tvNgaySinh, tvMaPB, tvLuong;
+        TextView tvMaNV, tvTenNV, tvNgaySinh, tvMaPB, tvLuong,tvGioiTinh;
         ImageView imgXoa, imgHinh;
         Button btnChamCong,btnTamUng;
     }
@@ -58,6 +58,7 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
             view = LayoutInflater.from(context).inflate(resource, null);
             holder.tvMaNV = view.findViewById(R.id.tvMaNV);
             holder.tvTenNV = view.findViewById(R.id.tvTenNV);
+            holder.tvGioiTinh = view.findViewById(R.id.tvGioiTinh);
             holder.tvNgaySinh = view.findViewById(R.id.tvNgaySinh);
             holder.tvMaPB = view.findViewById(R.id.tvMaPB);
             holder.tvLuong = view.findViewById(R.id.tvLuong);
@@ -83,15 +84,15 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
 
         Bitmap bmHinhDaiDien = BitmapFactory.decodeByteArray(nhanVien.getAnh(), 0, nhanVien.getAnh().length);
         holder.imgHinh.setImageBitmap(bmHinhDaiDien);
-//        if(nhanVien.getGioiTinh().equals("Nam"))
-//        {
-//            holder.imgHinh.setImageResource(R.drawable.nam);
-//
-//        }
-//        if(nhanVien.getGioiTinh().equals("Nữ"))
-//        {
-//            holder.imgHinh.setImageResource(R.drawable.nu);
-//        }
+        if(nhanVien.getGioiTinh().equals("Nam"))
+        {
+            holder.tvGioiTinh.setText(nhanVien.getGioiTinh());
+
+        }
+        if(nhanVien.getGioiTinh().equals("Nữ"))
+        {
+            holder.tvGioiTinh.setText(nhanVien.getGioiTinh());
+        }
         holder.imgHinh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

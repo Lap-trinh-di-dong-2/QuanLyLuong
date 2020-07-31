@@ -35,6 +35,18 @@
             android:text="Trần Bình An" />
         </LinearLayout>
         <LinearLayout
+           style="@style/linerlayout">
+            <TextView
+               style="@style/textview2"
+                android:textColor="#F8F5F5"
+                android:text="@string/gioitinh"/>
+            <TextView
+                style="@style/textview2"
+                android:text="Nam"
+                android:textColor="#F8F5F5"
+                android:id="@+id/tvGioiTinh"/>
+        </LinearLayout>
+        <LinearLayout
             style="@style/linerlayout">
             <TextView
                style="@style/textview2"

@@ -9,7 +9,7 @@
 
     <TextView
         style="@style/tieude"
-        android:text="@string/chamcong"
+        android:text="@string/suachamcong"
         />
     <LinearLayout
         style="@style/linerlayout">

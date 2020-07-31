@@ -37,7 +37,7 @@ import java.util.Calendar;
 public class ThemNhanVien extends AppCompatActivity {
     final int RESQUEST_TAKE_PHOTO = 123;
     final int REQUEST_CHOOSE_PHOTO = 321;
-    Button btnChonHinh, btnChupHinh, btnHuy;
+    Button btnChonHinh;
     ImageView imgHinhDaiDien;
     Button btnLuuNhanVien, btnsetDay;
     Calendar calendar;
@@ -82,25 +82,16 @@ public class ThemNhanVien extends AppCompatActivity {
                 finish();
             }
         });
-
+        imgHinhDaiDien.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                takePicture();
+            }
+        });
         btnChonHinh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 choosePhoto();
-            }
-        });
-        btnChupHinh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                takePicture();
-            }
-        });
-
-
-        btnHuy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cancel();
             }
         });
     }
@@ -147,8 +138,6 @@ public class ThemNhanVien extends AppCompatActivity {
 
 
         btnChonHinh = findViewById(R.id.btnChonHinh);
-        btnChupHinh = findViewById(R.id.btnChupHinh);
-        btnHuy = findViewById(R.id.btnHuy);
         imgHinhDaiDien = findViewById(R.id.imgHinhDaiDien);
 
 
@@ -198,10 +187,10 @@ public class ThemNhanVien extends AppCompatActivity {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, RESQUEST_TAKE_PHOTO);
     }
-    private void cancel(){
-        Intent intent = new Intent(this, MainNhanVien.class);
-        startActivity(intent);
-    }
+//    private void cancel(){
+//        Intent intent = new Intent(this, MainNhanVien.class);
+//        startActivity(intent);
+//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

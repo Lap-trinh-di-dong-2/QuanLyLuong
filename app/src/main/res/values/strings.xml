@@ -7,7 +7,7 @@
     <string name="tenphong">Tên Phòng : </string>
     <string name="ten">Tên : </string>
     <string name="them">Lưu Phòng Ban</string>
-    <string name="sua">Sửa</string>
+    <string name="sua">Sửa Phòng Ban</string>
     <string name="thoat">Hủy</string>
     <string name="Show">Danh Sách Phòng Ban</string>
     <string name="ngonngu">Ngôn Ngữ</string>
@@ -32,10 +32,12 @@
     <string name="chamcong">Chấm Công</string>
     <string name="thang">Tháng : </string>
     <string name="luuchamcong">Lưu Chấm Công</string>
+    <string name="suachamcong">Cập Nhật Chấm Công</string>
     <string name="songaycong">Số Ngày Công : </string>
 
     <string name="tieude4">Bảng Tạm Ứng</string>
     <string name="tamung">Tạm Ứng</string>
+    <string name="suatamung">Cập Nhật Tạm Ứng</string>
     <string name="sophieu">Số Phiếu :</string>
     <string name="ngayung">Ngày Ứng : </string>
     <string name="sotien">Số Tiền : </string>

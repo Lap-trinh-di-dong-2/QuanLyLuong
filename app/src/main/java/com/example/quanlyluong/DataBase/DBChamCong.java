@@ -60,7 +60,7 @@ public class DBChamCong {
 
     public void xoaChamCong(ChamCong chamCong) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        db.delete("ChamCong", "manv= '" + chamCong.getMaNhanVien() + "'", null);
+        db.delete("ChamCong", "manv= '" + chamCong.getMaNhanVien() + "'"  , null);
         db.close();
     }
 
@@ -88,7 +88,7 @@ public class DBChamCong {
 
     public ArrayList<String> layDSNgayCham() {
         ArrayList<String> data = new ArrayList<>();
-        String sql = "SELECT DISTINCT ngaycham FROM ChamCong ";
+        String sql = "SELECT DISTINCT ngaycham FROM ChamCong";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
         try {
