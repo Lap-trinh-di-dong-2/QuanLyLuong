@@ -18,6 +18,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.example.quanlyluong.DataBase.DBNhanVien;
+import com.example.quanlyluong.DataBase.DBPhongBan;
 import com.example.quanlyluong.GiaoDien.ChamCong.ThemChamCong;
 import com.example.quanlyluong.GiaoDien.NhanVien.MainNhanVien;
 import com.example.quanlyluong.GiaoDien.NhanVien.SuaNhanVien;
@@ -79,7 +80,10 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
         holder.tvMaNV.setText(nhanVien.getMaNhanVien());
         holder.tvTenNV.setText(nhanVien.getTenNhanVien());
         holder.tvNgaySinh.setText(nhanVien.getNgaySinh());
-        holder.tvMaPB.setText(nhanVien.getPhongBan());
+
+        DBPhongBan dbPhongBan = new DBPhongBan(context);
+        String maPhong = dbPhongBan.layTenPhong(nhanVien.getPhongBan());
+        holder.tvMaPB.setText(maPhong);
         holder.tvLuong.setText(nhanVien.getHeSoLuong());
 
         Bitmap bmHinhDaiDien = BitmapFactory.decodeByteArray(nhanVien.getAnh(), 0, nhanVien.getAnh().length);

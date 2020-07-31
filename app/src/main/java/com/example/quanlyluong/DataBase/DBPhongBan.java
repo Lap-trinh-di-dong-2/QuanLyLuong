@@ -100,4 +100,23 @@ public class DBPhongBan {
         db.delete("PhongBan", "mapb= '" + phongBan.getMaPhong() + "'", null);
         db.close();
     }
+
+    public String layTenPhong(String maPhong) {
+        String tenPhong = "";
+        String sql = "SELECT tenpb FROM PhongBan WHERE mapb LIKE \"%"+maPhong+"%\" ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        try {
+            cursor.moveToFirst();
+            do {
+                PhongBan phongBan = new PhongBan();
+                phongBan.setMaPhong(cursor.getString(0));
+                tenPhong = phongBan.getMaPhong();
+            }
+            while (cursor.moveToNext());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return tenPhong;
+    }
 }

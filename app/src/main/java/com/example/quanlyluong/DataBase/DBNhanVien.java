@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.quanlyluong.Model.NhanVien;
+import com.example.quanlyluong.Model.PhongBan;
 import com.example.quanlyluong.Model.ThongKe;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class DBNhanVien {
         values.put("tennv", nhanVien.getTenNhanVien());
         values.put("ngaysinh", nhanVien.getNgaySinh());
         values.put("gioitinh", nhanVien.getGioiTinh());
-        values.put("phongban", nhanVien.getPhongBan());
+        values.put("mapb", nhanVien.getPhongBan());
         values.put("hesoluong", nhanVien.getHeSoLuong());
         values.put("hinh", nhanVien.getAnh());
         db.insert("NhanVien", null, values);
@@ -38,8 +39,9 @@ public class DBNhanVien {
         values.put("tennv", nhanVien.getTenNhanVien());
         values.put("ngaysinh", nhanVien.getNgaySinh());
         values.put("gioitinh", nhanVien.getGioiTinh());
-        values.put("phongban", nhanVien.getPhongBan());
+        values.put("mapb", nhanVien.getPhongBan());
         values.put("hesoluong", nhanVien.getHeSoLuong());
+        values.put("hinh", nhanVien.getAnh());
         db.update("NhanVien", values, "manv ='" + nhanVien.getMaNhanVien() + "'", null);
         db.close();
     }
@@ -153,6 +155,26 @@ public class DBNhanVien {
             ex.printStackTrace();
         }
         return data;
+    }
+
+
+    public String layMaPhong(String tenPhong) {
+       String maPhong = "";
+        String sql = "SELECT mapb FROM PhongBan WHERE tenpb LIKE \"%"+tenPhong+"%\" ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        try {
+            cursor.moveToFirst();
+            do {
+                PhongBan phongBan = new PhongBan();
+                phongBan.setMaPhong(cursor.getString(0));
+                maPhong = phongBan.getMaPhong();
+            }
+            while (cursor.moveToNext());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return maPhong;
     }
 
 }

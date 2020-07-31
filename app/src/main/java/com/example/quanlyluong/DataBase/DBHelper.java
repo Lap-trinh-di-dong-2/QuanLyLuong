@@ -15,7 +15,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String sqlPhongBan = "Create table PhongBan (mapb text PRIMARY KEY NOT NULL, tenpb text) ";
         sqLiteDatabase.execSQL(sqlPhongBan);
-        String sqlNhanVien = "Create table NhanVien (manv text PRIMARY KEY NOT NULL, tennv text, ngaysinh text, gioitinh text,phongban text, hesoluong text, hinh Blob)";
+        String sqlNhanVien = "Create table NhanVien (manv text PRIMARY KEY NOT NULL, tennv text, ngaysinh text, gioitinh text,mapb text, hesoluong text, hinh Blob)";
         sqLiteDatabase.execSQL(sqlNhanVien);
         String sqlTamUng = "Create table TamUng (sophieu text PRIMARY KEY NOT NULL, ngay text, sotien text, manv text)";
         sqLiteDatabase.execSQL(sqlTamUng);

@@ -47,6 +47,9 @@ public class ThemNhanVien extends AppCompatActivity {
     Spinner spPhongBan;
     ArrayList<String> data_phongban = new ArrayList<>();
     ArrayAdapter adapter_phongban;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,8 +64,6 @@ public class ThemNhanVien extends AppCompatActivity {
 
         adapter_phongban = new ArrayAdapter(ThemNhanVien.this,android.R.layout.simple_spinner_item,data_phongban);
         spPhongBan.setAdapter(adapter_phongban);
-
-
         showDate(year, month+1, day);
         btnsetDay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,10 +113,12 @@ public class ThemNhanVien extends AppCompatActivity {
         }
         byte[] anh = getByteArrayFromImageView(imgHinhDaiDien);
         nhanVien.setAnh(anh);
-        nhanVien.setPhongBan(spPhongBan.getSelectedItem().toString());
+        DBNhanVien dbNhanVien = new DBNhanVien(getApplicationContext());
+        String maPhong = dbNhanVien.layMaPhong(spPhongBan.getSelectedItem().toString());
+        nhanVien.setPhongBan(maPhong);
         nhanVien.setHeSoLuong(txtHeSoLuong.getText().toString());
 
-        DBNhanVien dbNhanVien = new DBNhanVien(getApplicationContext());
+
         dbNhanVien.themNhanVien(nhanVien);
     }
 
@@ -187,10 +190,6 @@ public class ThemNhanVien extends AppCompatActivity {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, RESQUEST_TAKE_PHOTO);
     }
-//    private void cancel(){
-//        Intent intent = new Intent(this, MainNhanVien.class);
-//        startActivity(intent);
-//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
