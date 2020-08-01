@@ -17,6 +17,7 @@
         <TextView
             android:id="@+id/tvMaNhanVien"
             style="@style/textview1"
+            android:textColor="#FAF5F5"
             android:layout_gravity="center"
             android:text="NV01" />
     </LinearLayout>
@@ -29,29 +30,35 @@
             style="@style/linerlayout">
             <TextView
                style="@style/textview1"
+                android:textColor="#FAF5F5"
                 android:text="@string/ten"/>
         <TextView
             android:id="@+id/tvTenNhanVien"
             style="@style/textview1"
+            android:textColor="#FAF5F5"
             android:text="Trần Bình An" />
         </LinearLayout>
         <LinearLayout
            style="@style/linerlayout">
             <TextView
                 style="@style/textview2"
+                android:textColor="#FAF5F5"
                 android:text="@string/thang"/>
         <TextView
             android:id="@+id/tvNgayChamCong"
             style="@style/textview2"
+            android:textColor="#FAF5F5"
             android:text="20/07/2020" />
         </LinearLayout>
 <LinearLayout
    style="@style/linerlayout">
     <TextView
         style="@style/textview2"
+        android:textColor="#FAF5F5"
         android:text="@string/songaycong"/>
         <TextView
             android:id="@+id/tvSoNgayCong"
+            android:textColor="#FAF5F5"
             style="@style/textview2"
             android:text="26" />
 </LinearLayout>
