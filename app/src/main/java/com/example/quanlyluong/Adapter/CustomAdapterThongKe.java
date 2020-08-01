@@ -1,12 +1,17 @@
 package com.example.quanlyluong.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.quanlyluong.GiaoDien.TamUng.SuaTamUng;
+import com.example.quanlyluong.GiaoDien.Thongke.ChiTietThongKe;
 import com.example.quanlyluong.Model.ThongKe;
 import com.example.quanlyluong.R;
 
@@ -31,7 +36,8 @@ public class CustomAdapterThongKe extends ArrayAdapter {
     }
 
     private static class Holder {
-        TextView tvMaNV, tvTenNV, tvThoiGianCham, tvTenPhongBan, tvLuongCoBan, tvNgayCong, tvTamUng, tvLuong, tvThucLanh, tvTongLuong;
+        TextView tvMaNV, tvTenNV, tvThoiGianCham, tvTenPhongBan, tvThucLanh, tvTongLuong;
+        Button btnChiTiet;
 
     }
 
@@ -49,12 +55,9 @@ public class CustomAdapterThongKe extends ArrayAdapter {
             holder.tvTenNV = view.findViewById(R.id.tvTenNhanVien);
             holder.tvThoiGianCham = view.findViewById(R.id.tvThoiGianCham);
             holder.tvTenPhongBan = view.findViewById(R.id.tvTenPhongBan);
-            holder.tvLuongCoBan = view.findViewById(R.id.tvHeSoLuong);
-            holder.tvNgayCong = view.findViewById(R.id.tvSoNgayCong);
-            holder.tvTamUng = view.findViewById(R.id.tvTamUng);
-            holder.tvLuong = view.findViewById(R.id.tvLuong);
             holder.tvThucLanh = view.findViewById(R.id.tvThucLanh);
             holder.tvTongLuong = view.findViewById(R.id.tvTongLuong);
+            holder.btnChiTiet = view.findViewById(R.id.btnChiTiet);
 
             view.setTag(holder);
         } else
@@ -63,10 +66,7 @@ public class CustomAdapterThongKe extends ArrayAdapter {
         holder.tvMaNV.setText(thongKe.getMaNhanVien());
         holder.tvTenNV.setText(thongKe.getTenNhanVien());
         holder.tvTenPhongBan.setText(thongKe.getTenPhongBan());
-        holder.tvLuongCoBan.setText(thongKe.getLuongCoBan());
-        holder.tvNgayCong.setText(thongKe.getNgayCong());
         holder.tvThoiGianCham.setText(thongKe.getNgayChamCong());
-        holder.tvTamUng.setText(thongKe.getTamUng());
 
         int luong = 0;
         int ngayCong = Integer.parseInt(thongKe.getNgayCong());
@@ -74,17 +74,25 @@ public class CustomAdapterThongKe extends ArrayAdapter {
         int tamUng = Integer.parseInt(thongKe.getTamUng());
         luong = ((luongCoBan * 26) / ngayCong);
         thongKe.setLuong(luong+"");
-        holder.tvLuong.setText(thongKe.getLuong());
         int thucLanh = 0;
         thucLanh = luong - tamUng;
         thongKe.setThucLanh(thucLanh+"");
         holder.tvThucLanh.setText(thongKe.getThucLanh());
-        int tongLuong = 0;
-        tongLuong = tongLuong + thucLanh;
-        thongKe.setTongLuong(tongLuong+"");
-        holder.tvTongLuong.setText(thongKe.getTongLuong());
+//        int tongLuong = 0;
+//        tongLuong = tongLuong + thucLanh;
+//        thongKe.setTongLuong(tongLuong+"");
+//        holder.tvTongLuong.setText(thongKe.getTongLuong());
 
-
+        holder.btnChiTiet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), ChiTietThongKe.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("manv", thongKe.getMaNhanVien());
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
 
         return view;
     }

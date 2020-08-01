@@ -41,9 +41,9 @@ public class BangThongKe extends AppCompatActivity {
 
     private void setEvent() {
         final DBNhanVien dbNhanVien = new DBNhanVien(getApplicationContext());
-//        thongKes = dbNhanVien.layDSThongKe();
-//        adapterThongKe = new CustomAdapterThongKe(this, R.layout.listview_thongke, thongKes);
-//        lvThongke.setAdapter(adapterThongKe);
+        thongKes = dbNhanVien.layDSThongKe();
+        adapterThongKe = new CustomAdapterThongKe(this, R.layout.listview_thongke, thongKes);
+        lvThongke.setAdapter(adapterThongKe);
         DBChamCong dbChamCong = new DBChamCong(getApplicationContext());
         sp_data = dbChamCong.layDSNgayCham();
 
@@ -54,8 +54,9 @@ public class BangThongKe extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 thongKes = dbNhanVien.locDSThongKe(spNgayCham.getSelectedItem().toString());
-                adapterThongKe = new CustomAdapterThongKe(getApplicationContext(), R.layout.listview_thongke, thongKes);
+                adapterThongKe = new CustomAdapterThongKe(BangThongKe.this, R.layout.listview_thongke, thongKes);
                 lvThongke.setAdapter(adapterThongKe);
+
             }
         });
     }

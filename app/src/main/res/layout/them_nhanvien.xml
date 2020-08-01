@@ -31,6 +31,7 @@
             android:text="@string/manhanvien"
             />
     <EditText
+
         style="@style/edittext"
         android:id="@+id/txtMaNhanVien"/>
     </LinearLayout>

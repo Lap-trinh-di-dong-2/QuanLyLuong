@@ -15,6 +15,7 @@ import com.example.quanlyluong.GiaoDien.NhanVien.MainNhanVien;
 import com.example.quanlyluong.GiaoDien.PhongBan.MainPhongBan;
 import com.example.quanlyluong.GiaoDien.TamUng.BangTamUng;
 import com.example.quanlyluong.GiaoDien.Thongke.BangThongKe;
+import com.example.quanlyluong.GiaoDien.Thongke.ChiTietThongKe;
 import com.example.quanlyluong.R;
 
 public class MenuManager extends AppCompatActivity {

@@ -13,7 +13,7 @@
     <LinearLayout style="@style/linerlayout">
 
         <TextView
-            style="@style/textview2"
+            style="@style/textview1"
             android:text="@string/manhanvien" />
 
         <TextView
@@ -24,7 +24,7 @@
     <LinearLayout style="@style/linerlayout">
 
         <TextView
-            style="@style/textview2"
+            style="@style/textview1"
             android:text="@string/tennhanvien" />
 
         <TextView
@@ -35,7 +35,7 @@
     <LinearLayout style="@style/linerlayout">
 
         <TextView
-            style="@style/textview2"
+            style="@style/textview1"
             android:text="@string/thang" />
 
         <TextView
@@ -46,7 +46,7 @@
     <LinearLayout style="@style/linerlayout">
 
         <TextView
-            style="@style/textview2"
+            style="@style/textview1"
             android:text="@string/songaycong" />
 
         <EditText
