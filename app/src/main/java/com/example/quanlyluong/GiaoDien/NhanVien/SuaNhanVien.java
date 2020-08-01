@@ -89,9 +89,17 @@ public class SuaNhanVien extends AppCompatActivity {
         btnSuaNhanVien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                suaNhanVien();
-                Intent intent = new Intent(SuaNhanVien.this, MainNhanVien.class);
-                startActivity(intent);
+                if (txtTenNhanVien.getText().toString().isEmpty() ||txtHeSoLuong.getText().toString().isEmpty()) {
+
+                    checkEmpty(txtTenNhanVien);
+                    checkEmpty(txtHeSoLuong);
+                } else {
+                    suaNhanVien();
+                    Intent intent = new Intent(SuaNhanVien.this, MainNhanVien.class);
+                    startActivity(intent);
+                    finish();
+                }
+
             }
         });
         btnsetDay.setOnClickListener(new View.OnClickListener() {
@@ -134,7 +142,6 @@ public class SuaNhanVien extends AppCompatActivity {
         String maPhong = dbNhanVien.layMaPhong(spPhongBan.getSelectedItem().toString());
         nhanVien.setPhongBan(maPhong);
         nhanVien.setHeSoLuong(txtHeSoLuong.getText().toString());
-
         dbNhanVien.suaNhanVien(nhanVien);
     }
 
@@ -153,7 +160,7 @@ public class SuaNhanVien extends AppCompatActivity {
     private void setControl() {
         btnSuaNhanVien = findViewById(R.id.btnSuaNhanVien);
         spPhongBan = findViewById(R.id.spPhongBan);
-        tvMaNhanVien = findViewById(R.id.txtMaNhanVien);
+        tvMaNhanVien = findViewById(R.id.tvMaNhanVien);
         txtTenNhanVien = findViewById(R.id.txtTenNhanVien);
         txtNgaySinh = findViewById(R.id.txtNgaySinh);
         radNam = findViewById(R.id.radNam);
@@ -238,10 +245,17 @@ public class SuaNhanVien extends AppCompatActivity {
 
         BitmapDrawable drawable = (BitmapDrawable) imgv.getDrawable();
         Bitmap bmp = drawable.getBitmap();
-
+        bmp=Bitmap.createScaledBitmap(bmp, 80,80, true);
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte[] byteArray = stream.toByteArray();
         return byteArray;
+    }
+
+    private void checkEmpty(EditText check) {
+        if (check.getText().toString().isEmpty()) {
+            check.setError("Bắt buộc phải nhập");
+            check.isFocused();
+        }
     }
 }

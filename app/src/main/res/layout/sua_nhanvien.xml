@@ -24,14 +24,16 @@
             />
     </LinearLayout>
     <LinearLayout
-        style="@style/linerlayout">
+        style="@style/linerlayout"
+       >
         <TextView
             style="@style/textview1"
             android:text="@string/manhanvien"
             />
-        <EditText
-            style="@style/edittext"
-            android:id="@+id/txtMaNhanVien"/>
+        <TextView
+            style="@style/textview3"
+            android:text="111"
+            android:id="@+id/tvMaNhanVien"/>
     </LinearLayout>
     <LinearLayout
         style="@style/linerlayout">

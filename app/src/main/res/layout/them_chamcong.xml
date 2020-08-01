@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,60 +8,68 @@
 
     <TextView
         style="@style/tieude"
-        android:text="@string/chamcong"
-        />
-    <LinearLayout
-       style="@style/linerlayout">
-        <TextView
-           style="@style/textview2"
-            android:text="@string/manhanvien"/>
-    <TextView
-        android:id="@+id/tvMaNhanVien"
-       style="@style/textview1"/>
-    </LinearLayout>
-    <LinearLayout
-        style="@style/linerlayout">
+        android:text="@string/chamcong" />
+
+    <LinearLayout style="@style/linerlayout">
+
         <TextView
             style="@style/textview2"
-            android:text="@string/tennhanvien"/>
-    <TextView
-        style="@style/textview1"
-        android:id="@+id/tvTenNhanVien"/>
+            android:text="@string/manhanvien" />
+
+        <TextView
+            android:id="@+id/tvMaNhanVien"
+            style="@style/textview3" />
     </LinearLayout>
-    <LinearLayout
-       style="@style/linerlayout">
+
+    <LinearLayout style="@style/linerlayout">
+
         <TextView
             style="@style/textview2"
-            android:text="@string/thang"/>
-    <TextView
-        style="@style/textview1"
-        android:id="@+id/txtNgayChamCong"/>
+            android:text="@string/tennhanvien" />
+
+        <TextView
+            android:id="@+id/tvTenNhanVien"
+            style="@style/textview3" />
     </LinearLayout>
-    <LinearLayout
-       style="@style/linerlayout">
+
+    <LinearLayout style="@style/linerlayout">
+
         <TextView
             style="@style/textview2"
-            android:text="@string/songaycong"/>
-    <EditText
-        style="@style/edittext"
-        android:id="@+id/txtSoNgayCong"/>
+            android:text="@string/thang" />
+
+        <TextView
+            android:id="@+id/txtNgayChamCong"
+            style="@style/textview3" />
     </LinearLayout>
-       <TextView
-           style="@style/tieude"
-           android:text="@string/chucnang"/>
-    <LinearLayout
-        style="@style/linerlayout">
+
+    <LinearLayout style="@style/linerlayout">
+
+        <TextView
+            style="@style/textview2"
+            android:text="@string/songaycong" />
+
+        <EditText
+            android:id="@+id/txtSoNgayCong"
+            style="@style/edittext" />
+    </LinearLayout>
+
+    <TextView
+        style="@style/tieude"
+        android:text="@string/chucnang" />
+
+    <LinearLayout style="@style/linerlayout">
+
         <Button
-            style="@style/button"
             android:id="@+id/btnLuuChamCong"
-            android:text="@string/luuchamcong"
-            android:layout_marginLeft="50sp"
-            />
-        <Button
             style="@style/button"
+            android:layout_marginLeft="50sp"
+            android:text="@string/luuchamcong" />
+
+        <Button
             android:id="@+id/btnThoat"
+            style="@style/button"
             android:layout_marginLeft="30sp"
-            android:text="@string/thoat"
-            />
+            android:text="@string/thoat" />
     </LinearLayout>
 </LinearLayout>

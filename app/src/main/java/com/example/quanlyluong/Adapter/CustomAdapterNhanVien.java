@@ -16,8 +16,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-
 import com.example.quanlyluong.DataBase.DBNhanVien;
 import com.example.quanlyluong.DataBase.DBPhongBan;
 import com.example.quanlyluong.GiaoDien.ChamCong.ThemChamCong;
@@ -35,7 +33,7 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
     ArrayList<NhanVien> data;
     final DBNhanVien dbNhanVien = new DBNhanVien(getContext());
 
-    public CustomAdapterNhanVien(@NonNull Context context, int resource, ArrayList<NhanVien> data) {
+    public CustomAdapterNhanVien(Context context, int resource, ArrayList<NhanVien> data) {
         super(context, resource);
         this.context = context;
         this.resource = resource;
@@ -89,6 +87,7 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
         holder.tvLuong.setText(nhanVien.getHeSoLuong());
 
         Bitmap bmHinhDaiDien = BitmapFactory.decodeByteArray(nhanVien.getAnh(), 0, nhanVien.getAnh().length);
+        bmHinhDaiDien=Bitmap.createScaledBitmap(bmHinhDaiDien, 80,80, true);
         holder.imgHinh.setImageBitmap(bmHinhDaiDien);
         if (nhanVien.getGioiTinh().equals("Nam")) {
             holder.tvGioiTinh.setText(nhanVien.getGioiTinh());

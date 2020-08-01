@@ -1,8 +1,5 @@
 package com.example.quanlyluong.GiaoDien.NhanVien;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
@@ -22,10 +19,11 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.quanlyluong.DataBase.DBNhanVien;
 import com.example.quanlyluong.DataBase.DBPhongBan;
 import com.example.quanlyluong.Model.NhanVien;
-import com.example.quanlyluong.Model.PhongBan;
 import com.example.quanlyluong.R;
 
 import java.io.ByteArrayOutputStream;
@@ -42,12 +40,11 @@ public class ThemNhanVien extends AppCompatActivity {
     Button btnLuuNhanVien, btnsetDay;
     Calendar calendar;
     int year, month, day;
-    EditText txtMaNhanVien,txtTenNhanVien,txtNgaySinh,txtHeSoLuong;
-    RadioButton radNam,radNu;
+    EditText txtMaNhanVien, txtTenNhanVien, txtNgaySinh, txtHeSoLuong;
+    RadioButton radNam, radNu;
     Spinner spPhongBan;
     ArrayList<String> data_phongban = new ArrayList<>();
     ArrayAdapter adapter_phongban;
-
 
 
     @Override
@@ -62,9 +59,9 @@ public class ThemNhanVien extends AppCompatActivity {
         DBPhongBan dbPhongBan = new DBPhongBan(getApplicationContext());
         data_phongban = dbPhongBan.layDSPhongBan();
 
-        adapter_phongban = new ArrayAdapter(ThemNhanVien.this,android.R.layout.simple_spinner_item,data_phongban);
+        adapter_phongban = new ArrayAdapter(ThemNhanVien.this, android.R.layout.simple_spinner_item, data_phongban);
         spPhongBan.setAdapter(adapter_phongban);
-        showDate(year, month+1, day);
+        showDate(year, month + 1, day);
         btnsetDay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,14 +70,19 @@ public class ThemNhanVien extends AppCompatActivity {
         });
 
 
-
         btnLuuNhanVien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                themNhanVien();
-                Intent intent =new Intent(ThemNhanVien.this,MainNhanVien.class);
-                startActivity(intent);
-                finish();
+                if (txtMaNhanVien.getText().toString().isEmpty() || txtTenNhanVien.getText().toString().isEmpty() ||txtHeSoLuong.getText().toString().isEmpty()) {
+                    checkEmpty(txtMaNhanVien);
+                    checkEmpty(txtTenNhanVien);
+                    checkEmpty(txtHeSoLuong);
+                } else {
+                    themNhanVien();
+                    Intent intent = new Intent(ThemNhanVien.this, MainNhanVien.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
         imgHinhDaiDien.setOnClickListener(new View.OnClickListener() {
@@ -97,18 +99,26 @@ public class ThemNhanVien extends AppCompatActivity {
         });
     }
 
+    private void checkEmpty(EditText check) {
+        if (check.getText().toString().isEmpty()) {
+            check.setError("Bắt buộc phải nhập");
+            check.isFocused();
+        }
+    }
+
     private void themNhanVien() {
+
+
         DBNhanVien dbNhanVien = new DBNhanVien(getApplicationContext());
         NhanVien nhanVien = new NhanVien();
         nhanVien.setMaNhanVien(txtMaNhanVien.getText().toString());
         nhanVien.setTenNhanVien(txtTenNhanVien.getText().toString());
         nhanVien.setNgaySinh(txtNgaySinh.getText().toString());
-        if(radNu.isChecked() == true)
-        {
+        if (radNu.isChecked() == true) {
             nhanVien.setGioiTinh("Nữ");
             radNam.setChecked(false);
         }
-        if(radNam.isChecked() == true){
+        if (radNam.isChecked() == true) {
             nhanVien.setGioiTinh("Nam");
         }
         byte[] anh = getByteArrayFromImageView(imgHinhDaiDien);
@@ -130,7 +140,7 @@ public class ThemNhanVien extends AppCompatActivity {
         txtNgaySinh = findViewById(R.id.txtNgaySinh);
         radNam = findViewById(R.id.radNam);
         radNu = findViewById(R.id.radNu);
-        txtHeSoLuong= findViewById(R.id.txtHeSoLuong);
+        txtHeSoLuong = findViewById(R.id.txtHeSoLuong);
 
         btnsetDay = findViewById(R.id.btnDay);
         calendar = Calendar.getInstance();
@@ -143,15 +153,14 @@ public class ThemNhanVien extends AppCompatActivity {
         imgHinhDaiDien = findViewById(R.id.imgHinhDaiDien);
 
 
-
     }
 
     @Override
     protected Dialog onCreateDialog(int id) {
-       if(id == 1){
-           return new DatePickerDialog(this, dateSetListener,year,month,day);
-       }
-       return null;
+        if (id == 1) {
+            return new DatePickerDialog(this, dateSetListener, year, month, day);
+        }
+        return null;
     }
 
     DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
@@ -162,8 +171,8 @@ public class ThemNhanVien extends AppCompatActivity {
     };
 
     private void showDate(int year, int month, int day) {
-        txtNgaySinh.setText(new StringBuilder().append(day > 9 ? day: "0"+day).append("/").append(month > 9 ?
-                month: "0" + month).append("/").append(year));
+        txtNgaySinh.setText(new StringBuilder().append(day > 9 ? day : "0" + day).append("/").append(month > 9 ?
+                month : "0" + month).append("/").append(year));
     }
 
 
@@ -179,13 +188,13 @@ public class ThemNhanVien extends AppCompatActivity {
     }
 
 
-    private void choosePhoto(){
+    private void choosePhoto() {
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
         startActivityForResult(intent, REQUEST_CHOOSE_PHOTO);
     }
 
-    private void takePicture(){
+    private void takePicture() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, RESQUEST_TAKE_PHOTO);
     }
@@ -199,22 +208,24 @@ public class ThemNhanVien extends AppCompatActivity {
                     Uri imageUri = data.getData();
                     InputStream is = getContentResolver().openInputStream(imageUri);
                     Bitmap bitmap = BitmapFactory.decodeStream(is);
+                    bitmap = Bitmap.createScaledBitmap(bitmap, 80, 80, true);
                     imgHinhDaiDien.setImageBitmap(bitmap);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
             } else if (requestCode == RESQUEST_TAKE_PHOTO) {
                 Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+                bitmap = Bitmap.createScaledBitmap(bitmap, 80, 80, true);
                 imgHinhDaiDien.setImageBitmap(bitmap);
             }
         }
     }
 
-    private byte[] getByteArrayFromImageView(ImageView imgv){
+    private byte[] getByteArrayFromImageView(ImageView imgv) {
 
         BitmapDrawable drawable = (BitmapDrawable) imgv.getDrawable();
         Bitmap bmp = drawable.getBitmap();
-
+        bmp = Bitmap.createScaledBitmap(bmp, 80, 80, true);
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte[] byteArray = stream.toByteArray();

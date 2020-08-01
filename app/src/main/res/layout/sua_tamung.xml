@@ -16,7 +16,7 @@
             style="@style/textview1"
             android:text="@string/sophieu"/>
         <TextView
-            style="@style/edittext"
+            style="@style/textview3"
             android:id="@+id/tvSoPhieu"/>
     </LinearLayout>
     <LinearLayout
@@ -25,7 +25,7 @@
             style="@style/textview1"
             android:text="@string/manhanvien"/>
         <TextView
-            style="@style/textview1"
+            style="@style/textview3"
             android:id="@+id/tvMaNhanVien"/>
     </LinearLayout>
     <LinearLayout
@@ -34,7 +34,7 @@
             style="@style/textview1"
             android:text="@string/tennhanvien"/>
         <TextView
-            style="@style/textview1"
+            style="@style/textview3"
             android:id="@+id/tvTenNhanVien"></TextView>
     </LinearLayout>
     <LinearLayout
@@ -43,7 +43,7 @@
             style="@style/textview1"
             android:text="@string/ngayung"/>
         <TextView
-            style="@style/textview1"
+            style="@style/textview3"
             android:id="@+id/tvNgayUng"/>
     </LinearLayout>
     <LinearLayout
