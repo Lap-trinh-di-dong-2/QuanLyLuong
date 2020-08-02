@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GiaoDien.Thongke.ChiTietThongKe"></activity>
+        <activity android:name=".GiaoDien.Thongke.BieuDoThongKe"></activity>
+        <activity android:name=".GiaoDien.Thongke.ChiTietThongKe" />
         <activity android:name=".GiaoDien.ChamCong.SuaChamCong" />
         <activity android:name=".GiaoDien.TamUng.SuaTamUng" />
         <activity android:name=".GiaoDien.Thongke.BangThongKe" />

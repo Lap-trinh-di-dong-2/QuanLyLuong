@@ -46,10 +46,11 @@ public class BangThongKe extends AppCompatActivity {
         lvThongke.setAdapter(adapterThongKe);
         DBChamCong dbChamCong = new DBChamCong(getApplicationContext());
         sp_data = dbChamCong.layDSNgayCham();
+sp_data.add("");
 
-        adapter_ngaycham = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, sp_data);
+        adapter_ngaycham = new ArrayAdapter(this, android.R.layout.simple_spinner_item, sp_data);
         spNgayCham.setAdapter(adapter_ngaycham);
-
+        spNgayCham.setSelection(getIndex(spNgayCham, ""));
         btnLoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,6 +60,17 @@ public class BangThongKe extends AppCompatActivity {
 
             }
         });
+    }
+
+    //Hàm xử lý lấy vị trí phòng trong spinner
+    private int getIndex(Spinner spinner, String myString) {
+        for (int i = 0; i < spinner.getCount(); i++) {
+            if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(myString)) {
+                return i;
+            }
+        }
+
+        return 0;
     }
 
     private void setControl() {

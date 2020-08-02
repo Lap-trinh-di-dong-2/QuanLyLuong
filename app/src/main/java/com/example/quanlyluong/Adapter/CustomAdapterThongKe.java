@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.quanlyluong.GiaoDien.TamUng.SuaTamUng;
+import com.example.quanlyluong.GiaoDien.Thongke.BieuDoThongKe;
 import com.example.quanlyluong.GiaoDien.Thongke.ChiTietThongKe;
 import com.example.quanlyluong.Model.ThongKe;
 import com.example.quanlyluong.R;
@@ -37,7 +38,7 @@ public class CustomAdapterThongKe extends ArrayAdapter {
 
     private static class Holder {
         TextView tvMaNV, tvTenNV, tvThoiGianCham, tvTenPhongBan, tvThucLanh, tvTongLuong;
-        Button btnChiTiet;
+        Button btnChiTiet, btnBieuDo;
 
     }
 
@@ -58,6 +59,7 @@ public class CustomAdapterThongKe extends ArrayAdapter {
             holder.tvThucLanh = view.findViewById(R.id.tvThucLanh);
             holder.tvTongLuong = view.findViewById(R.id.tvTongLuong);
             holder.btnChiTiet = view.findViewById(R.id.btnChiTiet);
+            holder.btnBieuDo = view.findViewById(R.id.btnBieuDo);
 
             view.setTag(holder);
         } else
@@ -72,7 +74,7 @@ public class CustomAdapterThongKe extends ArrayAdapter {
         int ngayCong = Integer.parseInt(thongKe.getNgayCong());
         int luongCoBan = Integer.parseInt(thongKe.getLuongCoBan());
         int tamUng = Integer.parseInt(thongKe.getTamUng());
-        luong = ((luongCoBan * 26) / ngayCong);
+        luong = (luongCoBan *  ngayCong);
         thongKe.setLuong(luong+"");
         int thucLanh = 0;
         thucLanh = luong - tamUng;
@@ -94,6 +96,16 @@ public class CustomAdapterThongKe extends ArrayAdapter {
             }
         });
 
+        holder.btnBieuDo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), BieuDoThongKe.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("manv", thongKe.getMaNhanVien());
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
         return view;
     }
 

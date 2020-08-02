@@ -38,7 +38,7 @@
             style="@style/textview1"
             android:text="@string/thang" />
 
-        <TextView
+        <EditText
             android:id="@+id/txtNgayChamCong"
             style="@style/textview3" />
     </LinearLayout>

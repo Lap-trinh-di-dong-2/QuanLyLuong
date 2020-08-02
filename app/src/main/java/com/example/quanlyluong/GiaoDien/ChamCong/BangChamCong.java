@@ -33,6 +33,7 @@ public class BangChamCong extends AppCompatActivity {
     private void setEvent() {
         HienThiDL();
     }
+
     private void HienThiDL() {
         DBChamCong dbChamCong = new DBChamCong(getApplicationContext());
         data_chamcong = dbChamCong.layDuLieu();

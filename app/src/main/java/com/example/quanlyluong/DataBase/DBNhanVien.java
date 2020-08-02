@@ -133,16 +133,19 @@ public class DBNhanVien {
         return data;
     }
 
-    public ThongKe layThongKe(String manv) {
+    public ArrayList<ThongKe> layThongKe(String manv) {
         String sql = "select NhanVien.manv,NhanVien.tennv,PhongBan.tenpb,NhanVien.hesoluong,ChamCong.ngaycham,ChamCong.songaycong,TamUng.sotien " +
                 "from NhanVien INNER JOIN  PhongBan on PhongBan.mapb = NhanVien.mapb " +
                 "INNER JOIN  ChamCong on NhanVien.manv = ChamCong.manv  " +
                 "INNER JOIN TamUng on NhanVien.manv = TamUng.manv WHERE NhanVien.manv ='" + manv + "' ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
-        ThongKe thongKe = new ThongKe();
+        ArrayList<ThongKe> data = new ArrayList<>();
+
         try {
-                cursor.moveToFirst();
+            cursor.moveToFirst();
+            do {
+                ThongKe thongKe = new ThongKe();
                 thongKe.setMaNhanVien(cursor.getString(0));
                 thongKe.setTenNhanVien(cursor.getString(1));
                 thongKe.setTenPhongBan(cursor.getString(2));
@@ -150,10 +153,13 @@ public class DBNhanVien {
                 thongKe.setNgayChamCong(cursor.getString(4));
                 thongKe.setNgayCong(cursor.getString(5));
                 thongKe.setTamUng(cursor.getString(6));
+                data.add(thongKe);
+            }
+            while (cursor.moveToNext());
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        return thongKe;
+        return data;
     }
 
     public ArrayList<ThongKe> locDSThongKe(String key) {

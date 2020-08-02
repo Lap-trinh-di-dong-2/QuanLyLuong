@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class ChiTietThongKe extends AppCompatActivity {
     TextView tvMaNV, tvTenNV, tvThoiGianCham, tvTenPhongBan, tvLuongCoBan, tvNgayCong, tvTamUng, tvLuong, tvThucLanh, tvTongLuong;
-
+    ArrayList<ThongKe> thongKes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,27 +35,26 @@ public class ChiTietThongKe extends AppCompatActivity {
     private void setEvent() {
         String manv = getIntent().getExtras().getString("manv");
         DBNhanVien dbNhanVien = new DBNhanVien(getApplicationContext());
-        ThongKe thongKe = new ThongKe();
-        thongKe = dbNhanVien.layThongKe(manv);
-        tvMaNV.setText(thongKe.getMaNhanVien());
-        tvTenNV.setText(thongKe.getTenNhanVien());
-        tvThoiGianCham.setText(thongKe.getNgayChamCong());
-        tvTenPhongBan.setText(thongKe.getTenPhongBan());
-        tvLuongCoBan.setText(thongKe.getLuongCoBan());
-        tvNgayCong.setText(thongKe.getNgayCong());
-        tvTamUng.setText(thongKe.getTamUng());
+        thongKes = dbNhanVien.layThongKe(manv);
+        tvMaNV.setText(thongKes.get(0).getMaNhanVien());
+        tvTenNV.setText(thongKes.get(0).getTenNhanVien());
+        tvThoiGianCham.setText(thongKes.get(0).getNgayChamCong());
+        tvTenPhongBan.setText(thongKes.get(0).getTenPhongBan());
+        tvLuongCoBan.setText(thongKes.get(0).getLuongCoBan());
+        tvNgayCong.setText(thongKes.get(0).getNgayCong());
+        tvTamUng.setText(thongKes.get(0).getTamUng());
 
         int luong = 0;
-        int ngayCong = Integer.parseInt(thongKe.getNgayCong());
-        int luongCoBan = Integer.parseInt(thongKe.getLuongCoBan());
-        int tamUng = Integer.parseInt(thongKe.getTamUng());
+        int ngayCong = Integer.parseInt(thongKes.get(0).getNgayCong());
+        int luongCoBan = Integer.parseInt(thongKes.get(0).getLuongCoBan());
+        int tamUng = Integer.parseInt(thongKes.get(0).getTamUng());
         luong = (luongCoBan *  ngayCong);
-        thongKe.setLuong(luong+"");
-        tvLuong.setText(thongKe.getLuong());
+        thongKes.get(0).setLuong(luong+"");
+        tvLuong.setText(thongKes.get(0).getLuong());
         int thucLanh = 0;
         thucLanh = luong - tamUng;
-        thongKe.setThucLanh(thucLanh+"");
-        tvThucLanh.setText(thongKe.getThucLanh());
+        thongKes.get(0).setThucLanh(thucLanh+"");
+        tvThucLanh.setText(thongKes.get(0).getThucLanh());
 
     }
 

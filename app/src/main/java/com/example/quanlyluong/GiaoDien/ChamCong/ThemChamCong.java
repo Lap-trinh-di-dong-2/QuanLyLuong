@@ -24,8 +24,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class ThemChamCong extends AppCompatActivity {
-    TextView tvMaNhanVien,tvTenNhanVien,tvNgayChamCong;
-    EditText txtSoNgayCong;
+    TextView tvMaNhanVien,tvTenNhanVien;
+    EditText txtSoNgayCong, txtNgayChamCong;
     Button btnLuu,btnThoat;
     Calendar calendar;
     int day ,year, month;
@@ -61,21 +61,21 @@ public class ThemChamCong extends AppCompatActivity {
     private void themChamCong() {
         ChamCong chamCong = new ChamCong();
         chamCong.setMaNhanVien(tvMaNhanVien.getText().toString());
-        chamCong.setThang(tvNgayChamCong.getText().toString());
+        chamCong.setThang(txtNgayChamCong.getText().toString());
         chamCong.setSoNgayCong(txtSoNgayCong.getText().toString());
         DBChamCong dbChamCong =new DBChamCong(getApplicationContext());
         dbChamCong.themChamCong(chamCong);
     }
 
     private void showDate(int year, int month) {
-        tvNgayChamCong.setText(new StringBuilder().append(month > 9 ?
+        txtNgayChamCong.setText(new StringBuilder().append(month > 9 ?
                 month: "0" + month).append("/").append(year));
     }
 
     private void setControl() {
         tvMaNhanVien =findViewById(R.id.tvMaNhanVien);
         tvTenNhanVien = findViewById(R.id.tvTenNhanVien);
-        tvNgayChamCong =findViewById(R.id.txtNgayChamCong);
+        txtNgayChamCong =findViewById(R.id.txtNgayChamCong);
         txtSoNgayCong = findViewById(R.id.txtSoNgayCong);
         btnLuu = findViewById(R.id.btnLuuChamCong);
         btnThoat= findViewById(R.id.btnThoat);
