@@ -37,7 +37,7 @@ public class CustomAdapterThongKe extends ArrayAdapter {
     }
 
     private static class Holder {
-        TextView tvMaNV, tvTenNV, tvThoiGianCham, tvTenPhongBan, tvThucLanh, tvTongLuong;
+        TextView tvMaNV, tvTenNV, tvThoiGianCham, tvTenPhongBan, tvThucLanh;
         Button btnChiTiet, btnBieuDo;
 
     }
@@ -57,7 +57,6 @@ public class CustomAdapterThongKe extends ArrayAdapter {
             holder.tvThoiGianCham = view.findViewById(R.id.tvThoiGianCham);
             holder.tvTenPhongBan = view.findViewById(R.id.tvTenPhongBan);
             holder.tvThucLanh = view.findViewById(R.id.tvThucLanh);
-            holder.tvTongLuong = view.findViewById(R.id.tvTongLuong);
             holder.btnChiTiet = view.findViewById(R.id.btnChiTiet);
             holder.btnBieuDo = view.findViewById(R.id.btnBieuDo);
 

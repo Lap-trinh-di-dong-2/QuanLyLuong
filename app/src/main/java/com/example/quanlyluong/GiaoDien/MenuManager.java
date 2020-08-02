@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +20,7 @@ import com.example.quanlyluong.GiaoDien.Thongke.ChiTietThongKe;
 import com.example.quanlyluong.R;
 
 public class MenuManager extends AppCompatActivity {
-    Button btnPhongBan, btnNhanVien, btnChamCong, btnTamUng, btnThongke;
+    ImageView imgPhongBan, imgNhanVien, imgChamCong, imgTamUng, imgThongke;
     boolean ngonNgu;
 
     @Override
@@ -33,35 +34,35 @@ public class MenuManager extends AppCompatActivity {
     }
 
     private void setEvent() {
-        btnPhongBan.setOnClickListener(new View.OnClickListener() {
+        imgPhongBan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MenuManager.this, MainPhongBan.class);
                 startActivity(intent);
             }
         });
-        btnNhanVien.setOnClickListener(new View.OnClickListener() {
+        imgNhanVien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent1 = new Intent(MenuManager.this, MainNhanVien.class);
                 startActivity(intent1);
             }
         });
-        btnChamCong.setOnClickListener(new View.OnClickListener() {
+        imgChamCong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent2 = new Intent(MenuManager.this, BangChamCong.class);
                 startActivity(intent2);
             }
         });
-        btnTamUng.setOnClickListener(new View.OnClickListener() {
+        imgTamUng.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent3 = new Intent(MenuManager.this, BangTamUng.class);
                 startActivity(intent3);
             }
         });
-        btnThongke.setOnClickListener(new View.OnClickListener() {
+        imgThongke.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent4 = new Intent(MenuManager.this, BangThongKe.class);
@@ -72,11 +73,11 @@ public class MenuManager extends AppCompatActivity {
     }
 
     private void setControl() {
-        btnPhongBan = findViewById(R.id.btnPhongBan);
-        btnNhanVien = findViewById(R.id.btnNhanVien);
-        btnChamCong = findViewById(R.id.btnChamCong);
-        btnTamUng = findViewById(R.id.btnTamUng);
-        btnThongke = findViewById(R.id.btnThongke);
+        imgPhongBan = findViewById(R.id.imgPhongBan);
+        imgNhanVien = findViewById(R.id.imgNhanVien);
+        imgChamCong = findViewById(R.id.imgChamCong);
+        imgTamUng = findViewById(R.id.imgTamUng);
+        imgThongke = findViewById(R.id.imgThongKe);
     }
 
     @Override
