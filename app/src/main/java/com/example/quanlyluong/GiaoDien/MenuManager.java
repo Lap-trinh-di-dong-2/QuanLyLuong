@@ -2,6 +2,7 @@ package com.example.quanlyluong.GiaoDien;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,12 +18,13 @@ import com.example.quanlyluong.GiaoDien.PhongBan.MainPhongBan;
 import com.example.quanlyluong.GiaoDien.TamUng.BangTamUng;
 import com.example.quanlyluong.GiaoDien.Thongke.BangThongKe;
 import com.example.quanlyluong.GiaoDien.Thongke.ChiTietThongKe;
+import com.example.quanlyluong.Library.LoadingDialog;
 import com.example.quanlyluong.R;
 
 public class MenuManager extends AppCompatActivity {
     ImageView imgPhongBan, imgNhanVien, imgChamCong, imgTamUng, imgThongke;
     boolean ngonNgu;
-
+    LoadingDialog loadingDialog = new LoadingDialog(MenuManager.this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,12 +33,21 @@ public class MenuManager extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         setControl();
         setEvent();
+
     }
 
     private void setEvent() {
         imgPhongBan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                loadingDialog.startLoadingDialog();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadingDialog.dismissDialog();
+                    }
+                },5000);
                 Intent intent = new Intent(MenuManager.this, MainPhongBan.class);
                 startActivity(intent);
             }
@@ -44,6 +55,14 @@ public class MenuManager extends AppCompatActivity {
         imgNhanVien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                loadingDialog.startLoadingDialog();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadingDialog.dismissDialog();
+                    }
+                },5000);
                 Intent intent1 = new Intent(MenuManager.this, MainNhanVien.class);
                 startActivity(intent1);
             }
@@ -51,6 +70,14 @@ public class MenuManager extends AppCompatActivity {
         imgChamCong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                loadingDialog.startLoadingDialog();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadingDialog.dismissDialog();
+                    }
+                },5000);
                 Intent intent2 = new Intent(MenuManager.this, BangChamCong.class);
                 startActivity(intent2);
             }
@@ -58,13 +85,30 @@ public class MenuManager extends AppCompatActivity {
         imgTamUng.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                loadingDialog.startLoadingDialog();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadingDialog.dismissDialog();
+                    }
+                },5000);
                 Intent intent3 = new Intent(MenuManager.this, BangTamUng.class);
                 startActivity(intent3);
             }
         });
         imgThongke.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+                loadingDialog.startLoadingDialog();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadingDialog.dismissDialog();
+                    }
+                },5000);
                 Intent intent4 = new Intent(MenuManager.this, BangThongKe.class);
                 startActivity(intent4);
             }
