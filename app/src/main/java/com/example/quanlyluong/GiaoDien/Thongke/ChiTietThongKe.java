@@ -33,9 +33,9 @@ public class ChiTietThongKe extends AppCompatActivity {
     }
 
     private void setEvent() {
-        String manv = getIntent().getExtras().getString("manv");
+        String ngaycham = getIntent().getExtras().getString("ngaycham");
         DBNhanVien dbNhanVien = new DBNhanVien(getApplicationContext());
-        thongKes = dbNhanVien.layThongKe(manv);
+        thongKes = dbNhanVien.layThongKe(ngaycham);
         tvMaNV.setText(thongKes.get(0).getMaNhanVien());
         tvTenNV.setText(thongKes.get(0).getTenNhanVien());
         tvThoiGianCham.setText(thongKes.get(0).getNgayChamCong());

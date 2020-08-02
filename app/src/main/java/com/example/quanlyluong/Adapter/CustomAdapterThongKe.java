@@ -90,7 +90,7 @@ public class CustomAdapterThongKe extends ArrayAdapter {
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), ChiTietThongKe.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("manv", thongKe.getMaNhanVien());
+                bundle.putString("ngaycham", thongKe.getNgayChamCong());
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }

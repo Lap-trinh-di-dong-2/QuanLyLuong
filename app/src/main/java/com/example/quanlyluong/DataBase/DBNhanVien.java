@@ -110,7 +110,7 @@ public class DBNhanVien {
         String sql = "select NhanVien.manv,NhanVien.tennv,PhongBan.tenpb,NhanVien.hesoluong,ChamCong.ngaycham,ChamCong.songaycong,TamUng.sotien " +
                 "from NhanVien INNER JOIN  PhongBan on PhongBan.mapb = NhanVien.mapb " +
                 "INNER JOIN  ChamCong on NhanVien.manv = ChamCong.manv  " +
-                "INNER JOIN TamUng on NhanVien.manv = TamUng.manv ";
+                "INNER JOIN TamUng on NhanVien.manv = TamUng.manv WHERE ChamCong.ngaycham = SUBSTR(TamUng.ngay, 4, 10) ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
         try {
@@ -133,11 +133,11 @@ public class DBNhanVien {
         return data;
     }
 
-    public ArrayList<ThongKe> layThongKe(String manv) {
+    public ArrayList<ThongKe> layThongKe(String ngayCham) {
         String sql = "select NhanVien.manv,NhanVien.tennv,PhongBan.tenpb,NhanVien.hesoluong,ChamCong.ngaycham,ChamCong.songaycong,TamUng.sotien " +
                 "from NhanVien INNER JOIN  PhongBan on PhongBan.mapb = NhanVien.mapb " +
                 "INNER JOIN  ChamCong on NhanVien.manv = ChamCong.manv  " +
-                "INNER JOIN TamUng on NhanVien.manv = TamUng.manv WHERE NhanVien.manv ='" + manv + "' ";
+                "INNER JOIN TamUng on NhanVien.manv = TamUng.manv WHERE ChamCong.ngaycham ='" + ngayCham + "' AND ChamCong.ngaycham = SUBSTR(TamUng.ngay, 4, 10) ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
         ArrayList<ThongKe> data = new ArrayList<>();
@@ -162,9 +162,38 @@ public class DBNhanVien {
         return data;
     }
 
+
+    public ArrayList<ThongKe> layThongKeBieuDo(String manv) {
+        String sql = "select NhanVien.manv,NhanVien.tennv,PhongBan.tenpb,NhanVien.hesoluong,ChamCong.ngaycham,ChamCong.songaycong,TamUng.sotien from NhanVien INNER JOIN  PhongBan on PhongBan.mapb = NhanVien.mapb \n" +
+                "  INNER JOIN  ChamCong on NhanVien.manv = ChamCong.manv INNER JOIN TamUng on NhanVien.manv = TamUng.manv WHERE Nhanvien.manv ='" + manv + "' AND ChamCong.ngaycham = SUBSTR(TamUng.ngay, 4, 10)";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        ArrayList<ThongKe> data = new ArrayList<>();
+
+        try {
+            cursor.moveToFirst();
+            do {
+                ThongKe thongKe = new ThongKe();
+                thongKe.setMaNhanVien(cursor.getString(0));
+                thongKe.setTenNhanVien(cursor.getString(1));
+                thongKe.setTenPhongBan(cursor.getString(2));
+                thongKe.setLuongCoBan(cursor.getString(3));
+                thongKe.setNgayChamCong(cursor.getString(4));
+                thongKe.setNgayCong(cursor.getString(5));
+                thongKe.setTamUng(cursor.getString(6));
+                data.add(thongKe);
+            }
+            while (cursor.moveToNext());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return data;
+    }
+
+
     public ArrayList<ThongKe> locDSThongKe(String key) {
         ArrayList<ThongKe> data = new ArrayList<>();
-        String sql = "select NhanVien.manv,NhanVien.tennv,PhongBan.tenpb,NhanVien.hesoluong,ChamCong.ngaycham,ChamCong.songaycong,TamUng.sotien from NhanVien INNER JOIN  PhongBan on PhongBan.mapb = NhanVien.mapb INNER JOIN  ChamCong on NhanVien.manv = ChamCong.manv  INNER JOIN TamUng on NhanVien.manv = TamUng.manv WHERE ChamCong.ngaycham LIKE \"%"+key+"%\" ";
+        String sql = "select NhanVien.manv,NhanVien.tennv,PhongBan.tenpb,NhanVien.hesoluong,ChamCong.ngaycham,ChamCong.songaycong,TamUng.sotien from NhanVien INNER JOIN  PhongBan on PhongBan.mapb = NhanVien.mapb INNER JOIN  ChamCong on NhanVien.manv = ChamCong.manv  INNER JOIN TamUng on NhanVien.manv = TamUng.manv WHERE ChamCong.ngaycham LIKE \"%"+key+"%\" AND ChamCong.ngaycham = SUBSTR(TamUng.ngay, 4, 10) ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
         try {

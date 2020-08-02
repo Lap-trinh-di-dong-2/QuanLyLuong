@@ -35,9 +35,8 @@ public class BieuDoThongKe extends AppCompatActivity {
     private void setEvent() {
         String manv = getIntent().getExtras().getString("manv");
         final DBNhanVien dbNhanVien = new DBNhanVien(getApplicationContext());
-        thongKes = dbNhanVien.layThongKe(manv);
+        thongKes = dbNhanVien.layThongKeBieuDo(manv);
         ArrayList<BarEntry> entries = new ArrayList<>();
-        ArrayList<BarEntry> entries1 = new ArrayList<>();
         for (int i = 0; i < thongKes.size(); i++){
             tvTenNV.setText(thongKes.get(i).getTenNhanVien());
             int luong = 0;
@@ -62,8 +61,11 @@ public class BieuDoThongKe extends AppCompatActivity {
         BarData data = new BarData(labels, dataSet);
 
         chart.setData(data);
+
         data.setValueTextColor(Color.BLUE);
+        dataSet.setBarShadowColor(Color.WHITE);
         dataSet.setValueTextSize(15);
+        chart.setDrawBarShadow(true);
         chart.setDescription("Biểu đồ lương nhân viên theo tháng");  // set the description
         dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
         chart.animateY(3000, Easing.EasingOption.EaseInOutBounce);

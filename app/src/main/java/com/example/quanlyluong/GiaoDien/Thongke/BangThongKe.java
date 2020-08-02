@@ -46,7 +46,7 @@ public class BangThongKe extends AppCompatActivity {
         lvThongke.setAdapter(adapterThongKe);
         DBChamCong dbChamCong = new DBChamCong(getApplicationContext());
         sp_data = dbChamCong.layDSNgayCham();
-sp_data.add("");
+        sp_data.add("");
 
         adapter_ngaycham = new ArrayAdapter(this, android.R.layout.simple_spinner_item, sp_data);
         spNgayCham.setAdapter(adapter_ngaycham);

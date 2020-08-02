@@ -42,7 +42,7 @@
         <TextView
             style="@style/textview1"
             android:text="@string/ngayung"/>
-    <TextView
+    <EditText
         style="@style/textview3"
         android:id="@+id/tvNgayUng"/>
     </LinearLayout>

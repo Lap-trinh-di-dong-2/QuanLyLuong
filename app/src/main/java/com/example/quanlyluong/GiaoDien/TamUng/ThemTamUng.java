@@ -22,8 +22,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class ThemTamUng extends AppCompatActivity {
-    EditText txtSophieu, txtSoTien;
-    TextView tvMaNhanVien, tvTenNhanVien, tvNgayUng;
+    EditText txtSophieu, txtSoTien,tvNgayUng;
+    TextView tvMaNhanVien, tvTenNhanVien;
     Calendar calendar;
     int year, month, day;
     Button btnTamUng;

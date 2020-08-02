@@ -88,7 +88,7 @@ public class DBChamCong {
 
     public ArrayList<String> layDSNgayCham() {
         ArrayList<String> data = new ArrayList<>();
-        String sql = "SELECT DISTINCT ngaycham FROM ChamCong";
+        String sql = "SELECT DISTINCT ngaycham FROM ChamCong INNER JOIN TamUng on TamUng.manv = ChamCong.manv  WHERE ChamCong.ngaycham = SUBSTR(TamUng.ngay, 4, 10)";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
         try {
