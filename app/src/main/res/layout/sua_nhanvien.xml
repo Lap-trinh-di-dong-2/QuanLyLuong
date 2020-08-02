@@ -40,20 +40,23 @@
         <TextView
             style="@style/textview1"
             android:text="@string/tennhanvien"/>
+
         <EditText
+            android:id="@+id/txtTenNhanVien"
             style="@style/edittext"
-            android:id="@+id/txtTenNhanVien"/>
+            android:inputType="textPersonName" />
     </LinearLayout>
     <LinearLayout
         style="@style/linerlayout">
         <TextView
             style="@style/textview1"
             android:text="@string/ngaysinh"/>
+
         <EditText
-            style="@style/edittext"
             android:id="@+id/txtNgaySinh"
+            style="@style/edittext"
             android:layout_weight="1"
-            />
+            android:inputType="date" />
         <Button
             style="@style/buttonDay"
             android:id="@+id/btnDay"
@@ -89,9 +92,11 @@
         <TextView
             style="@style/textview1"
             android:text="@string/hesoluong"/>
+
         <EditText
+            android:id="@+id/txtHeSoLuong"
             style="@style/edittext"
-            android:id="@+id/txtHeSoLuong"/>
+            android:inputType="number" />
     </LinearLayout>
     <TextView
         style="@style/tieude"

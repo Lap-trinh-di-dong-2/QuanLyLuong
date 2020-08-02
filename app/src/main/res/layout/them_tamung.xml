@@ -15,9 +15,11 @@
       <TextView
           style="@style/textview1"
           android:text="@string/sophieu"/>
-    <EditText
-        style="@style/edittext"
-        android:id="@+id/txtSoPhieu"/>
+
+      <EditText
+          android:id="@+id/txtSoPhieu"
+          style="@style/edittext"
+          android:inputType="text" />
   </LinearLayout>
     <LinearLayout
         style="@style/linerlayout">
@@ -42,18 +44,22 @@
         <TextView
             style="@style/textview1"
             android:text="@string/ngayung"/>
-    <EditText
-        style="@style/textview3"
-        android:id="@+id/tvNgayUng"/>
+
+        <EditText
+            android:id="@+id/tvNgayUng"
+            style="@style/textview3"
+            android:inputType="date" />
     </LinearLayout>
     <LinearLayout
        style="@style/linerlayout">
         <TextView
             style="@style/textview1"
             android:text="@string/sotien"/>
-    <EditText
-        style="@style/edittext"
-        android:id="@+id/txtSoTien"/>
+
+        <EditText
+            android:id="@+id/txtSoTien"
+            style="@style/edittext"
+            android:inputType="numberSigned|number" />
     </LinearLayout>
     <LinearLayout
         style="@style/linerlayout">

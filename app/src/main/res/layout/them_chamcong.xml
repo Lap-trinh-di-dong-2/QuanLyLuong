@@ -18,7 +18,8 @@
 
         <TextView
             android:id="@+id/tvMaNhanVien"
-            style="@style/textview3" />
+            style="@style/textview3"
+            android:inputType="text" />
     </LinearLayout>
 
     <LinearLayout style="@style/linerlayout">
@@ -29,7 +30,8 @@
 
         <TextView
             android:id="@+id/tvTenNhanVien"
-            style="@style/textview3" />
+            style="@style/textview3"
+            android:inputType="textPersonName" />
     </LinearLayout>
 
     <LinearLayout style="@style/linerlayout">
@@ -40,7 +42,8 @@
 
         <EditText
             android:id="@+id/txtNgayChamCong"
-            style="@style/textview3" />
+            style="@style/textview3"
+            android:inputType="date" />
     </LinearLayout>
 
     <LinearLayout style="@style/linerlayout">
@@ -51,7 +54,8 @@
 
         <EditText
             android:id="@+id/txtSoNgayCong"
-            style="@style/edittext" />
+            style="@style/edittext"
+            android:inputType="numberSigned" />
     </LinearLayout>
 
     <TextView

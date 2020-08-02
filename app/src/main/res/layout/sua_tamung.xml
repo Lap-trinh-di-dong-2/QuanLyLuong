@@ -42,18 +42,22 @@
         <TextView
             style="@style/textview1"
             android:text="@string/ngayung"/>
+
         <TextView
+            android:id="@+id/tvNgayUng"
             style="@style/textview3"
-            android:id="@+id/tvNgayUng"/>
+            android:inputType="date" />
     </LinearLayout>
     <LinearLayout
         style="@style/linerlayout">
         <TextView
             style="@style/textview1"
             android:text="@string/sotien"/>
+
         <EditText
+            android:id="@+id/txtSoTien"
             style="@style/edittext"
-            android:id="@+id/txtSoTien"/>
+            android:inputType="number" />
     </LinearLayout>
     <LinearLayout
         style="@style/linerlayout">

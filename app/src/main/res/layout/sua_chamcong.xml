@@ -34,18 +34,22 @@
         <TextView
             style="@style/textview2"
             android:text="@string/thang"/>
+
         <TextView
+            android:id="@+id/txtNgayChamCong"
             style="@style/textview3"
-            android:id="@+id/txtNgayChamCong"/>
+            android:inputType="date" />
     </LinearLayout>
     <LinearLayout
         style="@style/linerlayout">
         <TextView
             style="@style/textview2"
             android:text="@string/songaycong"/>
+
         <EditText
+            android:id="@+id/txtSoNgayCong"
             style="@style/edittext"
-            android:id="@+id/txtSoNgayCong"/>
+            android:inputType="numberSigned|number" />
     </LinearLayout>
     <TextView
         style="@style/tieude"
