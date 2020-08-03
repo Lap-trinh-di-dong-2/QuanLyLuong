@@ -18,7 +18,9 @@ import com.example.quanlyluong.Model.NhanVien;
 import com.example.quanlyluong.Model.TamUng;
 import com.example.quanlyluong.R;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 
 public class CustomAdapterTamUng extends ArrayAdapter {
@@ -26,6 +28,8 @@ public class CustomAdapterTamUng extends ArrayAdapter {
     int resource;
     ArrayList<TamUng> data;
     ArrayList<NhanVien> nhanVien = new ArrayList<>();
+    Locale localeVN = new Locale("vi", "VN");
+    NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
 
     public CustomAdapterTamUng(Context context, int resource, ArrayList<TamUng> data) {
         super(context, resource);
@@ -70,7 +74,7 @@ public class CustomAdapterTamUng extends ArrayAdapter {
 
         holder.tvSoPhieu.setText(tamUng.getSoPhieu());
         holder.tvMaNV.setText(tamUng.getMaNhanVien());
-        holder.tvSoTien.setText(tamUng.getSoTien());
+        holder.tvSoTien.setText(currencyVN.format(Integer.parseInt(tamUng.getSoTien())));
         holder.tvNgayUng.setText(tamUng.getNgayUng());
         DBNhanVien dbNhanVien = new DBNhanVien(getContext());
         nhanVien = dbNhanVien.layNhanVien(tamUng.getMaNhanVien());

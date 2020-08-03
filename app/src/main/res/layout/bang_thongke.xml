@@ -13,16 +13,23 @@
     <LinearLayout
         style="@style/linerlayout"
         >
-        <Spinner
+        <fr.ganfra.materialspinner.MaterialSpinner
             style="@style/spin1"
             android:layout_weight="1"
             android:id="@+id/spNgayCham"
+            app:ms_enableFloatingLabel="false"
+            app:ms_enableErrorLabel="false"
+            app:ms_floatingLabelText="floating label"
+            app:ms_thickness="2dp"
+            app:ms_arrowSize="16dp"
+            app:ms_alignLabels="false"
           />
 
         <Button
             style="@style/button"
             android:id="@+id/btnLoc"
             android:text="Lọc"
+            android:background="@drawable/custom_button4"
             />
     </LinearLayout>
 

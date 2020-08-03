@@ -25,12 +25,16 @@ import com.example.quanlyluong.GiaoDien.TamUng.ThemTamUng;
 import com.example.quanlyluong.Model.NhanVien;
 import com.example.quanlyluong.R;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class CustomAdapterNhanVien extends ArrayAdapter {
     Context context;
     int resource;
     ArrayList<NhanVien> data;
+    Locale localeVN = new Locale("vi", "VN");
+    NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
     final DBNhanVien dbNhanVien = new DBNhanVien(getContext());
 
     public CustomAdapterNhanVien(Context context, int resource, ArrayList<NhanVien> data) {
@@ -84,8 +88,7 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
         DBPhongBan dbPhongBan = new DBPhongBan(context);
         String maPhong = dbPhongBan.layTenPhong(nhanVien.getPhongBan());
         holder.tvMaPB.setText(maPhong);
-        holder.tvLuong.setText(nhanVien.getHeSoLuong());
-
+        holder.tvLuong.setText(currencyVN.format(Integer.parseInt(nhanVien.getHeSoLuong())));
         Bitmap bmHinhDaiDien = BitmapFactory.decodeByteArray(nhanVien.getAnh(), 0, nhanVien.getAnh().length);
         bmHinhDaiDien=Bitmap.createScaledBitmap(bmHinhDaiDien, 80,80, true);
         holder.imgHinh.setImageBitmap(bmHinhDaiDien);

@@ -43,6 +43,7 @@
             style="@style/edittext"
             android:inputType="text"
             android:hint="@string/manhanvien"
+
             />
 
     </com.google.android.material.textfield.TextInputLayout>

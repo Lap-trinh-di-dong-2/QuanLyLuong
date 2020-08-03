@@ -14,19 +14,21 @@
     <LinearLayout style="@style/linerlayout">
 
         <TextView
-            style="@style/textview2"
-            android:text="@string/manhanvien" />
+            style="@style/textview1"
+            android:text="@string/manhanvien"
+            />
 
         <TextView
             android:id="@+id/tvMaNhanVien"
             style="@style/textview3"
-            android:text="NV01" />
+            android:text="NV01"
+            android:layout_weight="1"/>
     </LinearLayout>
 
     <LinearLayout style="@style/linerlayout">
 
         <TextView
-            style="@style/textview2"
+            style="@style/textview1"
             android:text="@string/tennhanvien" />
 
         <TextView
@@ -38,11 +40,12 @@
     <LinearLayout style="@style/linerlayout">
 
         <TextView
-            style="@style/textview2"
+            style="@style/textview1"
             android:text="@string/phongban" />
 
         <TextView
             android:id="@+id/tvTenPhongBan"
+            android:layout_weight="1"
             style="@style/textview3"
             android:text="Nhân Sự" />
     </LinearLayout>
@@ -50,7 +53,7 @@
     <LinearLayout style="@style/linerlayout">
 
         <TextView
-            style="@style/textview2"
+            style="@style/textview1"
             android:text="@string/hesoluong" />
 
         <TextView
@@ -62,7 +65,7 @@
     <LinearLayout style="@style/linerlayout">
 
         <TextView
-            style="@style/textview2"
+            style="@style/textview1"
             android:text="@string/songaycong" />
 
         <TextView
@@ -74,7 +77,7 @@
     <LinearLayout style="@style/linerlayout">
 
         <TextView
-            style="@style/textview2"
+            style="@style/textview1"
             android:text="@string/tamung" />
 
         <TextView
@@ -86,7 +89,7 @@
     <LinearLayout style="@style/linerlayout">
 
         <TextView
-            style="@style/textview2"
+            style="@style/textview1"
             android:text="@string/thoigiancham" />
 
         <TextView
@@ -98,7 +101,7 @@
     <LinearLayout style="@style/linerlayout">
 
         <TextView
-            style="@style/textview2"
+            style="@style/textview1"
             android:text="@string/luong" />
 
         <TextView
@@ -110,8 +113,8 @@
     <LinearLayout style="@style/linerlayout">
 
         <TextView
-            style="@style/textview2"
-            android:text="Thực lãnh" />
+            style="@style/textview1"
+            android:text="@string/thuclanh" />
 
         <TextView
             android:id="@+id/tvThucLanh"

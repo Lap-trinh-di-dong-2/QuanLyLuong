@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="10dp"
+    android:padding="5dp"
     >
 
 
@@ -19,7 +19,7 @@
         android:src="@drawable/nam" />
         <TextView
             android:id="@+id/tvMaNhanVien"
-            style="@style/textview1"
+            style="@style/textview4"
             android:layout_gravity="center"
             android:text="NV01" />
     </LinearLayout>
@@ -31,11 +31,11 @@
         <LinearLayout
             style="@style/linerlayout">
             <TextView
-               style="@style/textview1"
+               style="@style/textview2"
                 android:text="@string/ten"/>
         <TextView
             android:id="@+id/tvTenNhanVien"
-            style="@style/textview1"
+            style="@style/textview2"
             android:text="Trần Bình An" />
         </LinearLayout>
         <LinearLayout

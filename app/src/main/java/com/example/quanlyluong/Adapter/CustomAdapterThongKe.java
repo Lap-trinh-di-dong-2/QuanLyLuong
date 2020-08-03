@@ -16,7 +16,9 @@ import com.example.quanlyluong.GiaoDien.Thongke.ChiTietThongKe;
 import com.example.quanlyluong.Model.ThongKe;
 import com.example.quanlyluong.R;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 
 public class CustomAdapterThongKe extends ArrayAdapter {
@@ -78,11 +80,11 @@ public class CustomAdapterThongKe extends ArrayAdapter {
         int thucLanh = 0;
         thucLanh = luong - tamUng;
         thongKe.setThucLanh(thucLanh+"");
-        holder.tvThucLanh.setText(thongKe.getThucLanh());
-//        int tongLuong = 0;
-//        tongLuong = tongLuong + thucLanh;
-//        thongKe.setTongLuong(tongLuong+"");
-//        holder.tvTongLuong.setText(thongKe.getTongLuong());
+        Locale localeVN = new Locale("vi", "VN");
+        NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+
+        holder.tvThucLanh.setText(currencyVN.format(Integer.parseInt(thongKe.getThucLanh())));
+
 
         holder.btnChiTiet.setOnClickListener(new View.OnClickListener() {
             @Override

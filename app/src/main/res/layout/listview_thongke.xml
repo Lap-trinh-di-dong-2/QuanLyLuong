@@ -51,7 +51,7 @@
 
         <TextView
             style="@style/textview1"
-            android:text="Thực lãnh" />
+            android:text="@string/thuclanh" />
 
         <TextView
             android:id="@+id/tvThucLanh"

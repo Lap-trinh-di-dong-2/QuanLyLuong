@@ -57,7 +57,7 @@
                 android:text="@string/ngayung"/>
         <TextView
             android:id="@+id/tvNgayUng"
-            style="@style/textview2"
+            style="@style/textview1"
             android:textColor="#FAF6F6"
             android:text="20/07/2020" />
         </LinearLayout>
@@ -69,7 +69,7 @@
             android:text="@string/sotien"/>
         <TextView
             android:id="@+id/tvSoTien"
-            style="@style/textview2"
+            style="@style/textview1"
             android:textColor="#FAF6F6"
             android:text="@string/sotien" />
     </LinearLayout>
