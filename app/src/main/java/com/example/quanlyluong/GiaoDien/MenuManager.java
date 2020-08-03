@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.ActionBar;
@@ -17,14 +16,14 @@ import com.example.quanlyluong.GiaoDien.NhanVien.MainNhanVien;
 import com.example.quanlyluong.GiaoDien.PhongBan.MainPhongBan;
 import com.example.quanlyluong.GiaoDien.TamUng.BangTamUng;
 import com.example.quanlyluong.GiaoDien.Thongke.BangThongKe;
-import com.example.quanlyluong.GiaoDien.Thongke.ChiTietThongKe;
 import com.example.quanlyluong.Library.LoadingDialog;
 import com.example.quanlyluong.R;
 
 public class MenuManager extends AppCompatActivity {
-    ImageView imgPhongBan, imgNhanVien, imgChamCong, imgTamUng, imgThongke;
+    ImageView imgPhongBan, imgNhanVien, imgChamCong, imgTamUng, imgThongke, imgLienHe;
     boolean ngonNgu;
     LoadingDialog loadingDialog = new LoadingDialog(MenuManager.this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +46,7 @@ public class MenuManager extends AppCompatActivity {
                     public void run() {
                         loadingDialog.dismissDialog();
                     }
-                },5000);
+                }, 3000);
                 Intent intent = new Intent(MenuManager.this, MainPhongBan.class);
                 startActivity(intent);
             }
@@ -62,7 +61,7 @@ public class MenuManager extends AppCompatActivity {
                     public void run() {
                         loadingDialog.dismissDialog();
                     }
-                },5000);
+                }, 3000);
                 Intent intent1 = new Intent(MenuManager.this, MainNhanVien.class);
                 startActivity(intent1);
             }
@@ -77,7 +76,7 @@ public class MenuManager extends AppCompatActivity {
                     public void run() {
                         loadingDialog.dismissDialog();
                     }
-                },5000);
+                }, 3000);
                 Intent intent2 = new Intent(MenuManager.this, BangChamCong.class);
                 startActivity(intent2);
             }
@@ -92,7 +91,7 @@ public class MenuManager extends AppCompatActivity {
                     public void run() {
                         loadingDialog.dismissDialog();
                     }
-                },5000);
+                }, 3000);
                 Intent intent3 = new Intent(MenuManager.this, BangTamUng.class);
                 startActivity(intent3);
             }
@@ -108,8 +107,24 @@ public class MenuManager extends AppCompatActivity {
                     public void run() {
                         loadingDialog.dismissDialog();
                     }
-                },5000);
+                }, 3000);
                 Intent intent4 = new Intent(MenuManager.this, BangThongKe.class);
+                startActivity(intent4);
+            }
+        });
+        imgLienHe.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                loadingDialog.startLoadingDialog();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadingDialog.dismissDialog();
+                    }
+                }, 3000);
+                Intent intent4 = new Intent(MenuManager.this, MapsActivity.class);
                 startActivity(intent4);
             }
         });
@@ -122,6 +137,7 @@ public class MenuManager extends AppCompatActivity {
         imgChamCong = findViewById(R.id.imgChamCong);
         imgTamUng = findViewById(R.id.imgTamUng);
         imgThongke = findViewById(R.id.imgThongKe);
+        imgLienHe = findViewById(R.id.imgLienHe);
     }
 
     @Override

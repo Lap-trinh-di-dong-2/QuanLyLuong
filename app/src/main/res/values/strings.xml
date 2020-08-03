@@ -49,4 +49,14 @@
     <string name="luong">Lương : </string>
     <string name="thoigiancham">Thời gian chấm : </string>
     <string name="thuclanh">Thực lãnh : </string>
+    <string name="title_activity_maps">Map</string>
+
+
+    <string-array name="map_type">
+        <item>MAP_TYPE_NONE</item>
+        <item>MAP_TYPE_NORMAL</item>
+        <item>MAP_TYPE_SATELLITE</item>
+        <item>MAP_TYPE_HYBRID</item>
+        <item>MAP_TYPE_TERRAIN</item>
+    </string-array>
 </resources>

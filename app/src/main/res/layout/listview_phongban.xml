@@ -32,7 +32,7 @@
                 style="@style/textview4"
                 android:text="@string/ten"></TextView>
             <TextView
-                style="@style/textview2"
+                style="@style/textview4"
                 android:id="@+id/tvTenPhong"
                 android:textSize="20sp"
                 android:text="Nhân Sự"/>
