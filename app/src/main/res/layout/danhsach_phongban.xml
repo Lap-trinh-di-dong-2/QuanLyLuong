@@ -8,5 +8,7 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/lvDanhSach"/>
+        android:id="@+id/lvDanhSach"
+        android:divider="#FF6D00"
+        android:dividerHeight="5dp"/>
 </LinearLayout>

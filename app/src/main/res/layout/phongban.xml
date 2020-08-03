@@ -34,6 +34,8 @@
         style="@style/button"
         android:id="@+id/btnThem"
         android:text="@string/them"
+        android:padding="10dp"
+        android:background="@drawable/custom_button3"
         />
     <TextView
     style="@style/tieude"

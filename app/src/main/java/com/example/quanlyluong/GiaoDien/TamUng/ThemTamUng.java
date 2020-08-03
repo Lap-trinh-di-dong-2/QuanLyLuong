@@ -14,9 +14,12 @@ import android.widget.Toast;
 
 import com.example.quanlyluong.DataBase.DBNhanVien;
 import com.example.quanlyluong.DataBase.DBTamUng;
+import com.example.quanlyluong.GiaoDien.NhanVien.MainNhanVien;
+import com.example.quanlyluong.GiaoDien.NhanVien.ThemNhanVien;
 import com.example.quanlyluong.Model.NhanVien;
 import com.example.quanlyluong.Model.TamUng;
 import com.example.quanlyluong.R;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -27,6 +30,7 @@ public class ThemTamUng extends AppCompatActivity {
     Calendar calendar;
     int year, month, day;
     Button btnTamUng;
+    TextInputLayout txtILSoPhieu,txtILSoTien;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,14 +52,26 @@ public class ThemTamUng extends AppCompatActivity {
         btnTamUng.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                themTamUng();
-                Toast.makeText(getApplicationContext(),"Thêm thành công",Toast.LENGTH_SHORT).show();
-                Intent intent =new Intent(ThemTamUng.this, BangTamUng.class);
-                startActivity(intent);
+                if (txtSophieu.getText().toString().isEmpty() || txtSoTien.getText().toString().isEmpty()) {
+                    checkEmpty(txtSophieu,txtILSoPhieu,"Vui lòng nhập số phiếu");
+                    checkEmpty(txtSoTien,txtILSoTien, "Vui lòng nhập số tiền");
+                } else {
+                    themTamUng();
+                    Toast.makeText(getApplicationContext(),"Thêm thành công",Toast.LENGTH_SHORT).show();
+                    Intent intent =new Intent(ThemTamUng.this, BangTamUng.class);
+                    startActivity(intent);
+                }
+
             }
         });
 
 
+    }
+    private void checkEmpty(EditText check, TextInputLayout error, String warning ) {
+        if (check.getText().toString().isEmpty()) {
+            error.setError(warning);
+            check.isFocused();
+        }
     }
 
     private void themTamUng() {
@@ -87,6 +103,9 @@ public class ThemTamUng extends AppCompatActivity {
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        txtILSoPhieu = findViewById(R.id.txtILSoPhieu);
+        txtILSoTien = findViewById(R.id.txtILSoTien);
 
     }
     @Override

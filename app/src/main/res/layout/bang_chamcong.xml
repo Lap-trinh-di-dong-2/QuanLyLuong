@@ -12,5 +12,7 @@
         android:text="@string/tieude2"/>
     <ListView
        style="@style/listview"
-        android:id="@+id/lvBangChamCong"/>
+        android:id="@+id/lvBangChamCong"
+        android:divider="#EDECE9"
+        android:dividerHeight="5dp" />
 </LinearLayout>

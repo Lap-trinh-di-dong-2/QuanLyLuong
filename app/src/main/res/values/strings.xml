@@ -14,14 +14,14 @@
     <string name="chucnang">Chức Năng</string>
 
     <string name="tieude1">Nhân Viên</string>
-    <string name="manhanvien">Mã Nhân Viên : </string>
-    <string name="tennhanvien">Tên Nhân Viên : </string>
-    <string name="ngaysinh">Ngày Sinh : </string>
-    <string name="gioitinh">Giới Tính : </string>
+    <string name="manhanvien">Mã Nhân Viên  </string>
+    <string name="tennhanvien">Tên Nhân Viên</string>
+    <string name="ngaysinh">Ngày Sinh </string>
+    <string name="gioitinh">Giới Tính</string>
     <string name="nam">Nam</string>
     <string name="nu">Nữ</string>
     <string name="luu">Lưu</string>
-    <string name="hesoluong">Hệ Số Lương : </string>
+    <string name="hesoluong">Hệ Số Lương </string>
     <string name="phongban">Phòng Ban : </string>
     <string name="danhsachnhanvien">Danh Sách Nhân Viên</string>
     <string name="themnhanvien">Thêm Nhân Viên</string>
@@ -38,14 +38,14 @@
     <string name="tieude4">Bảng Tạm Ứng</string>
     <string name="tamung">Tạm Ứng</string>
     <string name="suatamung">Cập Nhật Tạm Ứng</string>
-    <string name="sophieu">Số Phiếu :</string>
-    <string name="ngayung">Ngày Ứng : </string>
-    <string name="sotien">Số Tiền : </string>
+    <string name="sophieu">Số Phiếu</string>
+    <string name="ngayung">Ngày Ứng </string>
+    <string name="sotien">Số Tiền </string>
     <string name="luutamung">Lưu Tạm Ứng</string>
 
     <string name="thongke">Thống Kê</string>
     <string name="chitietthongke">Chi Tiết Thống Kê</string>
-    <string name="tongluong">Tổng Lương : </string>
-    <string name="luong">Lương : </string>
-    <string name="thoigiancham">Thời gian chấm : </string>
+    <string name="tongluong">Tổng Lương </string>
+    <string name="luong">Lương </string>
+    <string name="thoigiancham">Thời gian chấm </string>
 </resources>

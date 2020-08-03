@@ -40,5 +40,7 @@
     </LinearLayout>
     <ListView
         style="@style/listview"
-        android:id="@+id/lvThongKe"/>
+        android:id="@+id/lvThongKe"
+        android:divider="#304FFE"
+        android:dividerHeight="5dp"/>
 </LinearLayout>

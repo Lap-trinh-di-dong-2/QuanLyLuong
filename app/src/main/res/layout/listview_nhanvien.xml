@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="5dp">
+    android:padding="10dp"
+   >
     <LinearLayout
         android:layout_width="wrap_content"
         android:orientation="vertical"
@@ -83,6 +84,7 @@
             android:text="250000" />
         </LinearLayout>
         <LinearLayout
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -91,12 +93,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnChamCong"
-                android:text="@string/chamcong"/>
+                android:text="@string/chamcong"
+                android:background="@drawable/custom_button2"
+                android:padding="10dp"
+                android:textColor="#FFFFFF"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnTamUng"
+                android:layout_marginLeft="20dp"
                 android:text="@string/tamung"
+                android:background="@drawable/custom_button2"
+                android:padding="10dp"
+                android:textColor="#FFFFFF"
                 />
         </LinearLayout>
 
