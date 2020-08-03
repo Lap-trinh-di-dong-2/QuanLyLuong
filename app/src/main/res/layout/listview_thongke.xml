@@ -6,13 +6,14 @@
     android:padding="10dp">
 
     <TextView
+        android:id="@+id/tvTenNhanVien"
         style="@style/tieude"
-        android:text="@string/thongke" />
+        android:text="Trần Bình An" />
 
     <LinearLayout style="@style/linerlayout">
 
         <TextView
-            style="@style/textview2"
+            style="@style/textview1"
             android:text="@string/manhanvien" />
 
         <TextView
@@ -24,19 +25,7 @@
     <LinearLayout style="@style/linerlayout">
 
         <TextView
-            style="@style/textview2"
-            android:text="@string/tennhanvien" />
-
-        <TextView
-            android:id="@+id/tvTenNhanVien"
-            style="@style/textview3"
-            android:text="Trần Bình An" />
-    </LinearLayout>
-
-    <LinearLayout style="@style/linerlayout">
-
-        <TextView
-            style="@style/textview2"
+            style="@style/textview1"
             android:text="@string/phongban" />
 
         <TextView
@@ -49,7 +38,7 @@
     <LinearLayout style="@style/linerlayout">
 
         <TextView
-            style="@style/textview2"
+            style="@style/textview1"
             android:text="@string/thoigiancham" />
 
         <TextView
@@ -61,7 +50,7 @@
     <LinearLayout style="@style/linerlayout">
 
         <TextView
-            style="@style/textview2"
+            style="@style/textview1"
             android:text="Thực lãnh" />
 
         <TextView
@@ -74,19 +63,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+     >
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnChiTiet"
             android:layout_weight="1"
-            android:text="Chi tiết"/>
+            android:text="Chi tiết"
+            android:background="@drawable/custom_button3"
+            android:layout_margin="20dp"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnBieuDo"
+            android:layout_margin="20dp"
+
             android:layout_weight="1"
             android:text="Biểu đồ"
+            android:background="@drawable/custom_button3"
             />
     </LinearLayout>
 </LinearLayout>

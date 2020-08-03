@@ -19,31 +19,42 @@
         style="@style/textview1"
         android:id="@+id/tvMaPhong"/>
   </LinearLayout>
-    <LinearLayout
-        style="@style/textview1">
-        <TextView
-            style="@style/textview1"
-            android:text="@string/tenphong"/>
-    <EditText
-        style="@style/edittext"
-        android:id="@+id/txtTenPhong"/>
-    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtILTenPhong"
+        app:boxStrokeColor="#29DD0A"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/edittext"
+            android:id="@+id/txtTenPhong"
+            android:inputType="text"
+            android:hint="@string/tenphong"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <TextView
         style="@style/tieude"
         android:text="@string/chucnang" />
     <LinearLayout
-       style="@style/linerlayout">
+       style="@style/linerlayout3">
         <Button
             style="@style/button"
             android:id="@+id/btnSua"
             android:text="@string/sua"
             android:layout_marginLeft="80sp"
+            android:background="@drawable/custom_button4"
             />
         <Button
             style="@style/button"
             android:id="@+id/btnThoat"
             android:layout_marginLeft="30sp"
             android:text="@string/thoat"
+            android:background="@drawable/custom_button4"
             />
     </LinearLayout>
 </LinearLayout>

@@ -14,13 +14,17 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            app:srcCompat="@drawable/cammera1"
+            android:background="@drawable/camera"
             android:id="@+id/imgHinhDaiDien" />
         <Button
             android:text="Chọn Hình"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnChonHinh"
+            android:background="@drawable/custom_button1"
+
             />
     </LinearLayout>
     <LinearLayout
@@ -35,28 +39,43 @@
             android:text="111"
             android:id="@+id/tvMaNhanVien"/>
     </LinearLayout>
-    <LinearLayout
-        style="@style/linerlayout">
-        <TextView
-            style="@style/textview1"
-            android:text="@string/tennhanvien"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtILTenNhanVien"
+        app:boxStrokeColor="#29DD0A"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtTenNhanVien"
             style="@style/edittext"
-            android:inputType="textPersonName" />
-    </LinearLayout>
+            android:inputType="textPersonName"
+            android:hint="@string/tennhanvien"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <LinearLayout
         style="@style/linerlayout">
-        <TextView
-            style="@style/textview1"
-            android:text="@string/ngaysinh"/>
-
-        <EditText
-            android:id="@+id/txtNgaySinh"
-            style="@style/edittext"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtILNgaySinh"
+            app:boxStrokeColor="#29DD0A"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="wrap_content"
             android:layout_weight="1"
-            android:inputType="date" />
+            android:layout_height="wrap_content"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtNgaySinh"
+                style="@style/edittext"
+                android:hint="@string/ngaysinh"
+
+                android:inputType="date"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
         <Button
             style="@style/buttonDay"
             android:id="@+id/btnDay"
@@ -67,7 +86,8 @@
         style="@style/groupButTon">
         <TextView
             style="@style/textview1"
-            android:text="@string/gioitinh"/>
+            android:text="@string/gioitinh"
+            />
         <RadioButton
             style="@style/rad"
             android:id="@+id/radNam"
@@ -85,33 +105,46 @@
             android:text="@string/phongban"/>
         <Spinner
             style="@style/spin"
+
             android:id="@+id/spPhongBan"/>
     </LinearLayout>
-    <LinearLayout
-        style="@style/linerlayout">
-        <TextView
-            style="@style/textview1"
-            android:text="@string/hesoluong"/>
 
-        <EditText
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtILHeSoLuong"
+        app:boxStrokeColor="#29DD0A"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtHeSoLuong"
             style="@style/edittext"
-            android:inputType="number" />
-    </LinearLayout>
+            android:inputType="number"
+            android:hint="@string/hesoluong"
+
+
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
     <TextView
         style="@style/tieude"
         android:text="@string/chucnang"/>
     <LinearLayout
-        style="@style/linerlayout">
+        style="@style/linerlayout3">
         <Button
             style="@style/buttonluu"
             android:id="@+id/btnSuaNhanVien"
             android:text="@string/luunhanvien"
+            android:background="@drawable/custom_button4"
             />
         <Button
             style="@style/buttonhuy"
             android:id="@+id/btnThoat"
             android:text="@string/thoat"
+            android:background="@drawable/custom_button4"
             />
     </LinearLayout>
 </LinearLayout>

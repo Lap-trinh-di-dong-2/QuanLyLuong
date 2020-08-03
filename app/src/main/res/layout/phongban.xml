@@ -5,36 +5,59 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    android:background="@drawable/background4"
+    android:background="@drawable/background_geometric"
     tools:context=".GiaoDien.PhongBan.MainPhongBan">
 
     <TextView
         style="@style/tieude"
         android:text="@string/tieude" />
-    <LinearLayout
-        style="@style/linerlayout">
-        <TextView
-            style="@style/textview1"
-            android:text="@string/maphong"/>
-    <EditText
-        style="@style/edittext"
-        android:id="@+id/txtMaPhong"/>
-    </LinearLayout>
-    <LinearLayout
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtILMaPhong"
+        app:boxStrokeColor="#FFE24D"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            style="@style/textview1"
-            android:text="@string/tenphong"/>
-    <EditText
-        style="@style/edittext"
-        android:id="@+id/txtTenPhong"/>
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:textColorHint="#FFFFFF"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/edittext"
+            android:id="@+id/txtMaPhong"
+            android:inputType="text"
+            android:textColor="#FFFFFF"
+
+            android:hint="@string/maphong"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtILTenPhong"
+        app:boxStrokeColor="#FFE24D"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="#FFFFFF"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/edittext"
+            android:textColor="#FFFFFF"
+
+            android:id="@+id/txtTenPhong"
+            android:inputType="text"
+            android:hint="@string/maphong"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
         style="@style/button"
         android:id="@+id/btnThem"
         android:text="@string/them"
-        android:padding="10dp"
+        android:padding="20dp"
+        android:layout_margin="10dp"
         android:background="@drawable/custom_button3"
         />
     <TextView
@@ -43,5 +66,6 @@
 
     <ListView
         style="@style/listview"
-        android:id="@+id/lvDanhSach"/>
+        android:id="@+id/lvDanhSach"
+        />
 </LinearLayout>

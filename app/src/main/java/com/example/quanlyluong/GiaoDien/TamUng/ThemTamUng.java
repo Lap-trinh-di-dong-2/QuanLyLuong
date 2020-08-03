@@ -53,8 +53,8 @@ public class ThemTamUng extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (txtSophieu.getText().toString().isEmpty() || txtSoTien.getText().toString().isEmpty()) {
-                    checkEmpty(txtSophieu,txtILSoPhieu,"Vui lòng nhập số phiếu");
-                    checkEmpty(txtSoTien,txtILSoTien, "Vui lòng nhập số tiền");
+                    checkEmpty(txtSophieu,"Vui lòng nhập số phiếu");
+                    checkEmpty(txtSoTien, "Vui lòng nhập số tiền");
                 } else {
                     themTamUng();
                     Toast.makeText(getApplicationContext(),"Thêm thành công",Toast.LENGTH_SHORT).show();
@@ -67,9 +67,9 @@ public class ThemTamUng extends AppCompatActivity {
 
 
     }
-    private void checkEmpty(EditText check, TextInputLayout error, String warning ) {
+    private void checkEmpty(EditText check, String warning ) {
         if (check.getText().toString().isEmpty()) {
-            error.setError(warning);
+            check.setError(warning);
             check.isFocused();
         }
     }

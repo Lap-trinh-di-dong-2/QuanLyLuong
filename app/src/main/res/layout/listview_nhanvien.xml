@@ -26,61 +26,58 @@
         <LinearLayout
            style="@style/linerlayout">
             <TextView
-                style="@style/textview1"
-                android:textColor="#F8F5F5"
+                style="@style/textview2"
                 android:text="@string/ten"/>
         <TextView
             android:id="@+id/tvTenNV"
-            style="@style/textview1"
-            android:textColor="#F8F5F5"
+            style="@style/textview2"
+
             android:text="Trần Bình An" />
         </LinearLayout>
         <LinearLayout
            style="@style/linerlayout">
             <TextView
                style="@style/textview2"
-                android:textColor="#F8F5F5"
+
                 android:text="@string/gioitinh"/>
             <TextView
                 style="@style/textview2"
                 android:text="Nam"
-                android:textColor="#F8F5F5"
+
                 android:id="@+id/tvGioiTinh"/>
         </LinearLayout>
         <LinearLayout
             style="@style/linerlayout">
             <TextView
                style="@style/textview2"
-                android:textColor="#F8F5F5"
+
                 android:text="@string/ngaysinh"/>
         <TextView
             android:id="@+id/tvNgaySinh"
             style="@style/textview2"
-            android:textColor="#F8F5F5"
+
             android:text="20/02/1997" />
         </LinearLayout>
         <LinearLayout
            style="@style/linerlayout">
             <TextView
                 style="@style/textview2"
-                android:textColor="#F8F5F5"
                 android:text="@string/phongban"/>
         <TextView
             android:id="@+id/tvMaPB"
             style="@style/textview2"
-            android:textColor="#F8F5F5"
             android:text="Nhân Sự" />
         </LinearLayout>
         <LinearLayout
             style="@style/linerlayout">
             <TextView
                 style="@style/textview2"
-                android:textColor="#F8F5F5"
+
                 android:text="@string/hesoluong"/>
         <TextView
             android:id="@+id/tvLuong"
             style="@style/textview2"
-            android:textColor="#F8F5F5"
+
             android:text="250000" />
         </LinearLayout>
         <LinearLayout

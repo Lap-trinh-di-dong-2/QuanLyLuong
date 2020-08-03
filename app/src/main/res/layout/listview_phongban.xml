@@ -19,20 +19,17 @@
         <LinearLayout
             style="@style/linerlayout">
             <TextView
-                style="@style/textview1"
+                style="@style/textview4"
                 android:text="@string/ma"></TextView>
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/tvMaPhong"
-                android:textSize="25sp"
-                android:textStyle="bold"
+                style="@style/textview4"
                 android:text="NS01"/>
         </LinearLayout>
         <LinearLayout
             style="@style/linerlayout">
             <TextView
-                style="@style/textview1"
+                style="@style/textview4"
                 android:text="@string/ten"></TextView>
             <TextView
                 style="@style/textview2"

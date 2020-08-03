@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".GiaoDien.ChamCong.ThemChamCong">
 
@@ -34,46 +35,60 @@
             android:inputType="textPersonName" />
     </LinearLayout>
 
-    <LinearLayout style="@style/linerlayout">
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtILNgayChamCong"
+        app:boxStrokeColor="#29DD0A"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
 
-        <TextView
-            style="@style/textview1"
-            android:text="@string/thang" />
-
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtNgayChamCong"
-            style="@style/textview3"
-            android:inputType="date" />
-    </LinearLayout>
+            style="@style/edittext"
+            android:inputType="date"
+            android:hint="Thời gian chấm"
+            />
 
-    <LinearLayout style="@style/linerlayout">
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            style="@style/textview1"
-            android:text="@string/songaycong" />
 
-        <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtILSoNgayCong"
+        app:boxStrokeColor="#29DD0A"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtSoNgayCong"
             style="@style/edittext"
-            android:inputType="numberSigned" />
-    </LinearLayout>
+            android:inputType="numberSigned"
+            android:hint="@string/songaycong"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <TextView
         style="@style/tieude"
         android:text="@string/chucnang" />
 
-    <LinearLayout style="@style/linerlayout">
+    <LinearLayout style="@style/linerlayout3">
 
         <Button
             android:id="@+id/btnLuuChamCong"
             style="@style/button"
             android:layout_marginLeft="50sp"
-            android:text="@string/luuchamcong" />
+            android:text="@string/luuchamcong"
+            android:background="@drawable/custom_button3"/>
 
         <Button
             android:id="@+id/btnThoat"
             style="@style/button"
             android:layout_marginLeft="30sp"
-            android:text="@string/thoat" />
+            android:text="@string/thoat"
+            android:background="@drawable/custom_button3"/>
     </LinearLayout>
 </LinearLayout>

@@ -40,8 +40,9 @@
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">#000</item>
+        <item name="android:padding">10dp</item>
         <item name="android:elevation" tools:targetApi="lollipop">5dp</item>
-        <item name="android:background">@drawable/myrect</item>
+<!--        <item name="android:background">@drawable/myrect</item>-->
 
 
     </style>
@@ -54,11 +55,21 @@
         <item name="android:gravity">center</item>
 
     </style>
+    <style name="textview4">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:textSize">20sp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textColor">#FFF</item>
+    <item name="android:padding">10dp</item>
+    <item name="android:elevation" tools:targetApi="lollipop">5dp</item>
+    <!--        <item name="android:background">@drawable/myrect</item>-->
+    </style>
     <style name="textview2">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">15sp</item>
-        <item name="android:textColor">#000</item>
+        <item name="android:textColor">#FFF</item>
     </style>
 
     <style name="edittext">
@@ -69,6 +80,13 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">horizontal</item>
+
+    </style>
+    <style name="linerlayout3">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:padding">10dp</item>
 
     </style>
 
@@ -142,6 +160,7 @@
         <item name="android:layout_marginLeft">30sp</item>
         <item name="android:layout_marginRight">30sp</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
     </style>
 
     <style name="spin1">
