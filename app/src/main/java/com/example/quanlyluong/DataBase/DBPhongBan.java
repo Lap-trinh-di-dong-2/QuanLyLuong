@@ -121,6 +121,7 @@ public class DBPhongBan {
         return tenPhong;
     }
 
+    //Kiểm tra ràng buộc giữa table PhongBan và NhanVien khi xóa Tên phòng
     public boolean checkXoaPhong(String maPhong) {
         boolean check = false;
         String sql = "SELECT count(*) FROM NhanVien WHERE mapb LIKE \""+maPhong+"\" ";
@@ -133,4 +134,20 @@ public class DBPhongBan {
         }
         return check;
     }
+
+    //Kiểm tra Mã phòng là duy nhất
+    public boolean checkMaPhong(String maPhong) {
+        boolean check = false;
+        String sql = "SELECT count(*) FROM PhongBan WHERE mapb LIKE \""+maPhong+"\" ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        cursor.moveToFirst();
+        int count  = cursor.getInt(0);
+        if(count > 0) {
+            check = true;
+        }
+        return check;
+    }
+
+
 }
