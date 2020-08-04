@@ -26,6 +26,7 @@ public class EditPhongBan extends AppCompatActivity {
     ArrayList<PhongBan> data_phongban = new ArrayList<>();
     CheckError checkError = new CheckError(EditPhongBan.this);
     DBPhongBan dbPhongBan = new DBPhongBan(getApplicationContext());
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +47,9 @@ public class EditPhongBan extends AppCompatActivity {
         btnSua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if ( txtTenPhong.getText().toString().isEmpty()) {
+                if (txtTenPhong.getText().toString().isEmpty()) {
                     checkError.checkEmpty(txtTenPhong, "Vui lòng nhập tên phòng");
-                }else {
+                } else {
                     PhongBan phongBan = new PhongBan();
                     phongBan.setMaPhong(tvMaPhong.getText().toString());
                     phongBan.setTenPhong(txtTenPhong.getText().toString());

@@ -1,7 +1,5 @@
 package com.example.quanlyluong.GiaoDien.TamUng;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -11,8 +9,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.quanlyluong.DataBase.DBNhanVien;
 import com.example.quanlyluong.DataBase.DBTamUng;
+import com.example.quanlyluong.Library.CheckError;
 import com.example.quanlyluong.Model.NhanVien;
 import com.example.quanlyluong.Model.TamUng;
 import com.example.quanlyluong.R;
@@ -21,11 +22,13 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class SuaTamUng extends AppCompatActivity {
-    EditText  txtSoTien;
+    EditText txtSoTien;
     TextView tvMaNhanVien, tvTenNhanVien, tvNgayUng, tvSophieu;
     Calendar calendar;
     int year, month, day;
     Button btnTamUng;
+    CheckError checkError = new CheckError(SuaTamUng.this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,10 +55,14 @@ public class SuaTamUng extends AppCompatActivity {
         btnTamUng.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                suaTamUng();
-                Toast.makeText(getApplicationContext(),"Sửa thành công",Toast.LENGTH_SHORT).show();
-                Intent intent =new Intent(SuaTamUng.this, BangTamUng.class);
-                startActivity(intent);
+                if (txtSoTien.getText().toString().isEmpty()) {
+                    checkError.checkEmpty(txtSoTien, "Vui lòng nhập số tiền");
+                } else {
+                    suaTamUng();
+                    Toast.makeText(getApplicationContext(), "Sửa thành công", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(SuaTamUng.this, BangTamUng.class);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -72,8 +79,8 @@ public class SuaTamUng extends AppCompatActivity {
     }
 
     private void showDate(int year, int month, int day) {
-        tvNgayUng.setText(new StringBuilder().append(day > 9 ? day: "0"+day).append("/").append(month > 9 ?
-                month: "0" + month).append("/").append(year));
+        tvNgayUng.setText(new StringBuilder().append(day > 9 ? day : "0" + day).append("/").append(month > 9 ?
+                month : "0" + month).append("/").append(year));
     }
 
 
@@ -92,6 +99,7 @@ public class SuaTamUng extends AppCompatActivity {
         day = calendar.get(Calendar.DAY_OF_MONTH);
 
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();

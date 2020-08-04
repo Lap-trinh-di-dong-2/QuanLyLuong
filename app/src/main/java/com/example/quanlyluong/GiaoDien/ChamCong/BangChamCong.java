@@ -1,6 +1,7 @@
 package com.example.quanlyluong.GiaoDien.ChamCong;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quanlyluong.Adapter.CustomAdapterChamCong;
 import com.example.quanlyluong.DataBase.DBChamCong;
+import com.example.quanlyluong.Library.LoadingDialog;
 import com.example.quanlyluong.Model.ChamCong;
 import com.example.quanlyluong.R;
 
@@ -18,8 +20,10 @@ import java.util.ArrayList;
 public class BangChamCong extends AppCompatActivity {
     ImageView imgXoa, imgTamUng;
     ListView lvChamCong;
-   CustomAdapterChamCong adapter_chamcong;
+    CustomAdapterChamCong adapter_chamcong;
     ArrayList<ChamCong> data_chamcong = new ArrayList<>();
+    LoadingDialog loadingDialog = new LoadingDialog(BangChamCong.this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +35,17 @@ public class BangChamCong extends AppCompatActivity {
     }
 
     private void setEvent() {
-        HienThiDL();
+        loadingDialog.startLoadingDialog();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loadingDialog.dismissDialog();
+                HienThiDL();
+            }
+
+        }, 1000);
+
     }
 
     private void HienThiDL() {
@@ -41,10 +55,12 @@ public class BangChamCong extends AppCompatActivity {
         adapter_chamcong.notifyDataSetChanged();
         lvChamCong.setAdapter(adapter_chamcong);
     }
+
     private void setControl() {
-        lvChamCong =findViewById(R.id.lvBangChamCong);
+        lvChamCong = findViewById(R.id.lvBangChamCong);
 
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();

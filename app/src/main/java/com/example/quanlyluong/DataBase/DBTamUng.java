@@ -92,4 +92,18 @@ public class DBTamUng {
         db.close();
         return data;
     }
+
+    //Kiểm tra Số phiếu là duy nhất
+    public boolean checkSoPhieu(String soPhieu) {
+        boolean check = false;
+        String sql = "SELECT count(*) FROM TamUng WHERE sophieu LIKE \""+soPhieu+"\" ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        cursor.moveToFirst();
+        int count  = cursor.getInt(0);
+        if(count > 0) {
+            check = true;
+        }
+        return check;
+    }
 }

@@ -33,6 +33,7 @@ public class BangThongKe extends AppCompatActivity {
     CustomAdapterThongKe adapterThongKe;
     Button btnLoc;
     TextView tvTongLuong;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +49,7 @@ public class BangThongKe extends AppCompatActivity {
         final DBNhanVien dbNhanVien = new DBNhanVien(getApplicationContext());
         thongKes = dbNhanVien.layDSThongKe();
         int tongLuong = 0;
-        for (int i = 0; i < thongKes.size();i++){
+        for (int i = 0; i < thongKes.size(); i++) {
             int ngayCong = Integer.parseInt(thongKes.get(i).getNgayCong());
             int luongCoBan = Integer.parseInt(thongKes.get(i).getLuongCoBan());
             int tamUng = Integer.parseInt(thongKes.get(i).getTamUng());
@@ -76,7 +77,7 @@ public class BangThongKe extends AppCompatActivity {
                 adapterThongKe = new CustomAdapterThongKe(BangThongKe.this, R.layout.listview_thongke, thongKes);
                 lvThongke.setAdapter(adapterThongKe);
                 int tongLuong = 0;
-                for (int i = 0; i < thongKes.size();i++){
+                for (int i = 0; i < thongKes.size(); i++) {
                     int ngayCong = Integer.parseInt(thongKes.get(i).getNgayCong());
                     int luongCoBan = Integer.parseInt(thongKes.get(i).getLuongCoBan());
                     int tamUng = Integer.parseInt(thongKes.get(i).getTamUng());

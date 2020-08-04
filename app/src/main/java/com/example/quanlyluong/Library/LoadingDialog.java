@@ -8,22 +8,23 @@ import android.view.LayoutInflater;
 import com.example.quanlyluong.R;
 
 public class LoadingDialog {
-    private  Activity activity;
+    private Activity activity;
     private AlertDialog alertDialog;
-    public LoadingDialog(Activity myActivity){
+
+    public LoadingDialog(Activity myActivity) {
         activity = myActivity;
     }
 
-    public void startLoadingDialog(){
+    public void startLoadingDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         LayoutInflater inflater = activity.getLayoutInflater();
-        builder.setView(inflater.inflate(R.layout.loading_dialog,null));
+        builder.setView(inflater.inflate(R.layout.loading_dialog, null));
         builder.setCancelable(true);
         alertDialog = builder.create();
         alertDialog.show();
     }
 
-    public void  dismissDialog(){
+    public void dismissDialog() {
         alertDialog.dismiss();
     }
 }

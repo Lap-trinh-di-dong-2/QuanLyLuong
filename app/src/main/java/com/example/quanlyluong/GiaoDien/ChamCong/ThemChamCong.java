@@ -1,8 +1,5 @@
 package com.example.quanlyluong.GiaoDien.ChamCong;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -12,10 +9,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.quanlyluong.DataBase.DBChamCong;
 import com.example.quanlyluong.DataBase.DBNhanVien;
-import com.example.quanlyluong.GiaoDien.TamUng.BangTamUng;
-import com.example.quanlyluong.GiaoDien.TamUng.ThemTamUng;
+import com.example.quanlyluong.Library.CheckError;
 import com.example.quanlyluong.Model.ChamCong;
 import com.example.quanlyluong.Model.NhanVien;
 import com.example.quanlyluong.R;
@@ -24,12 +23,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class ThemChamCong extends AppCompatActivity {
-    TextView tvMaNhanVien,tvTenNhanVien;
+    TextView tvMaNhanVien, tvTenNhanVien;
     EditText txtSoNgayCong, txtNgayChamCong;
-    Button btnLuu,btnThoat;
+    Button btnLuu, btnThoat;
     Calendar calendar;
-    int day ,year, month;
+    int day, year, month;
     ArrayList<NhanVien> dataNV = new ArrayList<>();
+    CheckError checkError = new CheckError(ThemChamCong.this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,10 +51,19 @@ public class ThemChamCong extends AppCompatActivity {
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                themChamCong();
-                Toast.makeText(getApplicationContext(),"Thêm thành công",Toast.LENGTH_SHORT).show();
-                Intent intent =new Intent(ThemChamCong.this, BangChamCong.class);
-                startActivity(intent);
+                DBChamCong dbChamCong = new DBChamCong(getApplicationContext());
+                boolean check = dbChamCong.checkChamCong(txtNgayChamCong.getText().toString(), tvMaNhanVien.getText().toString());
+                if (txtNgayChamCong.getText().toString().isEmpty() || txtSoNgayCong.getText().toString().isEmpty()) {
+                    checkError.checkEmpty(txtNgayChamCong, "Ngày chấm không để trống");
+                    checkError.checkEmpty(txtSoNgayCong, "Vui lòng nhập số ngày công");
+                } else if (check == true) {
+                    Toast.makeText(getApplicationContext(), "Nhân viên đã chấm công rồi", Toast.LENGTH_SHORT).show();
+                } else {
+                    themChamCong();
+                    Toast.makeText(getApplicationContext(), "Thêm thành công", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(ThemChamCong.this, BangChamCong.class);
+                    startActivity(intent);
+                }
             }
         });
     }
@@ -63,27 +73,28 @@ public class ThemChamCong extends AppCompatActivity {
         chamCong.setMaNhanVien(tvMaNhanVien.getText().toString());
         chamCong.setThang(txtNgayChamCong.getText().toString());
         chamCong.setSoNgayCong(txtSoNgayCong.getText().toString());
-        DBChamCong dbChamCong =new DBChamCong(getApplicationContext());
+        DBChamCong dbChamCong = new DBChamCong(getApplicationContext());
         dbChamCong.themChamCong(chamCong);
     }
 
     private void showDate(int year, int month) {
         txtNgayChamCong.setText(new StringBuilder().append(month > 9 ?
-                month: "0" + month).append("/").append(year));
+                month : "0" + month).append("/").append(year));
     }
 
     private void setControl() {
-        tvMaNhanVien =findViewById(R.id.tvMaNhanVien);
+        tvMaNhanVien = findViewById(R.id.tvMaNhanVien);
         tvTenNhanVien = findViewById(R.id.tvTenNhanVien);
-        txtNgayChamCong =findViewById(R.id.txtNgayChamCong);
+        txtNgayChamCong = findViewById(R.id.txtNgayChamCong);
         txtSoNgayCong = findViewById(R.id.txtSoNgayCong);
         btnLuu = findViewById(R.id.btnLuuChamCong);
-        btnThoat= findViewById(R.id.btnThoat);
+        btnThoat = findViewById(R.id.btnThoat);
 
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();

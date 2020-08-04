@@ -1,8 +1,5 @@
 package com.example.quanlyluong.GiaoDien.TamUng;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -12,10 +9,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.quanlyluong.DataBase.DBNhanVien;
 import com.example.quanlyluong.DataBase.DBTamUng;
-import com.example.quanlyluong.GiaoDien.NhanVien.MainNhanVien;
-import com.example.quanlyluong.GiaoDien.NhanVien.ThemNhanVien;
+import com.example.quanlyluong.Library.CheckError;
 import com.example.quanlyluong.Model.NhanVien;
 import com.example.quanlyluong.Model.TamUng;
 import com.example.quanlyluong.R;
@@ -25,12 +23,13 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class ThemTamUng extends AppCompatActivity {
-    EditText txtSophieu, txtSoTien,tvNgayUng;
+    EditText txtSophieu, txtSoTien, tvNgayUng;
     TextView tvMaNhanVien, tvTenNhanVien;
     Calendar calendar;
     int year, month, day;
     Button btnTamUng;
-    TextInputLayout txtILSoPhieu,txtILSoTien;
+    TextInputLayout txtILSoPhieu, txtILSoTien;
+    CheckError checkError = new CheckError(ThemTamUng.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,26 +51,26 @@ public class ThemTamUng extends AppCompatActivity {
         btnTamUng.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                DBTamUng dbTamUng = new DBTamUng(getApplicationContext());
+                boolean check = dbTamUng.checkSoPhieu(txtSophieu.getText().toString());
                 if (txtSophieu.getText().toString().isEmpty() || txtSoTien.getText().toString().isEmpty()) {
-                    checkEmpty(txtSophieu,"Vui lòng nhập số phiếu");
-                    checkEmpty(txtSoTien, "Vui lòng nhập số tiền");
+                    checkError.checkEmpty(txtSophieu, "Vui lòng nhập số phiếu");
+                    checkError.checkEmpty(txtSoTien, "Vui lòng nhập số tiền");
+                } else if (check == true) {
+                    txtSophieu.setError("Số phiếu đã tồn tại");
+                    txtSophieu.isFocused();
                 } else {
                     themTamUng();
-                    Toast.makeText(getApplicationContext(),"Thêm thành công",Toast.LENGTH_SHORT).show();
-                    Intent intent =new Intent(ThemTamUng.this, BangTamUng.class);
+                    Toast.makeText(getApplicationContext(), "Thêm thành công", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(ThemTamUng.this, BangTamUng.class);
                     startActivity(intent);
+                    finish();
                 }
 
             }
         });
 
 
-    }
-    private void checkEmpty(EditText check, String warning ) {
-        if (check.getText().toString().isEmpty()) {
-            check.setError(warning);
-            check.isFocused();
-        }
     }
 
     private void themTamUng() {
@@ -86,8 +85,8 @@ public class ThemTamUng extends AppCompatActivity {
     }
 
     private void showDate(int year, int month, int day) {
-        tvNgayUng.setText(new StringBuilder().append(day > 9 ? day: "0"+day).append("/").append(month > 9 ?
-                month: "0" + month).append("/").append(year));
+        tvNgayUng.setText(new StringBuilder().append(day > 9 ? day : "0" + day).append("/").append(month > 9 ?
+                month : "0" + month).append("/").append(year));
     }
 
     private void setControl() {
@@ -108,12 +107,12 @@ public class ThemTamUng extends AppCompatActivity {
         txtILSoTien = findViewById(R.id.txtILSoTien);
 
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();
         return super.onOptionsItemSelected(item);
     }
-
 
 
 }

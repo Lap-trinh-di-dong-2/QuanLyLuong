@@ -1,10 +1,10 @@
 package com.example.quanlyluong.GiaoDien.Thongke;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quanlyluong.DataBase.DBChamCong;
 import com.example.quanlyluong.DataBase.DBNhanVien;
@@ -23,6 +23,7 @@ public class BieuDoThongKe extends AppCompatActivity {
     BarChart chart;
     TextView tvTenNV;
     ArrayList<ThongKe> thongKes = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,17 +38,17 @@ public class BieuDoThongKe extends AppCompatActivity {
         final DBNhanVien dbNhanVien = new DBNhanVien(getApplicationContext());
         thongKes = dbNhanVien.layThongKeBieuDo(manv);
         ArrayList<BarEntry> entries = new ArrayList<>();
-        for (int i = 0; i < thongKes.size(); i++){
+        for (int i = 0; i < thongKes.size(); i++) {
             tvTenNV.setText(thongKes.get(i).getTenNhanVien());
             int luong = 0;
             int ngayCong = Integer.parseInt(thongKes.get(i).getNgayCong());
             int luongCoBan = Integer.parseInt(thongKes.get(i).getLuongCoBan());
             int tamUng = Integer.parseInt(thongKes.get(i).getTamUng());
-            luong = (luongCoBan *  ngayCong);
-            thongKes.get(i).setLuong(luong+"");
+            luong = (luongCoBan * ngayCong);
+            thongKes.get(i).setLuong(luong + "");
             int thucLanh = 0;
             thucLanh = luong - tamUng;
-            thongKes.get(i).setThucLanh(thucLanh+"");
+            thongKes.get(i).setThucLanh(thucLanh + "");
             entries.add(new BarEntry(Integer.parseInt(thongKes.get(i).getThucLanh()), i));
 
         }
@@ -75,7 +76,7 @@ public class BieuDoThongKe extends AppCompatActivity {
     }
 
     private void setControl() {
-         chart = findViewById(R.id.barchart);
+        chart = findViewById(R.id.barchart);
         tvTenNV = findViewById(R.id.tvTenNV);
     }
 }

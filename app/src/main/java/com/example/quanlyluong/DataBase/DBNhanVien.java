@@ -193,7 +193,7 @@ public class DBNhanVien {
 
     public ArrayList<ThongKe> locDSThongKe(String key) {
         ArrayList<ThongKe> data = new ArrayList<>();
-        String sql = "select NhanVien.manv,NhanVien.tennv,PhongBan.tenpb,NhanVien.hesoluong,ChamCong.ngaycham,ChamCong.songaycong,TamUng.sotien from NhanVien INNER JOIN  PhongBan on PhongBan.mapb = NhanVien.mapb INNER JOIN  ChamCong on NhanVien.manv = ChamCong.manv  INNER JOIN TamUng on NhanVien.manv = TamUng.manv WHERE ChamCong.ngaycham LIKE \"%"+key+"%\" AND ChamCong.ngaycham = SUBSTR(TamUng.ngay, 4, 10) ";
+        String sql = "select NhanVien.manv,NhanVien.tennv,PhongBan.tenpb,NhanVien.hesoluong,ChamCong.ngaycham,ChamCong.songaycong,TamUng.sotien from NhanVien INNER JOIN  PhongBan on PhongBan.mapb = NhanVien.mapb INNER JOIN  ChamCong on NhanVien.manv = ChamCong.manv  INNER JOIN TamUng on NhanVien.manv = TamUng.manv WHERE ChamCong.ngaycham LIKE \"%" + key + "%\" AND ChamCong.ngaycham = SUBSTR(TamUng.ngay, 4, 10) ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
         try {
@@ -218,8 +218,8 @@ public class DBNhanVien {
 
 
     public String layMaPhong(String tenPhong) {
-       String maPhong = "";
-        String sql = "SELECT mapb FROM PhongBan WHERE tenpb LIKE \"%"+tenPhong+"%\" ";
+        String maPhong = "";
+        String sql = "SELECT mapb FROM PhongBan WHERE tenpb LIKE \"%" + tenPhong + "%\" ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
         try {
@@ -238,12 +238,12 @@ public class DBNhanVien {
 
     public boolean checkXoaNhanVienTamUng(String maNhanVien) {
         boolean check = false;
-        String sql = "SELECT count(*) FROM TamUng WHERE manv LIKE \"%"+maNhanVien+"%\" ";
+        String sql = "SELECT count(*) FROM TamUng WHERE manv LIKE \"%" + maNhanVien + "%\" ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
         cursor.moveToFirst();
-        int count  = cursor.getInt(0);
-        if(count > 0) {
+        int count = cursor.getInt(0);
+        if (count > 0) {
             check = true;
         }
         return check;
@@ -251,12 +251,12 @@ public class DBNhanVien {
 
     public boolean checkXoaNhanVienChamCong(String maNhanVien) {
         boolean check = false;
-        String sql = "SELECT count(*) FROM ChamCong WHERE manv LIKE \"%"+maNhanVien+"%\" ";
+        String sql = "SELECT count(*) FROM ChamCong WHERE manv LIKE \"%" + maNhanVien + "%\" ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
         cursor.moveToFirst();
-        int count  = cursor.getInt(0);
-        if(count > 0) {
+        int count = cursor.getInt(0);
+        if (count > 0) {
             check = true;
         }
         return check;

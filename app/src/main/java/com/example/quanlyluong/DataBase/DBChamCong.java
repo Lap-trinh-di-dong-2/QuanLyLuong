@@ -106,4 +106,18 @@ public class DBChamCong {
         }
         return data;
     }
+
+    //Kiểm tra Số phiếu là duy nhất
+    public boolean checkChamCong(String timeCham, String manv) {
+        boolean check = false;
+        String sql = "SELECT count(*) FROM ChamCong WHERE ngaycham LIKE \""+timeCham+"\" and manv LIKE \""+manv+"\" ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        cursor.moveToFirst();
+        int count  = cursor.getInt(0);
+        if(count > 0) {
+            check = true;
+        }
+        return check;
+    }
 }

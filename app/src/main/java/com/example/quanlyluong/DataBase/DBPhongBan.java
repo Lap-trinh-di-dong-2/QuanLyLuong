@@ -103,7 +103,7 @@ public class DBPhongBan {
 
     public String layTenPhong(String maPhong) {
         String tenPhong = "";
-        String sql = "SELECT tenpb FROM PhongBan WHERE mapb LIKE \"%"+maPhong+"%\" ";
+        String sql = "SELECT tenpb FROM PhongBan WHERE mapb LIKE \"%" + maPhong + "%\" ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
@@ -124,12 +124,12 @@ public class DBPhongBan {
     //Kiểm tra ràng buộc giữa table PhongBan và NhanVien khi xóa Tên phòng
     public boolean checkXoaPhong(String maPhong) {
         boolean check = false;
-        String sql = "SELECT count(*) FROM NhanVien WHERE mapb LIKE \""+maPhong+"\" ";
+        String sql = "SELECT count(*) FROM NhanVien WHERE mapb LIKE \"" + maPhong + "\" ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
         cursor.moveToFirst();
-        int count  = cursor.getInt(0);
-        if(count > 0) {
+        int count = cursor.getInt(0);
+        if (count > 0) {
             check = true;
         }
         return check;
@@ -138,12 +138,12 @@ public class DBPhongBan {
     //Kiểm tra Mã phòng là duy nhất
     public boolean checkMaPhong(String maPhong) {
         boolean check = false;
-        String sql = "SELECT count(*) FROM PhongBan WHERE mapb LIKE \""+maPhong+"\" ";
+        String sql = "SELECT count(*) FROM PhongBan WHERE mapb LIKE \"" + maPhong + "\" ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
         cursor.moveToFirst();
-        int count  = cursor.getInt(0);
-        if(count > 0) {
+        int count = cursor.getInt(0);
+        if (count > 0) {
             check = true;
         }
         return check;

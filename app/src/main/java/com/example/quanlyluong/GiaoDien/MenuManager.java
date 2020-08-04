@@ -2,7 +2,6 @@ package com.example.quanlyluong.GiaoDien;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,7 +15,6 @@ import com.example.quanlyluong.GiaoDien.NhanVien.MainNhanVien;
 import com.example.quanlyluong.GiaoDien.PhongBan.MainPhongBan;
 import com.example.quanlyluong.GiaoDien.TamUng.BangTamUng;
 import com.example.quanlyluong.GiaoDien.Thongke.BangThongKe;
-import com.example.quanlyluong.Library.LoadingDialog;
 import com.example.quanlyluong.R;
 
 public class MenuManager extends AppCompatActivity {

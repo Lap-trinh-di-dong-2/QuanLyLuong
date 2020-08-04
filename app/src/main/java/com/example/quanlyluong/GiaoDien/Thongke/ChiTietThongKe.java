@@ -1,18 +1,12 @@
 package com.example.quanlyluong.GiaoDien.Thongke;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.TextView;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.TextView;
-
-import com.example.quanlyluong.Adapter.CustomAdapterThongKe;
-import com.example.quanlyluong.DataBase.DBChamCong;
 import com.example.quanlyluong.DataBase.DBNhanVien;
 import com.example.quanlyluong.Model.ThongKe;
 import com.example.quanlyluong.R;
@@ -26,6 +20,7 @@ public class ChiTietThongKe extends AppCompatActivity {
     ArrayList<ThongKe> thongKes;
     Locale localeVN = new Locale("vi", "VN");
     NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,8 +47,8 @@ public class ChiTietThongKe extends AppCompatActivity {
         int ngayCong = Integer.parseInt(thongKes.get(0).getNgayCong());
         int luongCoBan = Integer.parseInt(thongKes.get(0).getLuongCoBan());
         int tamUng = Integer.parseInt(thongKes.get(0).getTamUng());
-        luong = (luongCoBan *  ngayCong);
-        thongKes.get(0).setLuong(luong+"");
+        luong = (luongCoBan * ngayCong);
+        thongKes.get(0).setLuong(luong + "");
         tvLuong.setText(currencyVN.format(Integer.parseInt(thongKes.get(0).getLuong())));
         int thucLanh = 0;
         thucLanh = luong - tamUng;
