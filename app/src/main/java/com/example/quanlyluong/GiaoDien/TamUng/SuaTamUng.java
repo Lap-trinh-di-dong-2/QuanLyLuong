@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quanlyluong.DataBase.DBNhanVien;
@@ -33,6 +34,8 @@ public class SuaTamUng extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sua_tamung);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         setControl();
         setEvent();
     }
@@ -62,6 +65,7 @@ public class SuaTamUng extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Sửa thành công", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(SuaTamUng.this, BangTamUng.class);
                     startActivity(intent);
+                    finish();
                 }
             }
         });

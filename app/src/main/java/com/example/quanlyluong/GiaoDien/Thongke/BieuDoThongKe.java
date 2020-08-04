@@ -2,8 +2,10 @@ package com.example.quanlyluong.GiaoDien.Thongke;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quanlyluong.DataBase.DBChamCong;
@@ -28,6 +30,8 @@ public class BieuDoThongKe extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bieudo_thongke);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         setControl();
         setEvent();
 
@@ -78,5 +82,11 @@ public class BieuDoThongKe extends AppCompatActivity {
     private void setControl() {
         chart = findViewById(R.id.barchart);
         tvTenNV = findViewById(R.id.tvTenNV);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onBackPressed();
+        return super.onOptionsItemSelected(item);
     }
 }

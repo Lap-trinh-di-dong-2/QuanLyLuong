@@ -106,4 +106,18 @@ public class DBTamUng {
         }
         return check;
     }
+
+    //Kiểm tra thời gian tạm ứng 1 tháng là duy nhất
+    public boolean checkTamUng(String timeCham, String manv) {
+        boolean check = false;
+        String sql = "SELECT count(*) FROM TamUng WHERE SUBSTR(ngay, 4, 10) LIKE SUBSTR(\""+timeCham+"\", 4, 10) and manv LIKE \""+manv+"\" ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        cursor.moveToFirst();
+        int count  = cursor.getInt(0);
+        if(count > 0) {
+            check = true;
+        }
+        return check;
+    }
 }

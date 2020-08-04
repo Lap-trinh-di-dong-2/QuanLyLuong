@@ -19,10 +19,13 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quanlyluong.DataBase.DBNhanVien;
 import com.example.quanlyluong.DataBase.DBPhongBan;
+import com.example.quanlyluong.GiaoDien.TamUng.ThemTamUng;
+import com.example.quanlyluong.Library.CheckError;
 import com.example.quanlyluong.Model.NhanVien;
 import com.example.quanlyluong.R;
 
@@ -46,20 +49,23 @@ public class ThemNhanVien extends AppCompatActivity {
     ArrayList<String> data_phongban = new ArrayList<>();
     ArrayAdapter adapter_phongban;
 
-
+    CheckError checkError = new CheckError(ThemNhanVien.this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.them_nhanvien);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         setControl();
         setEvent();
     }
 
     private void setEvent() {
+        imgHinhDaiDien.setImageResource(R.drawable.camera);
         DBPhongBan dbPhongBan = new DBPhongBan(getApplicationContext());
         data_phongban = dbPhongBan.layDSPhongBan();
 
-        adapter_phongban = new ArrayAdapter(ThemNhanVien.this, android.R.layout.simple_spinner_item, data_phongban);
+        adapter_phongban = new ArrayAdapter(ThemNhanVien.this, android.R.layout.simple_spinner_dropdown_item, data_phongban);
         spPhongBan.setAdapter(adapter_phongban);
         showDate(year, month + 1, day);
         btnsetDay.setOnClickListener(new View.OnClickListener() {
@@ -73,10 +79,15 @@ public class ThemNhanVien extends AppCompatActivity {
         btnLuuNhanVien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (txtMaNhanVien.getText().toString().isEmpty() || txtTenNhanVien.getText().toString().isEmpty() ||txtHeSoLuong.getText().toString().isEmpty()) {
-                    checkEmpty(txtMaNhanVien);
-                    checkEmpty(txtTenNhanVien);
-                    checkEmpty(txtHeSoLuong);
+                DBNhanVien dbNhanVien = new DBNhanVien(getApplicationContext());
+                boolean check = dbNhanVien.checkMaNhanVien(txtMaNhanVien.getText().toString());
+                if (txtMaNhanVien.getText().toString().isEmpty() || txtTenNhanVien.getText().toString().isEmpty() || txtHeSoLuong.getText().toString().isEmpty()) {
+                    checkError.checkEmpty(txtMaNhanVien,"Vui lòng nhập mã nhân viên");
+                    checkError.checkEmpty(txtTenNhanVien,"Vui lòng nhập tên nhân viên");
+                    checkError.checkEmpty(txtHeSoLuong,"Vui lòng nhập hệ số lương");
+                } else if (check == true) {
+                    txtMaNhanVien.setError("Mã nhân viên đã tồn tại");
+                    txtMaNhanVien.isFocused();
                 } else {
                     themNhanVien();
                     Intent intent = new Intent(ThemNhanVien.this, MainNhanVien.class);
@@ -99,12 +110,6 @@ public class ThemNhanVien extends AppCompatActivity {
         });
     }
 
-    private void checkEmpty(EditText check) {
-        if (check.getText().toString().isEmpty()) {
-            check.setError("Bắt buộc phải nhập");
-            check.isFocused();
-        }
-    }
 
     private void themNhanVien() {
 

@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quanlyluong.DataBase.DBNhanVien;
@@ -35,7 +36,8 @@ public class ThemTamUng extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.them_tamung);
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         setControl();
         setEvent();
     }
@@ -53,12 +55,15 @@ public class ThemTamUng extends AppCompatActivity {
             public void onClick(View view) {
                 DBTamUng dbTamUng = new DBTamUng(getApplicationContext());
                 boolean check = dbTamUng.checkSoPhieu(txtSophieu.getText().toString());
+                boolean check1 = dbTamUng.checkTamUng(tvNgayUng.getText().toString(), tvMaNhanVien.getText().toString());
                 if (txtSophieu.getText().toString().isEmpty() || txtSoTien.getText().toString().isEmpty()) {
                     checkError.checkEmpty(txtSophieu, "Vui lòng nhập số phiếu");
                     checkError.checkEmpty(txtSoTien, "Vui lòng nhập số tiền");
                 } else if (check == true) {
                     txtSophieu.setError("Số phiếu đã tồn tại");
                     txtSophieu.isFocused();
+                } else if (check1 == true) {
+                    Toast.makeText(getApplicationContext(), "Nhân viên đã tạm ứng rồi", Toast.LENGTH_SHORT).show();
                 } else {
                     themTamUng();
                     Toast.makeText(getApplicationContext(), "Thêm thành công", Toast.LENGTH_SHORT).show();

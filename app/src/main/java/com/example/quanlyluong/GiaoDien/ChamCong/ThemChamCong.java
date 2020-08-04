@@ -63,6 +63,7 @@ public class ThemChamCong extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Thêm thành công", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(ThemChamCong.this, BangChamCong.class);
                     startActivity(intent);
+                    finish();
                 }
             }
         });

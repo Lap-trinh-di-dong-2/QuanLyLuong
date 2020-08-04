@@ -19,7 +19,7 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(sqlNhanVien);
         String sqlTamUng = "Create table TamUng (sophieu text PRIMARY KEY UNIQUE NOT NULL, ngay text, sotien text, manv text)";
         sqLiteDatabase.execSQL(sqlTamUng);
-        String sqlChamCong = "Create table ChamCong (manv text PRIMARY KEY UNIQUE NOT NULL, ngaycham text, songaycong text)";
+        String sqlChamCong = "Create table ChamCong (manv text PRIMARY KEY UNIQUE NOT NULL, ngaycham text PRIMARY KEY NOT NULL, songaycong text)";
         sqLiteDatabase.execSQL(sqlChamCong);
     }
 

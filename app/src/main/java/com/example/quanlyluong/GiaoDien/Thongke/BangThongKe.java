@@ -27,7 +27,7 @@ import fr.ganfra.materialspinner.MaterialSpinner;
 public class BangThongKe extends AppCompatActivity {
     ArrayList<ThongKe> thongKes = new ArrayList<>();
     ListView lvThongke;
-    MaterialSpinner spNgayCham;
+    Spinner spNgayCham;
     ArrayList<String> sp_data;
     ArrayAdapter adapter_ngaycham;
     CustomAdapterThongKe adapterThongKe;

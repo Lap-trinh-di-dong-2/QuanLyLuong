@@ -45,7 +45,7 @@ public class BangTamUng extends AppCompatActivity {
                 HienThiDL();
             }
 
-        }, 1000);
+        }, 3000);
 
     }
 

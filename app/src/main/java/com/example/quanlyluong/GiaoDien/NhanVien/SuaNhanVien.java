@@ -25,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quanlyluong.DataBase.DBNhanVien;
 import com.example.quanlyluong.DataBase.DBPhongBan;
+import com.example.quanlyluong.Library.CheckError;
 import com.example.quanlyluong.Model.NhanVien;
 import com.example.quanlyluong.R;
 
@@ -52,7 +53,7 @@ public class SuaNhanVien extends AppCompatActivity {
     ArrayList<String> data_phongban = new ArrayList<>();
     ArrayAdapter adapter_phongban;
     ArrayList<NhanVien> dataNV = new ArrayList<>();
-
+    CheckError checkError = new CheckError(SuaNhanVien.this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,9 +91,8 @@ public class SuaNhanVien extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (txtTenNhanVien.getText().toString().isEmpty() ||txtHeSoLuong.getText().toString().isEmpty()) {
-
-                    checkEmpty(txtTenNhanVien);
-                    checkEmpty(txtHeSoLuong);
+                    checkError.checkEmpty(txtTenNhanVien,"Vui lòng nhập tên nhân viên");
+                    checkError.checkEmpty(txtHeSoLuong,"Vui lòng nhập hệ số lương");
                 } else {
                     suaNhanVien();
                     Intent intent = new Intent(SuaNhanVien.this, MainNhanVien.class);
@@ -230,12 +230,14 @@ public class SuaNhanVien extends AppCompatActivity {
                     Uri imageUri = data.getData();
                     InputStream is = getContentResolver().openInputStream(imageUri);
                     Bitmap bitmap = BitmapFactory.decodeStream(is);
+                    bitmap = Bitmap.createScaledBitmap(bitmap, 80, 80, true);
                     imgHinhDaiDien.setImageBitmap(bitmap);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
             } else if (requestCode == RESQUEST_TAKE_PHOTO) {
                 Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+                bitmap = Bitmap.createScaledBitmap(bitmap, 80, 80, true);
                 imgHinhDaiDien.setImageBitmap(bitmap);
             }
         }
@@ -252,10 +254,4 @@ public class SuaNhanVien extends AppCompatActivity {
         return byteArray;
     }
 
-    private void checkEmpty(EditText check) {
-        if (check.getText().toString().isEmpty()) {
-            check.setError("Bắt buộc phải nhập");
-            check.isFocused();
-        }
-    }
 }

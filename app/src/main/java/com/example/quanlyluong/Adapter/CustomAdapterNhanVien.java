@@ -72,8 +72,6 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
             holder.imgHinh = view.findViewById(R.id.imgHinh);
             holder.btnChamCong = view.findViewById(R.id.btnChamCong);
             holder.btnTamUng = view.findViewById(R.id.btnTamUng);
-
-
             view.setTag(holder);
         } else
             holder = (Holder) view.getTag();
@@ -89,9 +87,15 @@ public class CustomAdapterNhanVien extends ArrayAdapter {
         String maPhong = dbPhongBan.layTenPhong(nhanVien.getPhongBan());
         holder.tvMaPB.setText(maPhong);
         holder.tvLuong.setText(currencyVN.format(Integer.parseInt(nhanVien.getHeSoLuong())));
-        Bitmap bmHinhDaiDien = BitmapFactory.decodeByteArray(nhanVien.getAnh(), 0, nhanVien.getAnh().length);
-        bmHinhDaiDien=Bitmap.createScaledBitmap(bmHinhDaiDien, 80,80, true);
-        holder.imgHinh.setImageBitmap(bmHinhDaiDien);
+        if(nhanVien.getAnh() == null){
+            holder.imgHinh.setImageResource(R.drawable.camera);
+        }else {
+            Bitmap bmHinhDaiDien = BitmapFactory.decodeByteArray(nhanVien.getAnh(), 0, nhanVien.getAnh().length);
+            bmHinhDaiDien = Bitmap.createScaledBitmap(bmHinhDaiDien, 80, 80, true);
+            holder.imgHinh.setImageBitmap(bmHinhDaiDien);
+        }
+
+
         if (nhanVien.getGioiTinh().equals("Nam")) {
             holder.tvGioiTinh.setText(nhanVien.getGioiTinh());
 

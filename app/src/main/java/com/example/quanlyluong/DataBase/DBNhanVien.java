@@ -235,7 +235,7 @@ public class DBNhanVien {
         }
         return maPhong;
     }
-
+    //Kiểm tra ráng buộc giữa Nhân viên và Tạm ứng khi xóa nhân viên
     public boolean checkXoaNhanVienTamUng(String maNhanVien) {
         boolean check = false;
         String sql = "SELECT count(*) FROM TamUng WHERE manv LIKE \"%" + maNhanVien + "%\" ";
@@ -249,6 +249,7 @@ public class DBNhanVien {
         return check;
     }
 
+    //Kiểm tra ráng buộc giữa Nhân viên và Chấm công khi xóa nhân viên
     public boolean checkXoaNhanVienChamCong(String maNhanVien) {
         boolean check = false;
         String sql = "SELECT count(*) FROM ChamCong WHERE manv LIKE \"%" + maNhanVien + "%\" ";
@@ -257,6 +258,20 @@ public class DBNhanVien {
         cursor.moveToFirst();
         int count = cursor.getInt(0);
         if (count > 0) {
+            check = true;
+        }
+        return check;
+    }
+
+    //Kiểm tra mã nhân viên là duy nhất
+    public boolean checkMaNhanVien(String manv) {
+        boolean check = false;
+        String sql = "SELECT count(*) FROM NhanVien WHERE manv LIKE \""+manv+"\" ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        cursor.moveToFirst();
+        int count  = cursor.getInt(0);
+        if(count > 0) {
             check = true;
         }
         return check;

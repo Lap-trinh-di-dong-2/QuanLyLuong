@@ -25,21 +25,22 @@ public class EditPhongBan extends AppCompatActivity {
     Button btnSua, btnThoat;
     ArrayList<PhongBan> data_phongban = new ArrayList<>();
     CheckError checkError = new CheckError(EditPhongBan.this);
-    DBPhongBan dbPhongBan = new DBPhongBan(getApplicationContext());
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_phongban);
-        setControl();
-        setEvent();
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        setControl();
+        setEvent();
+
     }
 
     private void setEvent() {
         String ma = getIntent().getExtras().getString("ma");
-
+        DBPhongBan dbPhongBan = new DBPhongBan(getApplicationContext());
         data_phongban = dbPhongBan.layDuLieu(ma);
         tvMaPhong.setText(data_phongban.get(0).getMaPhong());
         txtTenPhong.setText(data_phongban.get(0).getTenPhong());
