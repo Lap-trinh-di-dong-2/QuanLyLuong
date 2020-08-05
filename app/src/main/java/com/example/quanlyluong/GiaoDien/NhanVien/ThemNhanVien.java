@@ -1,7 +1,9 @@
 package com.example.quanlyluong.GiaoDien.NhanVien;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -24,6 +26,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quanlyluong.DataBase.DBNhanVien;
 import com.example.quanlyluong.DataBase.DBPhongBan;
+import com.example.quanlyluong.GiaoDien.MenuManager;
 import com.example.quanlyluong.GiaoDien.TamUng.ThemTamUng;
 import com.example.quanlyluong.Library.CheckError;
 import com.example.quanlyluong.Model.NhanVien;
@@ -40,7 +43,7 @@ public class ThemNhanVien extends AppCompatActivity {
     final int REQUEST_CHOOSE_PHOTO = 321;
     Button btnChonHinh;
     ImageView imgHinhDaiDien;
-    Button btnLuuNhanVien, btnsetDay;
+    Button btnLuuNhanVien, btnsetDay,btnThoat;
     Calendar calendar;
     int year, month, day;
     EditText txtMaNhanVien, txtTenNhanVien, txtNgaySinh, txtHeSoLuong;
@@ -108,6 +111,29 @@ public class ThemNhanVien extends AppCompatActivity {
                 choosePhoto();
             }
         });
+        btnThoat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                android.app.AlertDialog.Builder builder = new AlertDialog.Builder(ThemNhanVien.this);
+                builder.setTitle("Thông báo");
+                builder.setMessage("Bạn có muốn về menu chính");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent intent = new Intent(ThemNhanVien.this, MenuManager.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                builder.show();
+            }
+        });
     }
 
 
@@ -145,6 +171,7 @@ public class ThemNhanVien extends AppCompatActivity {
         radNam = findViewById(R.id.radNam);
         radNu = findViewById(R.id.radNu);
         txtHeSoLuong = findViewById(R.id.txtHeSoLuong);
+        btnThoat = findViewById(R.id.btnThoat);
 
         btnsetDay = findViewById(R.id.btnDay);
         calendar = Calendar.getInstance();

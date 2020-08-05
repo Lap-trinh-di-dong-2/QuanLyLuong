@@ -1,5 +1,7 @@
 package com.example.quanlyluong.GiaoDien.ChamCong;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -14,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quanlyluong.DataBase.DBChamCong;
 import com.example.quanlyluong.DataBase.DBNhanVien;
+import com.example.quanlyluong.GiaoDien.MenuManager;
 import com.example.quanlyluong.Library.CheckError;
 import com.example.quanlyluong.Model.ChamCong;
 import com.example.quanlyluong.Model.NhanVien;
@@ -73,7 +76,31 @@ public class SuaChamCong extends AppCompatActivity {
                 }
             }
         });
+        btnThoat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                android.app.AlertDialog.Builder builder = new AlertDialog.Builder(SuaChamCong.this);
+                builder.setTitle("Thông báo");
+                builder.setMessage("Bạn có muốn về menu chính");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent intent = new Intent(SuaChamCong.this, MenuManager.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                builder.show();
+            }
+        });
     }
+
 
     private void suaChamCong() {
         ChamCong chamCong = new ChamCong();

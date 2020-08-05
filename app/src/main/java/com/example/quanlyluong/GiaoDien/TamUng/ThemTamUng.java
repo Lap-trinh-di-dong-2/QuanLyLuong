@@ -1,5 +1,7 @@
 package com.example.quanlyluong.GiaoDien.TamUng;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -14,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quanlyluong.DataBase.DBNhanVien;
 import com.example.quanlyluong.DataBase.DBTamUng;
+import com.example.quanlyluong.GiaoDien.MenuManager;
 import com.example.quanlyluong.Library.CheckError;
 import com.example.quanlyluong.Model.NhanVien;
 import com.example.quanlyluong.Model.TamUng;
@@ -28,7 +31,7 @@ public class ThemTamUng extends AppCompatActivity {
     TextView tvMaNhanVien, tvTenNhanVien;
     Calendar calendar;
     int year, month, day;
-    Button btnTamUng;
+    Button btnTamUng, btnThoat;
     TextInputLayout txtILSoPhieu, txtILSoTien;
     CheckError checkError = new CheckError(ThemTamUng.this);
 
@@ -74,6 +77,29 @@ public class ThemTamUng extends AppCompatActivity {
 
             }
         });
+        btnThoat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                android.app.AlertDialog.Builder builder = new AlertDialog.Builder(ThemTamUng.this);
+                builder.setTitle("Thông báo");
+                builder.setMessage("Bạn có muốn về menu chính");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent intent = new Intent(ThemTamUng.this, MenuManager.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                builder.show();
+            }
+        });
 
 
     }
@@ -102,6 +128,7 @@ public class ThemTamUng extends AppCompatActivity {
         tvTenNhanVien = findViewById(R.id.tvTenNhanVien);
         tvNgayUng = findViewById(R.id.tvNgayUng);
         btnTamUng = findViewById(R.id.btnTamUng);
+        btnThoat = findViewById(R.id.btnThoat);
 
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
