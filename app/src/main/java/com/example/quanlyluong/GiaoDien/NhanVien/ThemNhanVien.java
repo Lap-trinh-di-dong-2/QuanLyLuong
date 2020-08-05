@@ -61,7 +61,7 @@ public class ThemNhanVien extends AppCompatActivity {
     }
 
     private void setEvent() {
-        imgHinhDaiDien.setImageResource(R.drawable.camera);
+      imgHinhDaiDien.setImageResource(R.drawable.camera);
         DBPhongBan dbPhongBan = new DBPhongBan(getApplicationContext());
         data_phongban = dbPhongBan.layDSPhongBan();
 
@@ -92,7 +92,7 @@ public class ThemNhanVien extends AppCompatActivity {
                     themNhanVien();
                     Intent intent = new Intent(ThemNhanVien.this, MainNhanVien.class);
                     startActivity(intent);
-                    finish();
+
                 }
             }
         });
@@ -131,7 +131,6 @@ public class ThemNhanVien extends AppCompatActivity {
         String maPhong = dbNhanVien.layMaPhong(spPhongBan.getSelectedItem().toString());
         nhanVien.setPhongBan(maPhong);
         nhanVien.setHeSoLuong(txtHeSoLuong.getText().toString());
-
 
         dbNhanVien.themNhanVien(nhanVien);
     }

@@ -60,7 +60,7 @@ public class DBChamCong {
 
     public void xoaChamCong(ChamCong chamCong) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        db.delete("ChamCong", "manv= '" + chamCong.getMaNhanVien() + "'"  , null);
+        db.delete("ChamCong", "manv= '" + chamCong.getMaNhanVien() + "'and ngaycham = '" +chamCong.getThang()+"'"  , null);
         db.close();
     }
 

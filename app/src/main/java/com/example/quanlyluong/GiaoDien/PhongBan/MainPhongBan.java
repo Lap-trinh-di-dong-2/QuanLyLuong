@@ -75,7 +75,7 @@ public class MainPhongBan extends AppCompatActivity {
                             Load();
                         }
 
-                    }, 3000);
+                    }, 1000);
                 }
 
 

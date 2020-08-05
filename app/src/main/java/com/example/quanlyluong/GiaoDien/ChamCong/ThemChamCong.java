@@ -53,6 +53,10 @@ public class ThemChamCong extends AppCompatActivity {
             public void onClick(View view) {
                 DBChamCong dbChamCong = new DBChamCong(getApplicationContext());
                 boolean check = dbChamCong.checkChamCong(txtNgayChamCong.getText().toString(), tvMaNhanVien.getText().toString());
+                if(Integer.parseInt(txtSoNgayCong.getText().toString()) > 31){
+                    txtSoNgayCong.setError("Ngày công không quá 31 ngày trong một tháng");
+                    txtSoNgayCong.isFocused();
+                }
                 if (txtNgayChamCong.getText().toString().isEmpty() || txtSoNgayCong.getText().toString().isEmpty()) {
                     checkError.checkEmpty(txtNgayChamCong, "Ngày chấm không để trống");
                     checkError.checkEmpty(txtSoNgayCong, "Vui lòng nhập số ngày công");
