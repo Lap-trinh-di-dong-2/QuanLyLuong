@@ -61,12 +61,11 @@ public class SuaChamCong extends AppCompatActivity {
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(Integer.parseInt(txtSoNgayCong.getText().toString()) > 31){
-                    txtSoNgayCong.setError("Ngày công không quá 31 ngày trong một tháng");
-                    txtSoNgayCong.isFocused();
-                }
                 if (txtSoNgayCong.getText().toString().isEmpty()) {
                     checkError.checkEmpty(txtSoNgayCong, "Vui lòng nhập số ngày công");
+                } else if (Integer.parseInt(txtSoNgayCong.getText().toString()) > 31) {
+                    txtSoNgayCong.setError("Ngày công không quá 31 ngày trong một tháng");
+                    txtSoNgayCong.isFocused();
                 } else {
                     suaChamCong();
                     Toast.makeText(getApplicationContext(), "Sửa thành công", Toast.LENGTH_SHORT).show();
